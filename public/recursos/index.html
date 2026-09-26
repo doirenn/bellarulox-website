@@ -18,23 +18,10 @@
   <meta name="twitter:url" content="https://bellarulox.com/recursos/">
   <meta name="twitter:title" content="Marian Montilla · Bellarulox">
   <meta name="twitter:description" content="Soluciones específicas en Gumroad: Calculadora Bellarulox gratis, guías de precios, talleres de ingresos extra y herramientas de trabajo freelance.">
-
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
-          colors: { brand: { 50: '#FDFBF7', purple: '#5B4E77', terracotta: '#D96B43', dark: '#1C1917' } }
-        }
-      }
-    }
-  </script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/inicio.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -48,203 +35,119 @@
     ]
   }
   </script>
-
-  <style> body { background-color: #FDFBF7; color: #1C1917; font-family: 'Plus Jakarta Sans', sans-serif; } </style>
 </head>
-<body class="antialiased flex flex-col min-h-screen justify-between">
-
-  <!-- HEADER -->
-  <header class="sticky top-0 z-40 bg-brand-50/90 backdrop-blur-md border-b border-stone-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
-        <img src="/logo.png" alt="Bellarulox" class="w-10 h-10 rounded-full object-cover">
-        <div>
-          <span class="text-lg font-bold block leading-tight text-stone-900">Marian Montilla</span>
-          <span class="text-xs font-medium text-brand-terracotta uppercase tracking-wider block">Bellarulox</span>
-        </div>
-      </a>
-
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-        <a href="/" class="text-stone-600 hover:text-stone-900">Inicio</a>
-        <a href="/del-caos-al-foco/" class="text-stone-600 hover:text-stone-900">Del Caos al Foco</a>
-        <a href="/podcast/" class="text-stone-600 hover:text-stone-900">Podcast</a>
-        <a href="/recursos/" class="text-brand-terracotta font-semibold">Recursos</a>
-        <a href="/arquitectura-b2b/" class="text-stone-600 hover:text-stone-900">Arquitectura B2B</a>
+<body>
+  <header class="site">
+    <div class="wrap header-row">
+      <a class="logo" href="/"><img src="/logo-negro.png" alt="Marian Montilla"></a>
+      <nav class="desk">
+        <a href="/">Inicio</a>
+        <a href="/del-caos-al-foco/">Del Caos al Foco</a>
+        <a href="/podcast/">Podcast</a>
+        <a class="active" href="/recursos/">Recursos</a>
+        <a href="/arquitectura-b2b/">Arquitectura B2B</a>
       </nav>
-
-      <div class="hidden md:flex items-center gap-3">
-        <a href="https://bellarulox.gumroad.com/" target="_blank" rel="noopener noreferrer" class="bg-stone-900 hover:bg-stone-800 text-white font-medium text-xs sm:text-sm px-5 py-2.5 rounded-xl">
-          Tienda Gumroad
-        </a>
-      </div>
-
-      <button id="mobile-menu-btn" class="md:hidden p-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-6 h-6"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg></button>
+      <a class="btn btn-outline btn-sm header-cta" href="https://bellarulox.gumroad.com/" target="_blank" rel="noopener noreferrer">Tienda Gumroad</a>
+      <button class="menu-btn" id="mobile-menu-btn" aria-label="Abrir menú">☰</button>
     </div>
-
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-4 pt-3 pb-6 space-y-3">
-      <a href="/" class="block py-2 px-3 text-stone-700 rounded-lg text-sm">Inicio</a>
-      <a href="/del-caos-al-foco/" class="block py-2 px-3 text-stone-700 rounded-lg text-sm">Del Caos al Foco</a>
-      <a href="/podcast/" class="block py-2 px-3 text-stone-700 rounded-lg text-sm">Podcast</a>
-      <a href="/recursos/" class="block py-2 px-3 text-stone-900 font-semibold bg-stone-100 rounded-lg text-sm">Recursos</a>
-      <a href="/arquitectura-b2b/" class="block py-2 px-3 text-stone-700 rounded-lg text-sm">Arquitectura B2B</a>
+    <div id="mobile-menu" class="mobile-menu wrap">
+      <a href="/">Inicio</a>
+      <a href="/del-caos-al-foco/">Del Caos al Foco</a>
+      <a href="/podcast/">Podcast</a>
+      <a href="/recursos/">Recursos</a>
+      <a href="/arquitectura-b2b/">Arquitectura B2B</a>
     </div>
   </header>
-
-  <!-- MAIN CONTENT -->
-  <main class="flex-grow space-y-16 pb-20">
-    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 text-center space-y-6">
-      <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-        Soluciones Puntuales
-      </span>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-stone-900 leading-tight">
-        ¿Necesitas resolver algo específico ahora mismo?
-      </h1>
-      <p class="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
-        Para quien todavía no quiere la membresía completa, aquí tienes piezas puntuales y herramientas para empezar.
-      </p>
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="pill">Soluciones Puntuales</div>
+        <h1>¿Necesitas resolver algo específico ahora mismo?</h1>
+        <p class="lede">Para quien todavía no quiere la membresía completa, aquí tienes piezas puntuales y herramientas para empezar.</p>
+      </div>
     </section>
-
-    <!-- CALCULATOR WIDGET DEMO -->
-    <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-white p-6 sm:p-8 rounded-3xl border-2 border-brand-terracotta/40 shadow-sm space-y-6">
-        <div class="flex items-center justify-between border-b border-stone-200 pb-4">
-          <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-terracotta bg-amber-50 px-2 py-0.5 rounded">Herramienta Destacada</span>
-            <h2 class="text-xl font-bold text-stone-900">Calculadora Bellarulox</h2>
+    <section class="section" style="padding-top:0;">
+      <div class="wrap" style="max-width:760px;">
+        <div class="feature line">
+          <div class="feature-head">
+            <div>
+              <span class="kicker">Herramienta Destacada</span>
+              <h2 style="font-size:1.7rem;text-align:left;margin-top:8px;">Calculadora Bellarulox</h2>
+            </div>
+            <span class="kicker" style="background:#E7FBFA;color:#128E8A;">GRATIS</span>
           </div>
-          <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md">GRATIS</span>
-        </div>
-        <p class="text-xs text-stone-600 leading-relaxed">
-          "La construí para mí antes de compartirla." Calcula rápidamente tu tarifa por hora base para freelancers.
-        </p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-stone-50 p-4 rounded-xl text-xs">
-          <div>
-            <label class="block font-bold text-stone-700 mb-1">Ingreso Mensual ($)</label>
-            <input type="number" id="calc-income" value="2000" class="w-full p-2 border border-stone-300 rounded-lg text-stone-900 bg-white">
+          <p class="lede" style="margin:0;">"La construí para mí antes de compartirla." Calcula rápidamente tu tarifa por hora base para freelancers.</p>
+          <div class="calc-grid">
+            <div><label>Ingreso Mensual ($)</label><input type="number" id="calc-income" value="2000"></div>
+            <div><label>Gastos Fijos ($)</label><input type="number" id="calc-expenses" value="500"></div>
+            <div><label>Horas Facturables / Mes</label><input type="number" id="calc-hours" value="80"></div>
           </div>
-          <div>
-            <label class="block font-bold text-stone-700 mb-1">Gastos Fijos ($)</label>
-            <input type="number" id="calc-expenses" value="500" class="w-full p-2 border border-stone-300 rounded-lg text-stone-900 bg-white">
-          </div>
-          <div>
-            <label class="block font-bold text-stone-700 mb-1">Horas Facturables / Mes</label>
-            <input type="number" id="calc-hours" value="80" class="w-full p-2 border border-stone-300 rounded-lg text-stone-900 bg-white">
-          </div>
-        </div>
-
-        <div class="bg-brand-purple text-white p-4 rounded-xl flex items-center justify-between">
-          <span class="text-xs font-semibold">Tu tarifa hora sugerida:</span>
-          <span id="calc-result" class="text-2xl font-extrabold text-amber-300">$31.25 USD/hr</span>
-        </div>
-
-        <div class="text-center pt-2">
-          <a href="https://bellarulox.gumroad.com/" target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-terracotta hover:bg-orange-700 text-white font-bold text-xs px-6 py-3 rounded-xl transition-colors">
-            Descargar versión completa en Gumroad
-          </a>
+          <div class="result"><span>Tu tarifa hora sugerida:</span><b id="calc-result">$31.25 USD/hr</b></div>
+          <div class="center" style="margin-top:18px;"><a class="btn btn-fuchsia btn-sm" href="https://bellarulox.gumroad.com/" target="_blank" rel="noopener noreferrer">Descargar versión completa en Gumroad</a></div>
         </div>
       </div>
     </section>
-
-    <!-- CATALOG SECTIONS -->
-    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      <!-- DINERO Y PRECIOS -->
-      <div class="space-y-4">
-        <h2 class="text-xl font-bold text-stone-900 border-b border-stone-200 pb-2">Dinero y Precios</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-          <div class="bg-white p-5 rounded-xl border border-stone-200 flex flex-col justify-between space-y-3">
-            <div>
-              <h3 class="font-bold text-stone-900">Guía para Superar Bloqueos Mentales y Cobrar por tu Trabajo</h3>
-              <p class="text-stone-500 mt-1">¿Te cuesta poner un precio justo sin sentir culpa?</p>
-            </div>
-            <div class="flex items-center justify-between pt-2 border-t border-stone-100">
-              <span class="font-bold text-stone-900">$12 USD</span>
-              <a href="https://bellarulox.gumroad.com/" target="_blank" rel="noopener noreferrer" class="text-brand-terracotta font-semibold hover:underline">Ver en Gumroad &rarr;</a>
-            </div>
-          </div>
-
-          <div class="bg-white p-5 rounded-xl border border-stone-200 flex flex-col justify-between space-y-3">
-            <div>
-              <h3 class="font-bold text-stone-900">Guía: Genera Ingresos Extra con Poca Inversión</h3>
-              <p class="text-stone-500 mt-1">¿Necesitas ingreso extra sin arriesgar lo poco que tienes?</p>
-            </div>
-            <div class="flex items-center justify-between pt-2 border-t border-stone-100">
-              <span class="font-bold text-stone-900">$15 USD</span>
-              <a href="https://bellarulox.gumroad.com/" target="_blank" rel="noopener noreferrer" class="text-brand-terracotta font-semibold hover:underline">Ver en Gumroad &rarr;</a>
-            </div>
-          </div>
+    <section class="section" style="padding-top:0;">
+      <div class="wrap">
+        <h2 style="text-align:left;font-size:1.6rem;border-bottom:1px solid var(--border-color);padding-bottom:8px;">Dinero y Precios</h2>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Guía para Superar Bloqueos Mentales y Cobrar por tu Trabajo</h3>
+            <p style="font-weight:400;">¿Te cuesta poner un precio justo sin sentir culpa?</p>
+            <div class="player-head" style="margin-top:16px;border-top:1px solid var(--border-color);padding-top:12px;"><span class="price">$12 USD</span><a class="link" href="https://bellarulox.gumroad.com/" target="_blank" rel="noopener noreferrer">Ver en Gumroad</a></div>
+          </article>
+          <article class="card">
+            <h3>Guía: Genera Ingresos Extra con Poca Inversión</h3>
+            <p style="font-weight:400;">¿Necesitas ingreso extra sin arriesgar lo poco que tienes?</p>
+            <div class="player-head" style="margin-top:16px;border-top:1px solid var(--border-color);padding-top:12px;"><span class="price">$15 USD</span><a class="link" href="https://bellarulox.gumroad.com/" target="_blank" rel="noopener noreferrer">Ver en Gumroad</a></div>
+          </article>
         </div>
-      </div>
-
-      <!-- MENTALIDAD -->
-      <div class="space-y-4">
-        <h2 class="text-xl font-bold text-stone-900 border-b border-stone-200 pb-2">Mentalidad y Autoconocimiento</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-          <div class="bg-white p-5 rounded-xl border border-stone-200 flex flex-col justify-between space-y-3">
-            <div>
-              <h3 class="font-bold text-stone-900">Descubriendo Mi Neurodivergencia como Mamá</h3>
-              <p class="text-stone-500 mt-1">¿Sospechas que también procesas el mundo distinto?</p>
-            </div>
-            <div class="flex items-center justify-between pt-2 border-t border-stone-100">
-              <span class="font-bold text-stone-900">$5 USD</span>
-              <a href="https://bellarulox.gumroad.com/" target="_blank" rel="noopener noreferrer" class="text-brand-terracotta font-semibold hover:underline">Ver en Gumroad &rarr;</a>
-            </div>
-          </div>
-
-          <div class="bg-white p-5 rounded-xl border border-stone-200 flex flex-col justify-between space-y-3">
-            <div>
-              <h3 class="font-bold text-stone-900">Curso: Vacía tu Mente de la Rutina</h3>
-              <p class="text-stone-500 mt-1">¿Necesitas vaciar tu mente y encontrar tiempo perdido?</p>
-            </div>
-            <div class="flex items-center justify-between pt-2 border-t border-stone-100">
-              <span class="font-bold text-stone-900">$44 USD</span>
-              <a href="https://bellarulox.gumroad.com/" target="_blank" rel="noopener noreferrer" class="text-brand-terracotta font-semibold hover:underline">Ver en Gumroad &rarr;</a>
-            </div>
-          </div>
+        <h2 style="text-align:left;font-size:1.6rem;border-bottom:1px solid var(--border-color);padding-bottom:8px;margin-top:36px;">Mentalidad y Autoconocimiento</h2>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Descubriendo Mi Neurodivergencia como Mamá</h3>
+            <p style="font-weight:400;">¿Sospechas que también procesas el mundo distinto?</p>
+            <div class="player-head" style="margin-top:16px;border-top:1px solid var(--border-color);padding-top:12px;"><span class="price">$5 USD</span><a class="link" href="https://bellarulox.gumroad.com/" target="_blank" rel="noopener noreferrer">Ver en Gumroad</a></div>
+          </article>
+          <article class="card">
+            <h3>Curso: Vacía tu Mente de la Rutina</h3>
+            <p style="font-weight:400;">¿Necesitas vaciar tu mente y encontrar tiempo perdido?</p>
+            <div class="player-head" style="margin-top:16px;border-top:1px solid var(--border-color);padding-top:12px;"><span class="price">$44 USD</span><a class="link" href="https://bellarulox.gumroad.com/" target="_blank" rel="noopener noreferrer">Ver en Gumroad</a></div>
+          </article>
         </div>
       </div>
     </section>
   </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-stone-900 text-stone-300 border-t border-stone-800 pt-16 pb-12">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-stone-400">
+  <footer class="site">
+    <div class="wrap slim">
       <p>&copy; 2026 Marian Montilla · Bellarulox. Todos los derechos reservados.</p>
-      <div class="flex gap-4">
-        <a href="/" class="hover:text-white">Inicio</a>
-        <a href="/del-caos-al-foco/" class="hover:text-white">Del Caos al Foco</a>
-        <a href="/podcast/" class="hover:text-white">Podcast</a>
-        <a href="/recursos/" class="text-white">Recursos</a>
-        <a href="/arquitectura-b2b/" class="hover:text-white">Arquitectura B2B</a>
-        <a href="https://wa.me/593984424836" target="_blank" rel="noopener noreferrer" class="hover:text-white">WhatsApp</a>
+      <div>
+        <a href="/">Inicio</a>
+        <a href="/del-caos-al-foco/">Del Caos al Foco</a>
+        <a href="/podcast/">Podcast</a>
+        <a class="on" href="/recursos/">Recursos</a>
+        <a href="/arquitectura-b2b/">Arquitectura B2B</a>
+        <a href="https://wa.me/593984424836" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
     </div>
   </footer>
-
   <script>
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-
-    // Calc logic
+    document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    });
     const income = document.getElementById('calc-income');
     const expenses = document.getElementById('calc-expenses');
     const hours = document.getElementById('calc-hours');
     const result = document.getElementById('calc-result');
-
     function calculate() {
       const inc = parseFloat(income.value) || 0;
       const exp = parseFloat(expenses.value) || 0;
       const hrs = parseFloat(hours.value) || 1;
-      const rate = (inc + exp) / hrs;
-      result.textContent = `$${rate.toFixed(2)} USD/hr`;
+      result.textContent = '$' + ((inc + exp) / hrs).toFixed(2) + ' USD/hr';
     }
-
-    [income, expenses, hours].forEach(el => el.addEventListener('input', calculate));
+    [income, expenses, hours].forEach(function (el) { el.addEventListener('input', calculate); });
   </script>
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
