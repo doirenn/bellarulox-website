@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podcast Del Caos al Foco · Marian Montilla (Bellarulox)</title>
+  <meta name="description" content="Escucha el podcast Del Caos al Foco con Marian Montilla en Spotify, Apple Podcasts y YouTube. Negocio, IA aplicada, mindset y contenido en formato audio.">
+  <meta name="author" content="Marian Montilla">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bellarulox.com/podcast/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bellarulox.com/podcast/">
+  <meta property="og:title" content="Marian Montilla · Bellarulox">
+  <meta property="og:description" content="Escucha el podcast Del Caos al Foco con Marian Montilla en Spotify, Apple Podcasts y YouTube. Negocio, IA aplicada, mindset y contenido en formato audio.">
+  <meta property="og:image" content="https://bellarulox.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bellarulox.com/podcast/">
+  <meta name="twitter:title" content="Marian Montilla · Bellarulox">
+  <meta name="twitter:description" content="Escucha el podcast Del Caos al Foco con Marian Montilla en Spotify, Apple Podcasts y YouTube. Negocio, IA aplicada, mindset y contenido en formato audio.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+          colors: { brand: { 50: '#FDFBF7', purple: '#5B4E77', terracotta: '#D96B43', dark: '#1C1917' } }
+        }
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "PodcastSeries",
+        "name": "Del Caos al Foco",
+        "author": { "@type": "Person", "name": "Marian Montilla" },
+        "url": "https://bellarulox.com/podcast/",
+        "sameAs": [
+          "https://open.spotify.com/show/3yxnEvf6hurBN4opbrD7AW?si=972211759ff24026",
+          "https://podcasts.apple.com/cm/podcast/del-caos-al-foco/id1565590418",
+          "https://www.youtube.com/@MarianMOnline"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style> body { background-color: #FDFBF7; color: #1C1917; font-family: 'Plus Jakarta Sans', sans-serif; } </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen justify-between">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-brand-50/90 backdrop-blur-md border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/logo.png" alt="Bellarulox" class="w-10 h-10 rounded-full object-cover">
+        <div>
+          <span class="text-lg font-bold block leading-tight text-stone-900">Marian Montilla</span>
+          <span class="text-xs font-medium text-brand-terracotta uppercase tracking-wider block">Bellarulox</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="/" class="text-stone-600 hover:text-stone-900">Inicio</a>
+        <a href="/del-caos-al-foco/" class="text-stone-600 hover:text-stone-900">Del Caos al Foco</a>
+        <a href="/podcast/" class="text-brand-terracotta font-semibold">Podcast</a>
+        <a href="/recursos/" class="text-stone-600 hover:text-stone-900">Recursos</a>
+        <a href="/arquitectura-b2b/" class="text-stone-600 hover:text-stone-900">Arquitectura B2B</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://open.spotify.com/show/3yxnEvf6hurBN4opbrD7AW?si=972211759ff24026" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-xs sm:text-sm px-5 py-2.5 rounded-xl">
+          Escuchar en Spotify
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-6 h-6"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg></button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-4 pt-3 pb-6 space-y-3">
+      <a href="/" class="block py-2 px-3 text-stone-700 rounded-lg text-sm">Inicio</a>
+      <a href="/del-caos-al-foco/" class="block py-2 px-3 text-stone-700 rounded-lg text-sm">Del Caos al Foco</a>
+      <a href="/podcast/" class="block py-2 px-3 text-stone-900 font-semibold bg-stone-100 rounded-lg text-sm">Podcast</a>
+      <a href="/recursos/" class="block py-2 px-3 text-stone-700 rounded-lg text-sm">Recursos</a>
+      <a href="/arquitectura-b2b/" class="block py-2 px-3 text-stone-700 rounded-lg text-sm">Arquitectura B2B</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow space-y-16 pb-20">
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 text-center space-y-6">
+      <span class="inline-block bg-purple-100 text-brand-purple text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+        Episodios & Historias Reales
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-stone-900 leading-tight">
+        Del Caos al Foco, el Podcast
+      </h1>
+      <p class="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+        Las mismas historias y los mismos temas de la comunidad, en el tiempo que tengas mientras manejas, cocinas o caminas: negocio, IA, mindset y contenido.
+      </p>
+
+      <!-- PLATFORM BUTTONS -->
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <a href="https://open.spotify.com/show/3yxnEvf6hurBN4opbrD7AW?si=972211759ff24026" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs px-5 py-3 rounded-xl flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-4 h-4"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg> Spotify
+        </a>
+        <a href="https://podcasts.apple.com/cm/podcast/del-caos-al-foco/id1565590418" target="_blank" rel="noopener noreferrer" class="bg-stone-900 hover:bg-stone-800 text-white font-semibold text-xs px-5 py-3 rounded-xl flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-4 h-4"><path d="M16.85 18.58a9 9 0 1 0-9.7 0"/><path d="M8 14a5 5 0 1 1 8 0"/><circle cx="12" cy="11" r="1"/><path d="M13 17a1 1 0 1 0-2 0l.5 4.5a.5.5 0 0 0 1 0Z"/></svg> Apple Podcasts
+        </a>
+        <a href="https://www.youtube.com/@MarianMOnline" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-700 text-white font-semibold text-xs px-5 py-3 rounded-xl flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-4 h-4"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg> YouTube
+        </a>
+      </div>
+    </section>
+
+    <!-- SPOTIFY EMBEDDED PLAYER SECTION -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm space-y-4">
+        <h2 class="text-xl font-bold text-stone-900 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-5 h-5 text-brand-purple"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg> Reproductor Oficial Spotify
+        </h2>
+        
+        <!-- SPOTIFY IFRAME INSERT -->
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/show/3yxnEvf6hurBN4opbrD7AW?utm_source=generator&si=d1b76fc5bda545e9" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- PODCAST DETAILS & CTA -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 space-y-3">
+          <h3 class="font-bold text-stone-900">Es para ti si:</h3>
+          <p class="text-xs text-stone-600 leading-relaxed">• Prefieres aprender escuchando mientras haces otra cosa.</p>
+          <p class="text-xs text-stone-600 leading-relaxed">• Quieres conocerme a mí y mi forma de pensar antes de comprometerte a algo más.</p>
+          <p class="text-xs text-stone-600 leading-relaxed">• Te gustan las historias reales más que las clases estructuradas.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 space-y-3">
+          <h3 class="font-bold text-stone-900">Si quieres ir más allá de escuchar:</h3>
+          <p class="text-xs text-stone-600 leading-relaxed">El podcast te da la perspectiva. La comunidad te da el acompañamiento directo para aplicarla en vivo.</p>
+          <div class="pt-2">
+            <a href="/del-caos-al-foco/" class="inline-block text-xs font-bold text-brand-terracotta hover:underline">
+              Conocer la membresía Del Caos al Foco &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-stone-900 text-stone-300 border-t border-stone-800 pt-16 pb-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-stone-400">
+      <p>&copy; 2026 Marian Montilla · Bellarulox. Todos los derechos reservados.</p>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-white">Inicio</a>
+        <a href="/del-caos-al-foco/" class="hover:text-white">Del Caos al Foco</a>
+        <a href="/podcast/" class="text-white">Podcast</a>
+        <a href="/recursos/" class="hover:text-white">Recursos</a>
+        <a href="/arquitectura-b2b/" class="hover:text-white">Arquitectura B2B</a>
+        <a href="https://wa.me/593984424836" target="_blank" rel="noopener noreferrer" class="hover:text-white">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+  </script>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arquitectura de Sistemas B2B · Marian Montilla (Bellarulox)</title>
+  <meta name="description" content="Consultoría operativa para founders, coaches y agencias que dependen de una sola persona. Diseñamos e implementamos el sistema que te falta. Agenda tu llamada en Google Calendar.">
+  <meta name="author" content="Marian Montilla">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bellarulox.com/arquitectura-b2b/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bellarulox.com/arquitectura-b2b/">
+  <meta property="og:title" content="Marian Montilla · Bellarulox">
+  <meta property="og:description" content="Consultoría operativa para founders, coaches y agencias que dependen de una sola persona. Diseñamos e implementamos el sistema que te falta. Agenda tu llamada en Google Calendar.">
+  <meta property="og:image" content="https://bellarulox.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bellarulox.com/arquitectura-b2b/">
+  <meta name="twitter:title" content="Marian Montilla · Bellarulox">
+  <meta name="twitter:description" content="Consultoría operativa para founders, coaches y agencias que dependen de una sola persona. Diseñamos e implementamos el sistema que te falta. Agenda tu llamada en Google Calendar.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+          colors: { brand: { 50: '#FDFBF7', purple: '#5B4E77', terracotta: '#D96B43', dark: '#1C1917' } }
+        }
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "Arquitectura de Sistemas B2B",
+        "provider": { "@type": "Person", "name": "Marian Montilla" },
+        "description": "Consultoría e implementación de sistemas operativos para founders, coaches y agencias."
+      }
+    ]
+  }
+  </script>
+
+  <style> body { background-color: #FDFBF7; color: #1C1917; font-family: 'Plus Jakarta Sans', sans-serif; } </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen justify-between">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-brand-50/90 backdrop-blur-md border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/logo.png" alt="Bellarulox" class="w-10 h-10 rounded-full object-cover">
+        <div>
+          <span class="text-lg font-bold block leading-tight text-stone-900">Marian Montilla</span>
+          <span class="text-xs font-medium text-brand-terracotta uppercase tracking-wider block">Bellarulox</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="/" class="text-stone-600 hover:text-stone-900">Inicio</a>
+        <a href="/del-caos-al-foco/" class="text-stone-600 hover:text-stone-900">Del Caos al Foco</a>
+        <a href="/podcast/" class="text-stone-600 hover:text-stone-900">Podcast</a>
+        <a href="/recursos/" class="text-stone-600 hover:text-stone-900">Recursos</a>
+        <a href="/arquitectura-b2b/" class="text-brand-terracotta font-semibold">Arquitectura B2B</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://calendar.app.google/JorUwfy67LtHwWzF8" target="_blank" rel="noopener noreferrer" class="bg-stone-900 hover:bg-stone-800 text-white font-medium text-xs sm:text-sm px-5 py-2.5 rounded-xl">
+          Agendar en Google Calendar
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-6 h-6"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg></button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-4 pt-3 pb-6 space-y-3">
+      <a href="/" class="block py-2 px-3 text-stone-700 rounded-lg text-sm">Inicio</a>
+      <a href="/del-caos-al-foco/" class="block py-2 px-3 text-stone-700 rounded-lg text-sm">Del Caos al Foco</a>
+      <a href="/podcast/" class="block py-2 px-3 text-stone-700 rounded-lg text-sm">Podcast</a>
+      <a href="/recursos/" class="block py-2 px-3 text-stone-700 rounded-lg text-sm">Recursos</a>
+      <a href="/arquitectura-b2b/" class="block py-2 px-3 text-stone-900 font-semibold bg-stone-100 rounded-lg text-sm">Arquitectura B2B</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow space-y-16 pb-20">
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+      <div class="bg-stone-900 text-white rounded-3xl p-8 sm:p-12 space-y-8">
+        <div class="space-y-4 max-w-3xl">
+          <span class="text-blue-400 text-xs font-bold uppercase tracking-wider">Consultoría B2B</span>
+          <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+            Arquitectura de Sistemas para tu Negocio
+          </h1>
+          <p class="text-stone-300 leading-relaxed text-base sm:text-lg">
+            Para founders, coaches y agencias que dependen de una sola persona. Si tu negocio se detiene cuando te detienes, diseñamos e implementamos la estructura que te falta.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-4 pt-4">
+          <a href="https://calendar.app.google/JorUwfy67LtHwWzF8" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-brand-terracotta hover:bg-orange-600 text-white font-bold text-sm px-8 py-4 rounded-xl shadow-lg transition-colors text-center flex items-center justify-center gap-2">
+            <span>Agenda una llamada en Google Calendar</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-4 h-4"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODOLOGY -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="text-center space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-bold text-stone-900">Cómo trabajo</h2>
+        <p class="text-stone-600">Un proceso estructurado para liberar tu tiempo</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 space-y-2">
+          <span class="text-brand-terracotta font-extrabold text-lg block">01. Diagnóstico</span>
+          <p class="text-xs text-stone-600 leading-relaxed">Reviso tu operación actual y encuentro dónde se está rompiendo el sistema.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 space-y-2">
+          <span class="text-brand-purple font-extrabold text-lg block">02. Diseño</span>
+          <p class="text-xs text-stone-600 leading-relaxed">Diseño el sistema o automatización específica que te falta, no una plantilla genérica.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 space-y-2">
+          <span class="text-emerald-700 font-extrabold text-lg block">03. Implementación</span>
+          <p class="text-xs text-stone-600 leading-relaxed">Lo construyo e integro directamente en tu operación.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 space-y-2">
+          <span class="text-blue-700 font-extrabold text-lg block">04. Documentación</span>
+          <p class="text-xs text-stone-600 leading-relaxed">Te dejo todo por escrito para que tu equipo lo use sin ti.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-stone-900 text-stone-300 border-t border-stone-800 pt-16 pb-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-stone-400">
+      <p>&copy; 2026 Marian Montilla · Bellarulox. Todos los derechos reservados.</p>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-white">Inicio</a>
+        <a href="/del-caos-al-foco/" class="hover:text-white">Del Caos al Foco</a>
+        <a href="/podcast/" class="hover:text-white">Podcast</a>
+        <a href="/recursos/" class="hover:text-white">Recursos</a>
+        <a href="/arquitectura-b2b/" class="text-white">Arquitectura B2B</a>
+        <a href="https://wa.me/593984424836" target="_blank" rel="noopener noreferrer" class="hover:text-white">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+  </script>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
