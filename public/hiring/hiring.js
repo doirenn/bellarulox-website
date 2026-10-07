@@ -210,7 +210,8 @@
   fetch('/hiring/ofertas.json')
     .then(function (response) { return response.json(); })
     .then(function (data) {
-      items = data.filter(function (item) { return ['ms', 'vi', 'id'].indexOf(item.language) === -1; });
+      var blocked = ['kelvin716421', 'dinosaur.26504284', 'ria_4653371', 'cheetah.28049471', 'sandk1233', 'kevin8184431', 'alex5382552', 'd12138262', 'jerry.59938014', 'panda.37331008', 'lindas56499', 'baddgalmimi97__', 'mathew85839', 'recruiter67643'];
+      items = data.filter(function (item) { return ['ms', 'vi', 'id'].indexOf(item.language) === -1 && blocked.indexOf(item.author) === -1; });
       applyLang();
     });
 })();
