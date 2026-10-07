@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiring · Marian Montilla | Bellarulox</title>
+  <meta name="description" content="Publicaciones que otras personas dejan en Threads, reunidas para revisarlas. Se mantienen 14 días. Bellarulox no participa en los avisos.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bellarulox.com/hiring/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bellarulox.com/hiring/">
+  <meta property="og:title" content="Hiring · Marian Montilla">
+  <meta property="og:description" content="Un feed curado de publicaciones de Threads. El contacto es con quien publicó.">
+  <meta property="og:image" content="https://bellarulox.com/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/inicio.css">
+  <style>
+    .header-tools { display: flex; align-items: center; gap: 22px; margin-left: auto; }
+    .lang-toggle { display: flex; align-items: center; border: 1px solid var(--border-color); background: var(--white); border-radius: 50px; padding: 2px; }
+    .lang-toggle button { border: 0; background: transparent; border-radius: 50px; padding: 4px 10px; font-size: 0.75rem; font-weight: 600; color: var(--text-muted); cursor: pointer; }
+    .lang-toggle button[aria-pressed="true"] { background: var(--brand-fuchsia); color: var(--white); }
+    .note { max-width: 680px; margin: 18px auto 0; background: var(--bg-pink-soft); border-radius: 16px; padding: 12px 16px; font-size: 0.9rem; line-height: 1.55; }
+    .filters { background: var(--white); border: 1px solid var(--border-color); border-radius: 20px; box-shadow: var(--shadow-sm); padding: 22px; display: flex; flex-direction: column; gap: 16px; }
+    .updated { text-align: right; color: var(--text-muted); font-size: 0.9rem; }
+    .row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .row span.label { width: 128px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; color: var(--text-muted); }
+    .chip { border: 1px solid var(--border-color); background: var(--bg-hueso); border-radius: 50px; padding: 8px 16px; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+    .chip.on { background: var(--brand-fuchsia); border-color: var(--brand-fuchsia); color: var(--white); }
+    .search-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid var(--border-color); padding-top: 16px; }
+    .search-row input { width: min(100%, 420px); border: 1px solid var(--border-color); background: var(--bg-hueso); border-radius: 50px; padding: 12px 18px; font: inherit; }
+    .search-row input:focus { outline: none; border-color: var(--brand-fuchsia); }
+    .count { font-weight: 600; }
+    .clear { background: none; border: 0; color: var(--brand-fuchsia); font-weight: 600; cursor: pointer; }
+    .jobs { display: grid; gap: 18px; margin-top: 28px; }
+    @media (min-width: 768px) { .jobs { grid-template-columns: 1fr 1fr; } }
+    .job { display: flex; flex-direction: column; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-soft, .tag-aqua, .tag-gray { border-radius: 50px; padding: 4px 12px; font-size: 0.75rem; font-weight: 600; }
+    .tag-soft { background: var(--bg-pink-soft); }
+    .tag-aqua { background: var(--turquoise-spark); }
+    .tag-gray { background: #eee; }
+    .job h2 { font-size: 1.55rem; margin-top: 14px; text-align: left; }
+    .pay { margin-top: 10px; color: var(--turquoise-dark); font-weight: 600; font-size: 0.9rem; }
+    .job ul { margin: 14px 0 0; padding-left: 18px; color: var(--text-muted); font-size: 0.9rem; }
+    .job li + li { margin-top: 6px; }
+    .original { margin-top: 16px; background: var(--bg-hueso); border-radius: 16px; padding: 14px; }
+    .original p { font-weight: 400; margin-top: 8px; line-height: 1.55; }
+    .meta { margin-top: 16px; color: var(--text-muted); font-size: 0.9rem; font-weight: 400; }
+    .job .btn { margin-top: 22px; align-self: flex-start; }
+    .pages { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 28px; }
+    .pages button { min-width: 40px; height: 40px; border-radius: 50px; border: 1px solid var(--border-color); background: var(--white); font-weight: 600; cursor: pointer; padding: 0 14px; }
+    .pages button[aria-current="page"] { background: var(--brand-fuchsia); border-color: var(--brand-fuchsia); color: var(--white); }
+    .pages button:disabled { color: rgba(85,85,85,0.4); cursor: default; }
+    .closer { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 22px; background: var(--text-charcoal); color: var(--white); border-radius: 30px; padding: 36px 28px; }
+    .closer p { font-family: var(--font-title); font-size: 1.8rem; font-weight: 700; line-height: 1.2; max-width: 640px; }
+    @media (min-width: 768px) { .closer { flex-direction: row; align-items: center; } }
+    .empty { text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="top-note">
+    <span class="tag">WhatsApp</span>
+    <span data-es="Únete a la comunidad en WhatsApp de Del Caos al Foco" data-en="Join the Del Caos al Foco community on WhatsApp">Únete a la comunidad en WhatsApp de Del Caos al Foco</span>
+    <a href="https://chat.whatsapp.com/E1oH6ns3m9U1J7AYUeumxu?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer" data-es="Unirme" data-en="Join">Unirme</a>
+  </div>
+  <header class="site">
+    <div class="wrap header-row">
+      <a class="logo" href="/"><img src="/logo-negro.png" alt="Marian Montilla"></a>
+      <nav class="desk">
+        <a href="/">Inicio</a>
+        <a href="/del-caos-al-foco/">Del Caos al Foco</a>
+        <a href="/podcast/">Podcast</a>
+        <a href="/recursos/">Recursos</a>
+        <a href="/arquitectura-b2b/">Arquitectura B2B</a>
+      </nav>
+      <div class="header-tools">
+        <div class="lang-toggle" role="group" aria-label="Idioma">
+          <button type="button" id="lang-es" aria-pressed="true">ES</button>
+          <button type="button" id="lang-en" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn btn-fuchsia btn-sm header-cta" href="https://deft-mover-9183.kit.com/fc551c7a63" target="_blank" rel="noopener noreferrer" data-es="Unirme al newsletter" data-en="Join the newsletter">Unirme al newsletter</a>
+        <button class="menu-btn" id="mobile-menu-btn" aria-label="Abrir menú">☰</button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu wrap">
+      <a href="/">Inicio</a>
+      <a href="/del-caos-al-foco/">Del Caos al Foco</a>
+      <a href="/podcast/">Podcast</a>
+      <a href="/recursos/">Recursos</a>
+      <a href="/arquitectura-b2b/">Arquitectura B2B</a>
+      <a href="https://deft-mover-9183.kit.com/fc551c7a63" target="_blank" rel="noopener noreferrer" data-es="Unirme al newsletter" data-en="Join the newsletter">Unirme al newsletter</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero" style="padding-bottom:12px;">
+      <div class="wrap">
+        <span class="kicker" data-es="Un feed para revisar" data-en="A feed to review">Un feed para revisar</span>
+        <h1 style="margin-top:16px;">Hiring</h1>
+        <p class="lede" data-es="Publicaciones que otras personas dejan en Threads, reunidas en un solo lugar para revisarlas sin buscar una por una. Se mantienen 14 días y luego se borran." data-en="Posts other people publish on Threads, gathered in one place so you can review them without searching one by one. They stay for 14 days and are then removed.">Publicaciones que otras personas dejan en Threads, reunidas en un solo lugar para revisarlas sin buscar una por una. Se mantienen 14 días y luego se borran.</p>
+        <p class="note"><span data-es="Esto es un feed curado. El contacto es con quien publicó." data-en="This is a curated feed. Contact the person who posted.">Esto es un feed curado. El contacto es con quien publicó.</span><br><span data-es="Bellarulox no participa en el aviso y no lo verifica." data-en="Bellarulox is not part of the offer and does not verify it.">Bellarulox no participa en el aviso y no lo verifica.</span></p>
+      </div>
+    </section>
+    <section class="section" style="padding-top:12px;">
+      <div class="wrap">
+        <div class="filters">
+          <p class="updated" id="updated"></p>
+          <div class="row" id="where"></div>
+          <div class="row" id="contact"></div>
+          <div class="row" id="pay"></div>
+          <div class="row" id="language"></div>
+          <div class="search-row">
+            <label class="sr-only" for="q" style="position:absolute;left:-9999px;">Buscar</label>
+            <input id="q" type="search">
+            <div>
+              <span class="count" id="count"></span>
+              <button type="button" class="clear" id="clear" hidden></button>
+            </div>
+          </div>
+        </div>
+        <div id="lista" class="jobs"></div>
+        <nav class="pages" id="pages" aria-label="Páginas"></nav>
+        <div class="closer" style="margin-top:36px;">
+          <p data-es='Únete a mi newsletter "Un paso a la vez": una idea práctica cada semana para tu trabajo, tu negocio o tu día a día.' data-en='Join my newsletter "Un paso a la vez": one practical idea each week for your work, your business, or your day to day.'>Únete a mi newsletter "Un paso a la vez": una idea práctica cada semana para tu trabajo, tu negocio o tu día a día.</p>
+          <a class="btn btn-fuchsia" href="https://deft-mover-9183.kit.com/fc551c7a63" target="_blank" rel="noopener noreferrer" data-es="Unirme" data-en="Join">Unirme</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site">
+    <div class="wrap foot-grid">
+      <div>
+        <img class="foot-logo" src="/logo-fuscia.png" alt="Marian Montilla">
+        <p class="quote" style="margin-top:12px;" data-es='"Ser creativa y encontrar nuevas formas de resolver problemas."' data-en='"Be creative and find new ways to solve problems."'>"Ser creativa y encontrar nuevas formas de resolver problemas."</p>
+      </div>
+      <div>
+        <h4 data-es="Navegación" data-en="Navigation">Navegación</h4>
+        <a href="/">Inicio</a>
+        <a href="/del-caos-al-foco/">Del Caos al Foco</a>
+        <a href="/podcast/">Podcast</a>
+        <a href="/recursos/">Recursos</a>
+        <a href="/arquitectura-b2b/">Arquitectura B2B</a>
+        <a href="/hiring/">Hiring</a>
+      </div>
+      <div>
+        <h4 data-es="Redes & Canales" data-en="Social and channels">Redes & Canales</h4>
+        <a href="https://open.spotify.com/show/3yxnEvf6hurBN4opbrD7AW?si=972211759ff24026" target="_blank" rel="noopener noreferrer">Spotify Podcast</a>
+        <a href="https://podcasts.apple.com/cm/podcast/del-caos-al-foco/id1565590418" target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
+        <a href="https://www.youtube.com/@MarianMOnline" target="_blank" rel="noopener noreferrer">YouTube (@MarianMOnline)</a>
+        <a href="https://www.instagram.com/bellarulox" target="_blank" rel="noopener noreferrer">Instagram (@bellarulox)</a>
+        <a href="https://www.tiktok.com/@bellarulox" target="_blank" rel="noopener noreferrer">TikTok (@bellarulox)</a>
+        <a href="https://www.threads.com/@bellarulox" target="_blank" rel="noopener noreferrer">Threads (@bellarulox)</a>
+        <a href="https://www.linkedin.com/in/marianmontilla/" target="_blank" rel="noopener noreferrer">LinkedIn (@marianmontilla)</a>
+      </div>
+      <div>
+        <h4 data-es="Contacto & Reservas" data-en="Contact and bookings">Contacto & Reservas</h4>
+        <p style="font-size:.82rem;" data-es="Escríbeme para colaboraciones o reserva directa:" data-en="Write to me for collaborations or a direct booking:">Escríbeme para colaboraciones o reserva directa:</p>
+        <a href="mailto:marianm@bellarulox.com">marianm@bellarulox.com</a>
+        <a href="https://wa.me/593984424836?text=Hola%20Marian%2C%20vengo%20de%20tu%20p%C3%A1gina%20web" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://calendar.app.google/JorUwfy67LtHwWzF8" target="_blank" rel="noopener noreferrer" data-es="Agendar llamada B2B" data-en="Book a B2B call">Agendar llamada B2B</a>
+      </div>
+    </div>
+    <div class="wrap legal">
+      <p>&copy; 2026 Marian Montilla · Bellarulox. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+      <p data-es="Ecuador & Venezuela · Trabajo 100% remoto" data-en="Ecuador and Venezuela · 100% remote work">Ecuador & Venezuela · Trabajo 100% remoto</p>
+    </div>
+  </footer>
+  <script src="/hiring/hiring.js"></script>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
