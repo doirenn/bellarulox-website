@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2B3A67">
+<base href="/protocolo-uso-seguro/">
+<title>Protocolo de Uso Seguro | Bellarulox</title>
+<meta name="description" content="Test de 2 minutos: riesgo de bloqueo de tu WhatsApp y si tu negocio podría seguir atendiendo si pierdes la cuenta.">
+<link rel="canonical" href="https://bellarulox.com/protocolo-uso-seguro/">
+<meta property="og:title" content="Protocolo de Uso Seguro | Bellarulox">
+<meta property="og:description" content="Dos semáforos para saber qué tan expuesta está tu cuenta de WhatsApp y si tu negocio podría seguir atendiendo si se bloquea.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bellarulox.com/protocolo-uso-seguro/">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --negro:#000000; --carbon:#1A1A1A; --hueso:#F8F8F8; --papel:#FAFAF8; --gris:#EEEEEE;
+  --hilo:#F43B86; --hilo-suave:#FDE7F0; --turq:#67EFEB; --turq-osc:#128E8A; --indigo:#2B3A67;
+  /* Colores de estado (funcionales, no son de marca) */
+  --verde:#2E9B5F; --ambar:#E3A400; --rojo:#C8372D;
+  --display:'Fraunces',Georgia,serif; --cuerpo:'Poppins',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{font-family:var(--cuerpo);background:var(--papel);color:var(--carbon);line-height:1.6;font-size:16px;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:var(--display);color:var(--indigo);font-weight:600;line-height:1.15;letter-spacing:-.01em}
+h1{font-size:clamp(1.9rem,5vw,2.8rem);margin-bottom:.7rem}
+h2{font-size:clamp(1.4rem,3.6vw,2rem);margin-bottom:.6rem}
+h3{font-size:1.15rem;margin-bottom:.35rem}
+p{max-width:64ch;margin-bottom:.9em}
+a{color:var(--indigo)}
+ul,ol{padding-left:1.2rem;margin-bottom:1rem}
+li{margin-bottom:.35rem}
+.wrap{width:min(1100px,100% - 2.5rem);margin-inline:auto}
+.narrow{width:min(680px,100% - 2.5rem);margin-inline:auto}
+.sec{padding:clamp(2rem,6vw,3.5rem) 0}
+.skip{position:absolute;left:-999px;top:0}
+.skip:focus{left:8px;top:8px;background:#fff;padding:8px 12px;z-index:50}
+:focus-visible{outline:3px solid var(--turq-osc);outline-offset:3px}
+main:focus{outline:none}
+.muted{color:#555}
+.small{font-size:.88rem}
+
+/* Cabecera */
+.top{position:sticky;top:0;z-index:40;background:rgba(250,250,248,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--gris)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:.6rem 1rem;padding:.7rem 0;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:600;font-size:1.35rem;color:var(--negro);text-decoration:none}
+.brand img{height:30px;width:auto;display:block}
+.nav{display:flex;flex-wrap:wrap;gap:.15rem .35rem;font-size:.88rem;align-items:center;justify-content:flex-end}
+.nav a,.nav button.btn{white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;padding:0 .55rem;border-radius:999px;text-decoration:none;font-weight:500}
+.nav a:hover:not(.btn){background:var(--gris)}
+.nav a[aria-current=page]{background:var(--indigo);color:#fff}
+.nav .btn{min-height:40px;padding:.4rem 1rem;font-size:.88rem;margin-left:.15rem}
+.nav .btn:hover{background:#ff5a9c}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.7rem 1.4rem;border-radius:999px;font:600 1rem var(--cuerpo);border:2px solid transparent;cursor:pointer;text-decoration:none;transition:background .15s,transform .15s}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--hilo);color:var(--carbon)}
+.btn-primary:hover{background:#ff5a9c}
+.btn-dark{background:var(--indigo);color:#fff}
+.btn-dark:hover{background:#1f2b4f}
+.btn-ghost{background:transparent;border-color:currentColor;color:inherit}
+.btn[disabled]{opacity:.6;cursor:wait}
+.row{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.2rem 0}
+
+/* Hero: el momento memorable de la página */
+.hero{background:var(--negro);color:var(--hueso);padding:clamp(2.5rem,9vw,5.5rem) 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,320px);gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.hero .hora{font-family:var(--display);font-weight:900;font-size:clamp(4.2rem,7vw,8.2rem);line-height:.9;letter-spacing:-.04em;color:var(--hueso);margin-bottom:0}
+.hero .hora small{font-family:var(--cuerpo);font-weight:500;font-size:clamp(1.1rem,4vw,2rem);color:var(--turq);margin-left:.5rem;letter-spacing:0}
+.aviso{display:inline-block;margin:1.2rem 0 1.4rem;padding:.55rem .9rem;border-left:4px solid var(--hilo);background:rgba(255,255,255,.08);font-size:.95rem;opacity:0;animation:aparece .6s .5s forwards}
+@keyframes aparece{to{opacity:1}}
+.hero h1{color:var(--hueso);max-width:none;font-size:clamp(1.7rem,3.4vw,2.55rem)}
+.hero h1 span{display:block}
+.hero p{color:rgba(248,248,248,.8);font-size:1.1rem}
+.fono{margin:0;justify-self:end;width:min(280px,100%)}
+.fono-marco{background:linear-gradient(165deg,#5a5a5e,#1a1a1c 42%,#0a0a0a);border-radius:40px;padding:10px;box-shadow:0 0 0 1px rgba(255,255,255,.28),0 28px 48px rgba(0,0,0,.45)}
+.fono-pantalla{background:#fff;color:#1a1a1a;border-radius:30px;overflow:hidden;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;position:relative;padding-bottom:.3rem}
+.fono-pantalla::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:92px;height:18px;background:#111;border-radius:0 0 14px 14px}
+.fono-status{display:flex;justify-content:space-between;align-items:center;padding:.55rem .85rem .2rem;font-size:.72rem;font-weight:600;color:#111}
+.fono-status svg{display:block;height:11px;width:auto}
+.fono-reloj{position:relative;width:148px;height:148px;margin:1.1rem auto .4rem}
+.fono-reloj svg.aro{width:100%;height:100%;display:block}
+.fono-reloj b{position:absolute;inset:0;display:grid;place-items:center;font-size:1.35rem;font-weight:650;letter-spacing:.01em}
+.fono-alerta{position:absolute;right:6px;bottom:10px;width:34px;height:34px;border-radius:50%;background:#f5a623;color:#1a1a1a;display:grid;place-items:center;font-weight:800;font-size:1.15rem;border:3px solid #fff}
+.hero .fono-titulo{text-align:center;font-weight:700;font-size:1.02rem;line-height:1.25;margin:0 1.15rem .55rem;color:#111}
+.hero .fono-txt{text-align:center;font-size:.78rem;line-height:1.4;color:#1a1d21;margin:0 1.2rem .2rem}
+.hero .fono-txt .mas{color:#0b5c34;font-weight:700}
+.fono-lista{list-style:none;padding:0 1rem;margin:.9rem 0 1rem;display:grid;gap:.75rem}
+.fono-lista li{display:flex;gap:.55rem;align-items:flex-start;font-size:.78rem;line-height:1.35;color:#1a1d21}
+.fono-lista svg{flex:none;margin-top:.05rem}
+.fono-cerrar{margin:.15rem 1rem 1rem;border:1.5px solid #d0d0d0;border-radius:999px;text-align:center;padding:.6rem;color:#3a3a3a;font-size:.9rem}
+@media (max-width:860px){
+  .hero{padding:2.2rem 0 2.6rem}
+  .hero-grid{grid-template-columns:1fr}
+  .fono{justify-self:center;width:min(260px,88vw);margin-top:.6rem}
+  .fono-reloj{width:118px;height:118px}
+}
+
+/* Bloques de la portada */
+.dos{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:1.2rem}
+.dos>div{padding:1.3rem 1.4rem;background:#fff;border-radius:6px 18px 6px 18px}
+.dos .a{border-left:6px solid var(--hilo)}
+.dos .b{border-left:6px solid var(--turq-osc)}
+.pasos{counter-reset:p;list-style:none;padding:0;display:grid;gap:1rem;margin-top:1rem}
+.pasos li{counter-increment:p;display:flex;gap:1rem;align-items:flex-start}
+.pasos li::before{content:counter(p);flex:none;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--indigo);color:#fff;display:grid;place-items:center;font-weight:600}
+.areas-lista{columns:2 260px;column-gap:2rem;margin-top:1rem}
+.areas-lista li{break-inside:avoid}
+.franja{background:var(--hilo-suave)}
+
+/* Test */
+.paso{font-size:.9rem;color:#0A5C59;font-weight:600;margin-bottom:.3rem}
+.prog{height:8px;background:var(--gris);border-radius:999px;overflow:hidden;margin:.6rem 0 1.4rem}
+.prog i{display:block;height:100%;background:var(--hilo);transition:width .25s}
+fieldset{border:none}
+.q legend{font-family:var(--display);font-size:clamp(1.4rem,3.6vw,1.9rem);color:var(--indigo);line-height:1.25;margin-bottom:.6rem;font-weight:600}
+.ayuda{font-size:.92rem;color:#555}
+.opts{display:grid;gap:.7rem;margin-top:1rem}
+.opt{display:flex;gap:.8rem;align-items:flex-start;padding:1rem 1.1rem;border:2px solid #c8c8c8;border-radius:14px;background:#fff;cursor:pointer;min-height:48px}
+.opt input{margin-top:.28rem;accent-color:var(--indigo);width:20px;height:20px;flex:none}
+.opt:hover{border-color:var(--indigo)}
+.opt:has(input:checked){border-color:var(--indigo);background:#eef0f7}
+.form{display:grid;gap:1.1rem;margin-top:1rem}
+.form label{display:grid;gap:.3rem;font-weight:500;font-size:.95rem}
+.form label.opt{display:flex;font-weight:400}
+.form input[type=text],.form input[type=email],.form input[type=tel],.form input[type=number],.form input[type=datetime-local],.form input[type=password],.form select{font:400 1rem var(--cuerpo);padding:.75rem .9rem;border:2px solid #8a8a8a;border-radius:10px;background:#fff;min-height:48px;width:100%}
+.form input:focus,.form select:focus,.copybox:focus{border-color:var(--indigo);outline:3px solid rgba(43,58,103,.25);outline-offset:1px}
+.check{display:flex!important;gap:.7rem;align-items:flex-start;font-weight:400!important;font-size:.9rem!important}
+.check input{width:20px;height:20px;margin-top:.2rem;accent-color:var(--indigo);flex:none}
+.trampa{position:absolute;left:-9999px;height:0;overflow:hidden}
+.err{color:var(--rojo);font-weight:500;font-size:.92rem;min-height:1.3rem}
+
+/* Resultado */
+.sems{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin:1.2rem 0 2rem}
+.sem-card{display:flex;gap:1.2rem;padding:1.4rem;background:#fff;border-radius:18px;border:2px solid var(--gris);border-left-width:8px}
+.sem-card.nivel-rojo{border-left-color:var(--rojo)}
+.sem-card.nivel-amarillo{border-left-color:var(--ambar)}
+.sem-card.nivel-verde{border-left-color:var(--verde)}
+.sem{width:64px;flex:none}
+.nivel{font-weight:600;font-size:1.35rem;margin-bottom:.3rem}
+.nivel span{font-weight:400;color:#555;font-size:1rem;margin-left:.3rem}
+.forzado{font-size:.88rem;color:#7a2a24;background:#fbe9e7;padding:.5rem .7rem;border-radius:8px}
+.caja{background:#fff;border:2px solid var(--gris);border-radius:16px;padding:1.2rem 1.4rem;margin-bottom:1.2rem}
+.caja.destacada{border-color:var(--indigo)}
+.caja.rosa{background:var(--hilo-suave);border-color:var(--hilo-suave)}
+.nota{font-size:.85rem;color:#555;border-top:1px solid var(--gris);padding-top:1rem;margin-top:2rem}
+
+/* Kit */
+.tabs{display:flex;gap:.3rem;overflow-x:auto;border-bottom:2px solid var(--gris);margin:1.4rem 0}
+.tab{background:none;border:none;padding:.8rem 1rem;font:500 .95rem var(--cuerpo);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;color:#444}
+.tab[aria-selected=true]{border-bottom-color:var(--hilo);color:var(--indigo);font-weight:600}
+details{background:#fff;border:2px solid var(--gris);border-radius:14px;margin-bottom:.8rem}
+summary{cursor:pointer;padding:1rem 1.2rem;font-weight:600;color:var(--indigo);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:48px}
+summary::after{content:"";flex:none;width:.5rem;height:.5rem;border-right:2px solid var(--indigo);border-bottom:2px solid var(--indigo);transform:rotate(45deg);margin-top:-.2rem}
+details[open] summary::after{transform:rotate(225deg);margin-top:.15rem}
+summary::-webkit-details-marker{display:none}
+summary .cnt{font-weight:400;color:#555;font-size:.9rem;white-space:nowrap}
+details[open] summary{border-bottom:1px solid var(--gris)}
+.items{padding:.8rem 1.2rem 1rem;display:grid;gap:.6rem}
+.items label{display:flex;gap:.7rem;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.items input{width:20px;height:20px;margin-top:.2rem;accent-color:var(--indigo);flex:none}
+.copybox{width:100%;min-height:120px;font:400 .92rem/1.5 var(--cuerpo);padding:.8rem;border:2px solid #8a8a8a;border-radius:10px;background:#fff;resize:vertical}
+.linea{border-left:4px solid var(--indigo);padding:.2rem 0 .2rem 1rem;margin-bottom:1rem}
+.linea b{color:var(--indigo)}
+.demo{display:inline-block;background:var(--turq);color:var(--carbon);font-size:.78rem;font-weight:600;padding:.15rem .6rem;border-radius:999px;margin-left:.5rem;vertical-align:middle}
+
+/* Aviso del test y pie de bellarulox.com */
+.disclaimer{background:var(--carbon);color:var(--hueso);padding:1.6rem 0;margin-top:3rem;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.12)}
+.disclaimer h2{color:var(--hueso);font-size:1rem;letter-spacing:.04em;text-transform:uppercase;font-family:var(--cuerpo);font-weight:600;margin-bottom:.6rem}
+.disclaimer p{max-width:80ch;color:rgba(248,248,248,.82)}
+.disclaimer a{color:var(--turq)}
+footer.site{background:var(--carbon);color:rgba(255,255,255,.72);padding:48px 0 28px;margin-top:0;font-size:.88rem}
+footer.site h4{color:#fff;font-family:var(--cuerpo);font-size:.75rem;letter-spacing:.6px;text-transform:uppercase;margin-bottom:12px}
+footer.site a{display:block;margin-top:8px;font-size:.82rem;color:inherit;text-decoration:none}
+footer.site a:hover{color:var(--turq)}
+footer.site p{max-width:none}
+.foot-grid{display:grid;gap:28px}
+@media (min-width:768px){.foot-grid{grid-template-columns:1.3fr 1fr 1.2fr 1.1fr}}
+.foot-logo{height:64px;width:auto}
+.quote{font-family:'Caveat',cursive;color:var(--hilo);font-size:1.45rem;font-weight:700;transform:rotate(-2deg);display:inline-block}
+.legal{margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.78rem}
+.legal a{display:inline;color:var(--turq)}
+#toast{position:fixed;left:50%;bottom:1.2rem;transform:translateX(-50%);background:var(--carbon);color:#fff;padding:.7rem 1.1rem;border-radius:12px;font-size:.92rem;opacity:0;pointer-events:none;transition:opacity .2s;z-index:60;max-width:90vw}
+#toast.on{opacity:1}
+.dlg{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+  border:none;
+  border-radius:18px;
+  padding:1.2rem 1.4rem 1rem;
+  width:min(520px,calc(100% - 2rem));
+  max-height:min(86vh,680px);
+  overflow:hidden;
+  display:none;
+  flex-direction:column;
+  box-shadow:0 24px 60px rgba(0,0,0,.28);
+  z-index:80;
+  background:#fff;
+}
+.dlg[open]{display:flex}
+.dlg::backdrop{background:rgba(0,0,0,.55)}
+.dlg h2{font-size:1.35rem;margin-bottom:.35rem}
+#f-wa.form{display:flex;flex-direction:column;gap:0;margin-top:.35rem;overflow:hidden;min-height:0;flex:1}
+.dlg-scroll{overflow:auto;min-height:0;display:grid;gap:1.05rem;padding-bottom:.4rem}
+.dlg-actions{flex:none;margin:0;padding:.75rem 0 0;background:#fff}
+.form-2{display:grid;gap:1.1rem;grid-template-columns:1fr 1fr}
+@media (max-width:640px){.form-2{grid-template-columns:1fr}}
+#print-area{display:none}
+
+@media (max-width:640px){
+  .row{flex-direction:column;align-items:stretch}
+  .row .btn{width:100%}
+  .hero .hora{font-size:clamp(3.6rem,18vw,5rem)}
+  .hero h1{font-size:clamp(1.15rem,4.6vw,1.45rem);letter-spacing:-.02em}
+  .hero h1 span{white-space:nowrap}
+}
+@media (prefers-reduced-motion:reduce){
+  .aviso{animation:none;opacity:1}
+  html{scroll-behavior:auto}
+  .prog i,.btn{transition:none}
+}
+@media print{
+  .top,footer,.disclaimer,.no-print,#toast,.skip,.dlg{display:none!important}
+  body{background:#fff}
+  .caja,.sem-card{break-inside:avoid}
+  body.print-protocolo > *:not(#print-area){display:none!important}
+  body.print-protocolo #print-area{display:block}
+  #print-area h1{font-size:1.6rem}
+  #print-area .ln{border-bottom:1px solid #444;height:1.6rem;margin-bottom:.3rem}
+}
+
+.linkbtn{background:none;border:none;color:var(--indigo);text-decoration:underline;font:inherit;cursor:pointer;padding:0}
+.cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:1.2rem 0}
+.card{background:#fff;border:2px solid #e2e2e2;border-radius:16px;padding:1.25rem 1.3rem;display:flex;flex-direction:column;gap:.45rem;box-shadow:0 8px 24px rgba(26,26,26,.04)}
+.card h3,.card h2{font-size:1.15rem;margin-bottom:.1rem}
+.card p{font-size:.95rem;margin-bottom:.4rem}
+.card .btn{margin-top:auto;align-self:flex-start}
+.card.gratis{border-color:var(--turq-osc)}
+.etiqueta{display:inline-block;font-size:.75rem;font-weight:600;padding:.1rem .6rem;border-radius:999px;background:var(--turq);color:var(--carbon);align-self:flex-start}
+.soon{opacity:.6;cursor:default}
+.sobre{display:flex;gap:1rem;align-items:flex-start;background:var(--hilo-suave);border-radius:16px;padding:1.2rem 1.4rem}
+.faq details{margin-bottom:.6rem}
+.faq .items{display:block;padding:.8rem 1.2rem 1rem}
+</style>
+</head>
+<body>
+<a class="skip" href="#app">Saltar al contenido</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#/" aria-label="Bellarulox, inicio">
+      <img src="assets/logo-negro.png" alt="Bellarulox" onerror="this.replaceWith(document.createTextNode('Bellarulox'))">
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#/bloqueo">Ya me bloquearon</a>
+      <a href="#/recursos">Recursos</a>
+      <a href="https://bellarulox.com/">Volver a Bellarulox</a>
+      <a href="https://sitios.bellarulox.com/" target="_blank" rel="noopener noreferrer">Quiero mi website</a>
+      <a class="btn btn-primary" id="nav-wa" href="https://wa.me/593984424836?text=Hola%20Marian%2C%20vengo%20del%20Protocolo%20de%20Uso%20Seguro%20y%20quiero%20escribirte." target="_blank" rel="noopener noreferrer">Contactar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app" tabindex="-1"></main>
+
+<aside class="disclaimer" role="note">
+  <div class="wrap">
+    <h2>Aviso</h2>
+    <p>El Protocolo de Uso Seguro es una autoevaluación basada en la política pública de WhatsApp Business (consultada el 23 de septiembre de 2026). No asegura que tu cuenta no sea limitada, suspendida o terminada. WhatsApp decide a su criterio, también por lo que reportan los usuarios. Nadie puede prometer una reactivación ni un plazo. Esta herramienta no está afiliada a WhatsApp ni a Meta.</p>
+    <p>Fuentes oficiales:
+      <a href="https://whatsappbusiness.com/es-la/policy/" target="_blank" rel="noopener noreferrer">Política de mensajes</a>,
+      <a href="https://whatsappbusiness.com/es-la/products/platform-pricing/" target="_blank" rel="noopener noreferrer">Tarifas</a>,
+      <a href="https://faq.whatsapp.com/465883178708358" target="_blank" rel="noopener noreferrer">Cuentas bloqueadas</a>,
+      <a href="https://www.whatsapp.com/contact/noclient?lang=es_LA" target="_blank" rel="noopener noreferrer">Contactar a WhatsApp</a>.
+    </p>
+    <p><a href="#/privacidad">Aviso de privacidad de este test</a></p>
+  </div>
+</aside>
+<footer class="site">
+  <div class="wrap foot-grid">
+    <div>
+      <img class="foot-logo" src="/logo-fuscia.png" alt="Marian Montilla">
+      <p class="quote" style="margin-top:12px;">"Ser creativa y encontrar nuevas formas de resolver problemas."</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <a href="/">Inicio</a>
+      <a href="/del-caos-al-foco/">Del Caos al Foco</a>
+      <a href="/podcast/">Podcast</a>
+      <a href="/recursos/">Recursos</a>
+      <a href="/arquitectura-b2b/">Arquitectura B2B</a>
+      <a href="/hiring/">Hiring</a>
+    </div>
+    <div>
+      <h4>Redes y canales</h4>
+      <a href="https://open.spotify.com/show/3yxnEvf6hurBN4opbrD7AW?si=972211759ff24026" target="_blank" rel="noopener noreferrer">Spotify Podcast</a>
+      <a href="https://podcasts.apple.com/cm/podcast/del-caos-al-foco/id1565590418" target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
+      <a href="https://www.youtube.com/@MarianMOnline" target="_blank" rel="noopener noreferrer">YouTube (@MarianMOnline)</a>
+      <a href="https://www.instagram.com/bellarulox" target="_blank" rel="noopener noreferrer">Instagram (@bellarulox)</a>
+      <a href="https://www.tiktok.com/@bellarulox" target="_blank" rel="noopener noreferrer">TikTok (@bellarulox)</a>
+      <a href="https://www.threads.com/@bellarulox" target="_blank" rel="noopener noreferrer">Threads (@bellarulox)</a>
+      <a href="https://www.linkedin.com/in/marianmontilla/" target="_blank" rel="noopener noreferrer">LinkedIn (@marianmontilla)</a>
+    </div>
+    <div>
+      <h4>Contacto y reservas</h4>
+      <p style="font-size:.82rem;">Escríbeme para colaboraciones o reserva directa:</p>
+      <a href="mailto:marianm@bellarulox.com">marianm@bellarulox.com</a>
+      <a href="https://wa.me/593984424836?text=Hola%20Marian%2C%20vengo%20de%20tu%20p%C3%A1gina%20web" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="https://calendar.app.google/JorUwfy67LtHwWzF8" target="_blank" rel="noopener noreferrer">Agendar llamada B2B</a>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <p>&copy; 2026 Marian Montilla · Bellarulox. Todos los derechos reservados.</p>
+    <p>Ecuador y Venezuela · Trabajo 100% remoto</p>
+  </div>
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<dialog class="dlg" id="dlg-wa" aria-labelledby="wa-titulo">
+  <form id="f-wa" class="form" novalidate>
+    <div class="dlg-scroll">
+      <h2 id="wa-titulo">Enviar a Marian por WhatsApp</h2>
+      <p class="small muted" id="wa-extra">Estos datos van en el mensaje. Este sitio no los guarda.</p>
+      <label>Tu nombre<input name="nombre" type="text" required maxlength="80" autocomplete="name"></label>
+      <label>Tu correo<input name="correo" type="email" required maxlength="120" autocomplete="email" inputmode="email"></label>
+      <label>Nombre del negocio<input name="negocio" type="text" required maxlength="80" autocomplete="organization"></label>
+      <div class="form-2">
+        <label>País del negocio<input name="pais" type="text" required maxlength="60" autocomplete="country-name"></label>
+        <label>Ciudad del negocio<input name="ciudad" type="text" required maxlength="60" autocomplete="address-level2"></label>
+      </div>
+      <p class="err" id="wa-err" role="alert"></p>
+    </div>
+    <div class="row dlg-actions">
+      <button class="btn btn-ghost" style="color:var(--indigo)" data-action="wa-cerrar" type="button">Cancelar</button>
+      <button class="btn btn-primary" type="submit">Abrir WhatsApp</button>
+    </div>
+  </form>
+</dialog>
+<noscript><p style="padding:2rem">Esta herramienta necesita JavaScript para funcionar.</p></noscript>
+
+<script>
+(function(){
+'use strict';
+
+/* =====================================================================
+   CONFIGURACIÓN: lo único que debes tocar para conectar la web
+   ===================================================================== */
+const CONFIG = {
+  whatsappNumber: "593984424836",
+  contactEmail: "marian@bellarulox.com",
+  submitEndpoint: "",      // Opcional. POST JSON con el resultado. Vacío = el resultado solo se ve en pantalla
+  version: "2.0-minima",
+  guiaUrl: "https://bellarulox.gumroad.com/l/protocolo-uso-seguro",
+  hojaUrl: "https://docs.google.com/spreadsheets/d/1bToitvwZnqY42fikLWJn-qSvPkCpOx1R2vQbL0G_u-4/copy",
+  protocoloUrl: "assets/protocolo-de-emergencia.pdf",
+  gumroadUrl: "https://bellarulox.gumroad.com",
+  sobre: "Marian Montilla (Bellarulox). Consultora de operaciones digitales. Más de 10 años trabajando en línea con negocios.",
+  correoPrivacidad: "marian@bellarulox.com",
+  textoConsentimiento: "Acepto que Marian Montilla (Bellarulox) me envíe mi resultado y contenido sobre WhatsApp para negocios. Puedo pedir que me retire cuando quiera.",
+  services: {
+    auditoria:   {titulo:"Revisión de tu cuenta", texto:"Reviso tu cuenta, tus prácticas de envío, cómo pides consentimiento y tu configuración en Meta, y te entrego un plan de correcciones.", price:""},
+    respaldo:    {titulo:"Libreta de clientes y plan B listos", texto:"Dejo instalada tu libreta con formulario, tus avisos de emergencia y tu protocolo para el equipo.", price:""},
+    ambos:       {titulo:"Revisión de cuenta y plan B listos", texto:"Corregimos lo que expone tu cuenta y dejamos listo el plan para seguir atendiendo si algo falla.", price:""},
+    bloqueo:     {titulo:"Acompañamiento ante un bloqueo", texto:"Te oriento con la solicitud de revisión y con los pasos técnicos si WhatsApp reactiva tu cuenta. Nadie puede asegurar que la reactive ni en cuánto tiempo: esa decisión es de WhatsApp. Antes de entrar a tu cuenta firmamos una autorización escrita.", price:""},
+    seguimiento: {titulo:"Seguimiento", texto:"Tu resultado es sólido. Si quieres, revisamos tu cuenta cada cierto tiempo.", price:""}
+  }
+};
+
+/* =====================================================================
+   CONTENIDO DEL TEST (7 preguntas de riesgo y 6 de recuperación)
+   pts: 0 a 2 (2 = práctica segura). w: peso para ordenar las acciones.
+   ===================================================================== */
+const BLOQUES = {
+  riesgo: {nombre:"Riesgo de bloqueo", parte:"Parte 1 de 2: riesgo de bloqueo"},
+  recuperacion: {nombre:"Capacidad de recuperación", parte:"Parte 2 de 2: capacidad de recuperación"}
+};
+
+const PREGUNTAS = [
+ {id:"R1", bloque:"riesgo", w:3,
+  texto:"¿Con qué número y aplicación atiendes a tus clientes en WhatsApp?",
+  ayuda:"La API oficial es la versión de pago de WhatsApp para empresas con más volumen. Se conecta desde el administrador de Meta o con una plataforma socia.",
+  accion:"Define si seguirás con la app gratuita o pasarás a la API oficial (la versión de pago para empresas con más volumen), y usa un número exclusivo del negocio.",
+  opciones:[
+   {t:"Con WhatsApp normal, en mi número personal", pts:0},
+   {t:"Con la app WhatsApp Business (gratuita) y un número del negocio", pts:1},
+   {t:"Con la API oficial, directa o con una plataforma socia", pts:2, api:true},
+   {t:"No lo sé", pts:0}]},
+ {id:"R2", bloque:"riesgo", w:5,
+  texto:"¿Escribes a personas que nunca te han escrito ni te dieron permiso?",
+  ayuda:"Por ejemplo, listas compradas, contactos copiados de otros grupos o números que conseguiste por otro medio.",
+  accion:"Deja de escribir a personas que no te han escrito ni te dieron permiso. Si necesitas llegar a ellas, usa plantillas aprobadas por la API y solo con consentimiento.",
+  opciones:[
+   {t:"Sí, con frecuencia", pts:0, flag:"frio"},
+   {t:"A veces", pts:1},
+   {t:"No, solo escribo a quienes me escribieron o aceptaron recibir mis mensajes", pts:2}]},
+ {id:"R3", bloque:"riesgo", w:3,
+  texto:"Cuando le escribes a alguien que no te ha escrito en las últimas 24 horas, ¿cómo lo haces?",
+  ayuda:"WhatsApp permite responder libremente durante 24 horas desde el último mensaje del cliente. Fuera de esa ventana, solo se puede escribir con plantillas aprobadas.",
+  accion:"Aprende la regla de las 24 horas: fuera de esa ventana solo se escribe con plantillas aprobadas, y se reinicia cada vez que el cliente te escribe.",
+  opciones:[
+   {t:"Respondo solo dentro de las 24 horas o uso plantillas aprobadas", pts:2},
+   {t:"Escribo manualmente a clientes antiguos, sin plantilla", pts:1},
+   {t:"Envío difusiones o mensajes masivos sin plantilla", pts:0},
+   {t:"No conozco esta regla", pts:0}]},
+ {id:"R4", bloque:"riesgo", w:4,
+  texto:"¿Guardas que cada persona aceptó recibir tus mensajes, y respetas cuando pide parar?",
+  ayuda:"Se llama consentimiento (opt-in). La recomendación oficial es pedirlo por tipo de mensaje: pedidos, ofertas, recomendaciones.",
+  accion:"Crea un registro de consentimiento (quién, cuándo y para qué tipo de mensajes) y un proceso para retirar a quien pide parar, dentro o fuera de WhatsApp.",
+  opciones:[
+   {t:"Sí, queda registrado por tipo de mensaje y retiro de inmediato a quien pide parar", pts:2},
+   {t:"Respeto las bajas, pero no tengo registro del permiso", pts:1},
+   {t:"No tengo registro ni un proceso para las bajas", pts:0}]},
+ {id:"R5", bloque:"riesgo", w:3,
+  texto:"¿Tu negocio vende o promociona alguno de estos: alcohol, tabaco, salud o medicamentos, multinivel, préstamos, apuestas o citas?",
+  ayuda:"Estos sectores están prohibidos o muy restringidos. Algunos se permiten solo en ciertos países, con licencias y por la API, nunca por la app WhatsApp Business.",
+  accion:"Revisa si tu sector es regulado. Si lo es, solo se permite en ciertos países, con licencias y por la API, nunca por la app WhatsApp Business.",
+  opciones:[
+   {t:"No, ninguno de esos", pts:2},
+   {t:"Sí, pero con licencias y desde la API, en un país permitido", pts:1},
+   {t:"Sí, y lo hago desde la app o sin licencias", pts:0, flag:"regulado"},
+   {t:"No lo tengo claro", pts:1}]},
+ {id:"R6", bloque:"riesgo", w:2,
+  texto:"¿Usas respuestas automáticas, un chatbot o inteligencia artificial para atender?",
+  ayuda:"La política permite automatizar dentro de las 24 horas, siempre que el cliente tenga una salida clara hacia una persona: chat humano, teléfono, correo, web, visita o formulario.",
+  accion:"Agrega a tu automatización una salida clara hacia una persona: chat humano, teléfono, correo, web o formulario. Usa la IA para atender a tus clientes, no para ofrecer un asistente general.",
+  opciones:[
+   {t:"No uso automatización", pts:2},
+   {t:"Sí, y el cliente puede pasar a una persona, un teléfono o un correo en cualquier momento", pts:2},
+   {t:"Sí, pero no hay una forma clara de hablar con una persona", pts:0}]},
+
+ {id:"R7", bloque:"riesgo", w:5,
+  texto:"¿Usas una versión modificada de WhatsApp, una app de terceros para enviar mensajes o una herramienta que se conecta por código QR o WhatsApp Web?",
+  ayuda:"Las Normas de WhatsApp no permiten los clientes no oficiales ni el envío masivo o automatizado que perjudique a WhatsApp o a sus usuarios. Una integración oficial se conecta desde el administrador de Meta, sin escanear un código QR.",
+  accion:"Vuelve a la app oficial y deja de usar versiones modificadas, programadores de mensajes de terceros y conexiones por código QR o WhatsApp Web. Si necesitas automatizar, hazlo con la API oficial o con una plataforma socia oficial.",
+  opciones:[
+   {t:"No, uso solo la app oficial o una integración oficial de Meta", pts:2},
+   {t:"Uso una app de terceros para programar o enviar mensajes, o mi CRM se conecta por código QR o WhatsApp Web", pts:0, flag:"noficial"},
+   {t:"Uso una versión modificada de WhatsApp (como GB WhatsApp o WhatsApp Plus)", pts:0, flag:"noficial"},
+   {t:"No lo sé", pts:1}]},
+
+ {id:"C1", bloque:"recuperacion", w:5,
+  texto:"¿Dónde tienes tu lista de clientes y citas fuera de WhatsApp?",
+  ayuda:"No cuenta la copia de seguridad cifrada de WhatsApp ni el historial del chat. Si la cuenta se bloquea, el acceso a ellos depende de que WhatsApp levante la restricción.",
+  accion:"Crea un respaldo de tus clientes y citas fuera de WhatsApp (hoja de cálculo o CRM) con nombre, teléfono, correo alterno y consentimiento.",
+  opciones:[
+   {t:"En una hoja, un CRM o una agenda propia que se actualiza", pts:2},
+   {t:"Parcial: algunos clientes están en mi agenda o mi cuaderno", pts:1},
+   {t:"Solo dentro de WhatsApp o en su copia de seguridad", pts:0},
+   {t:"No tengo, o no lo sé", pts:0}]},
+ {id:"C2", bloque:"recuperacion", w:2,
+  texto:"¿Cada cuánto actualizas ese respaldo?",
+  ayuda:"La frecuencia ideal depende de tu volumen de conversaciones. Te daremos una sugerencia en tu resultado.",
+  accion:"Define una frecuencia de respaldo según tu volumen de conversaciones y ponla en tu calendario.",
+  opciones:[
+   {t:"De forma automática o a diario", pts:2},
+   {t:"Cada semana o cada mes", pts:1},
+   {t:"Nunca, o no lo sé", pts:0}]},
+ {id:"C3", bloque:"recuperacion", w:5,
+  texto:"Si WhatsApp deja de abrir a las 5 am y tienes citas hoy, ¿cómo avisas a tus clientes?",
+  ayuda:"Piensa en un medio distinto a WhatsApp: llamada, SMS, correo, redes o Google Business.",
+  accion:"Escribe tus avisos de emergencia y reúne un medio alterno (correo, teléfono o SMS) de cada cliente con cita.",
+  opciones:[
+   {t:"Tengo un correo o teléfono de cada cliente y un mensaje de aviso ya escrito", pts:2},
+   {t:"Tengo medios alternos de algunos clientes, pero no de todos", pts:1},
+   {t:"No tendría cómo avisarles", pts:0}]},
+ {id:"C4", bloque:"recuperacion", w:4,
+  texto:"¿De quién y para qué es el número que usas para el negocio?",
+  ayuda:"Un número exclusivo es más fácil de proteger y de recuperar.",
+  accion:"Separa tu número personal del número del negocio. Una línea exclusiva reduce riesgos y facilita recuperarla.",
+  opciones:[
+   {t:"Es una línea exclusiva para el negocio, a nombre de la empresa o mío", pts:2},
+   {t:"Es mi número personal, el mismo que uso en mi vida diaria", pts:0, flag:"personal"},
+   {t:"Es un número prestado o a nombre de otra persona", pts:0}]},
+ {id:"C5", bloque:"recuperacion", w:3,
+  texto:"Si pierdes el celular o la SIM, ¿puedes recuperar ese número?",
+  ayuda:"Aplica a SIM física y a eSIM. Una eSIM se transfiere a otro celular con un proceso de tu operadora.",
+  accion:"Confirma con tu operadora cómo recuperar la línea (SIM física o eSIM) y que esté a nombre de quien puede gestionarla.",
+  opciones:[
+   {t:"Sí, la línea está a mi nombre y sé cómo reponer la SIM o transferir la eSIM", pts:2},
+   {t:"Creo que sí, pero nunca lo he probado", pts:1},
+   {t:"No, la línea es de otra persona o no sé cómo", pts:0}]},
+ {id:"C6", bloque:"recuperacion", w:3,
+  texto:"¿Tienes protegida tu cuenta con verificación en dos pasos, un correo de recuperación y al menos dos administradores en Meta?",
+  ayuda:"Con dos administradores, si uno pierde el acceso, el negocio no queda bloqueado.",
+  accion:"Activa la verificación en dos pasos, agrega un correo de recuperación y registra al menos dos administradores en Meta.",
+  opciones:[
+   {t:"Sí, las tres", pts:2},
+   {t:"Tengo una o dos de las tres", pts:1},
+   {t:"Ninguna, o no lo sé", pts:0}]}
+];
+
+/* ---------- Textos de lectura del resultado ---------- */
+const NIVEL = {verde:"Verde", amarillo:"Amarillo", rojo:"Rojo"};
+const LECTURA = {
+  riesgo:{
+    verde:"Tu forma de usar WhatsApp encaja con las prácticas que revisamos. Revisa la calidad de tus mensajes cada semana. Verde no evita un límite: esa decisión es de WhatsApp.",
+    amarillo:"Hay señales que WhatsApp puede leer como molestas. Corregirlas ahora es más simple que recuperar una cuenta.",
+    rojo:"Hay prácticas que, según la política de WhatsApp, pueden limitar o bloquear la cuenta. Corrígelas primero."},
+  recuperacion:{
+    verde:"Si WhatsApp deja de abrir, puedes avisar a tus clientes y seguir atendiendo. Esto protege al negocio, no a la cuenta.",
+    amarillo:"Tienes parte del respaldo. Hay clientes a los que hoy no sabrías cómo avisar.",
+    rojo:"Hoy dependes de WhatsApp para todo. Si la cuenta se cae, no tendrías cómo contactar a tus clientes."}
+};
+const FRECUENCIA = {
+  bajo:"Cada semana, y después de cada cita o cliente nuevo si puedes.",
+  medio:"Cada día, al cerrar la jornada.",
+  alto:"Automática y continua (por ejemplo, un CRM o una hoja que se actualice sola), con una revisión semanal."
+};
+
+
+/* =====================================================================
+   UTILIDADES Y ESTADO
+   ===================================================================== */
+const $ = (s,r=document)=>r.querySelector(s);
+const app = $('#app');
+const esc = s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const store = {
+  get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+const saved = store.get('pus_state',{});
+const state = {
+  step:-1,
+  ctx:{negocio:'',volumen:(saved.ctx&&saved.ctx.volumen)||'medio',citas:(saved.ctx&&saved.ctx.citas!=null)?saved.ctx.citas:5},
+  answers:saved.answers||{},
+  result:saved.result||null,
+  sendStatus:null,
+  bloqueoTipo:'',
+  waMotivo:'hola',
+  contacto:{nombre:'',correo:'',negocio:'',pais:'',ciudad:''}
+};
+// En localStorage solo van respuestas y resultado: nunca nombre, correo, WhatsApp ni nombre del negocio.
+function persist(){store.set('pus_state',{ctx:{volumen:state.ctx.volumen,citas:state.ctx.citas},answers:state.answers,result:state.result});}
+function toast(msg){
+  const t=$('#toast'); t.textContent=msg; t.classList.add('on');
+  clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove('on'),3200);
+}
+function waUrl(text){
+  const n=(CONFIG.whatsappNumber||'593984424836').replace(/\D/g,'');
+  return `https://wa.me/${n}?text=${encodeURIComponent(text||'')}`;
+}
+function abrirWaForm(motivo){
+  state.waMotivo=motivo;
+  const dlg=$('#dlg-wa'); const extra=$('#wa-extra'); const f=$('#f-wa');
+  const c=state.contacto;
+  f.nombre.value=c.nombre||'';
+  f.correo.value=c.correo||'';
+  f.negocio.value=c.negocio||state.ctx.negocio||'';
+  f.pais.value=c.pais||'';
+  f.ciudad.value=c.ciudad||'';
+  $('#wa-err').textContent='';
+  extra.textContent = state.result
+    ? 'El mensaje llevará tu nombre, correo, negocio, país, ciudad, el resultado y las 13 respuestas. Este sitio no guarda esos datos.'
+    : 'El mensaje llevará tu nombre, correo, negocio, país y ciudad. Este sitio no guarda esos datos. Si ya hiciste el test, también irá el resultado.';
+  dlg.showModal();
+  f.nombre.focus();
+}
+function mensajeWhatsApp(c){
+  const L=['Hola Marian, te escribo desde el Protocolo de Uso Seguro.','',
+    'Nombre: '+c.nombre,
+    'Correo: '+c.correo,
+    'Negocio: '+c.negocio,
+    'País: '+c.pais,
+    'Ciudad: '+c.ciudad];
+  if(state.waMotivo==='bloqueo'){
+    const tp=TIPOS_BLOQUEO.find(o=>o.id===state.bloqueoTipo);
+    L.push('','Motivo: ya me bloquearon'+(tp?'. Aviso: '+tp.t:''),'Entiendo que nadie puede asegurar que WhatsApp reactive la cuenta.');
+  }else if(state.waMotivo==='hola'){
+    L.push('','Quiero ayuda con mi WhatsApp. Entiendo que nadie puede asegurar que WhatsApp no limite o bloquee una cuenta.');
+  }else{
+    L.push('','Te envío mi resultado del test.');
+  }
+  if(state.result){
+    const r=state.result;
+    L.push('','Resultado',
+      'Riesgo de bloqueo: '+NIVEL[r.riesgo.nivel]+' ('+r.riesgo.pct+'%)',
+      'Capacidad de recuperación: '+NIVEL[r.recuperacion.nivel]+' ('+r.recuperacion.pct+'%)');
+    if(r.riesgo.forzado) L.push(r.riesgo.forzado);
+    if(r.recuperacion.forzado) L.push(r.recuperacion.forzado);
+    L.push('Servicio: '+CONFIG.services[r.servicio].titulo);
+    if(r.acciones.length) L.push('Acciones: '+r.acciones.map(a=>a.texto).join(' | '));
+    L.push('','Respuestas');
+    PREGUNTAS.forEach(q=>{
+      const i=state.answers[q.id];
+      if(i==null) return;
+      L.push(q.id+': '+q.opciones[i].t);
+    });
+  }
+  return L.join('\n');
+}
+function openWA(text){
+  const u=waUrl(text);
+  const a=document.createElement('a');
+  a.href=u;
+  a.target='_blank';
+  a.rel='noopener noreferrer';
+  a.style.display='none';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+function withUtm(url, campaign){
+  if(!url) return '';
+  try{
+    const u=new URL(url, location.href);
+    if(u.protocol!=='http:' && u.protocol!=='https:') return url;
+    u.searchParams.set('utm_source','test');
+    u.searchParams.set('utm_medium','web');
+    u.searchParams.set('utm_campaign',campaign);
+    return u.toString();
+  }catch(e){return url;}
+}
+function linkBtn(url,label,cls){
+  return url
+    ? `<a class="btn ${cls||'btn-dark'}" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`
+    : `<span class="btn btn-ghost soon" aria-disabled="true">${label} (próximamente)</span>`;
+}
+
+/* =====================================================================
+   PUNTAJES
+   ===================================================================== */
+function nivelDe(pct){return pct>=75?'verde':pct>=40?'amarillo':'rojo';}
+
+function calcular(){
+  const acc={riesgo:{pts:0,max:0},recuperacion:{pts:0,max:0}};
+  const flags=[]; const detalle=[]; let usaApi=false;
+  PREGUNTAS.forEach(q=>{
+    const i=state.answers[q.id]; const o=q.opciones[i];
+    acc[q.bloque].max+=2; acc[q.bloque].pts+=o.pts;
+    if(o.flag) flags.push(o.flag);
+    if(o.api) usaApi=true;
+    detalle.push({id:q.id,bloque:q.bloque,pregunta:q.texto,respuesta:o.t,pts:o.pts});
+  });
+  const c1pts=PREGUNTAS.find(q=>q.id==='C1').opciones[state.answers.C1].pts;
+  const res={};
+  ['riesgo','recuperacion'].forEach(k=>{
+    const pct=Math.round(acc[k].pts/acc[k].max*100);
+    let nivel=nivelDe(pct), forzado='';
+    if(k==='riesgo'){
+      if(flags.includes('noficial')){nivel='rojo';forzado='Se marcó en rojo porque las Normas de WhatsApp no permiten los clientes no oficiales ni los programadores de mensajes de terceros.';}
+      else if(flags.includes('frio')){nivel='rojo';forzado='Se marcó en rojo porque escribir a personas sin permiso es una de las señales que más pesa para WhatsApp.';}
+      else if(flags.includes('regulado')&&!usaApi){nivel='rojo';forzado='Se marcó en rojo porque los sectores regulados no se permiten en la app WhatsApp Business.';}
+    }else if(flags.includes('personal')&&c1pts===0){
+      nivel='rojo';forzado='Se marcó en rojo porque tu número es personal y no tienes un respaldo fuera de WhatsApp.';
+    }
+    res[k]={pct,nivel,forzado};
+  });
+  const acciones=PREGUNTAS.map(q=>({q,pts:q.opciones[state.answers[q.id]].pts}))
+    .filter(x=>x.pts<2).sort((a,b)=>a.pts-b.pts||b.q.w-a.q.w).slice(0,3).map(x=>({id:x.q.id,texto:x.q.accion}));
+  const r=res.riesgo.nivel!=='verde', c=res.recuperacion.nivel!=='verde';
+  const servicio=r&&c?'ambos':r?'auditoria':c?'respaldo':'seguimiento';
+  return {riesgo:res.riesgo,recuperacion:res.recuperacion,flags,acciones,servicio,detalle};
+}
+
+
+/* =====================================================================
+   CONEXIÓN OPCIONAL
+   ===================================================================== */
+async function submitLead(payload){
+  if(!CONFIG.submitEndpoint){return {ok:true,demo:true};}
+  const ctl=new AbortController(); const to=setTimeout(()=>ctl.abort(),9000);
+  try{
+    const r=await fetch(CONFIG.submitEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:ctl.signal});
+    return {ok:r.ok};
+  }catch(e){return {ok:false};}
+  finally{clearTimeout(to);}
+}
+
+/* =====================================================================
+   COMPONENTES
+   ===================================================================== */
+function semaforo(nivel){
+  const col={rojo:'#C8372D',amarillo:'#E3A400',verde:'#2E9B5F'};
+  const lamp=(n,y)=>`<circle cx="30" cy="${y}" r="15" fill="${nivel===n?col[n]:'#3a3a3a'}"/>`;
+  return `<svg class="sem" viewBox="0 0 60 150" role="img" aria-label="Semáforo en ${NIVEL[nivel].toLowerCase()}"><rect x="4" y="4" width="52" height="142" rx="16" fill="#1a1a1a"/>${lamp('rojo',32)}${lamp('amarillo',75)}${lamp('verde',118)}</svg>`;
+}
+
+
+/* =====================================================================
+   VISTAS
+   ===================================================================== */
+function serviciosHTML(keys){
+  return keys.map(k=>{const s=CONFIG.services[k];return `<div class="card"><h3>${s.titulo}</h3><p>${s.texto}${s.price?` <b>${esc(s.price)}</b>`:''}</p></div>`;}).join('');
+}
+
+function viewHome(){
+  const faq=[
+    ['¿Esto asegura que no me bloqueen?','No. WhatsApp decide a su criterio, también por lo que reportan los usuarios. El test muestra qué te expone y qué harías si la cuenta se cae.'],
+    ['¿Cuánto toma?','Unos 2 minutos. '+PREGUNTAS.length+' preguntas con opciones.'],
+    ['¿Sirve si uso WhatsApp normal, WhatsApp Business o la API?','Sí. Cubre los tres casos y explica los términos que no conozcas.'],
+    ['¿Qué pasa con mis respuestas?','Quedan en tu navegador. Si escribes a Marian por WhatsApp, el mensaje lleva tus datos, el resultado y las respuestas. Este sitio no los guarda. Puedes ver el resultado sin dejar datos.'],
+    ['¿Es una herramienta oficial de WhatsApp?','No. Usa la política pública de WhatsApp Business. No está afiliada a WhatsApp ni a Meta.'],
+    ['¿Y si ya me bloquearon?','Entra a "Ya me bloquearon". Eliges el aviso que ves y te dice qué hacer, sin prometer una reactivación.']
+  ];
+  return `
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hora" aria-label="Las 5 y 2 de la mañana">5:02<small>am</small></p>
+        <p class="aviso">Esta cuenta no puede usar WhatsApp.</p>
+        <h1><span>Tu WhatsApp ya no abre.</span><span>Hoy tienes 10 clientes con cita.</span></h1>
+        <p>¿Por qué otro medio les avisas?</p>
+        <div class="row">
+          <a class="btn btn-primary" href="#/test">Hacer el test de 2 minutos</a>
+          <a class="btn btn-ghost" href="#/bloqueo">Ya me bloquearon</a>
+        </div>
+      </div>
+      <figure class="fono" aria-label="Ejemplo del aviso de WhatsApp: tu cuenta está restringida en este momento, con un contador de 23 horas, 12 minutos y 59 segundos.">
+        <div class="fono-marco"><div class="fono-pantalla">
+          <div class="fono-status" aria-hidden="true"><span>5:18</span><svg viewBox="0 0 68 14" width="68" height="14"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="#111"/><rect x="5" y="5" width="3" height="7" rx="0.5" fill="#111"/><rect x="10" y="3" width="3" height="9" rx="0.5" fill="#111"/><rect x="15" y="1" width="3" height="11" rx="0.5" fill="#111"/><path d="M26 10.5c1.6-1.7 3.8-2.7 6.2-2.7s4.6 1 6.2 2.7" fill="none" stroke="#111" stroke-width="1.4" stroke-linecap="round"/><path d="M28.4 12.6c1-1 2.3-1.6 3.8-1.6s2.8.6 3.8 1.6" fill="none" stroke="#111" stroke-width="1.4" stroke-linecap="round"/><circle cx="32.2" cy="13.2" r="0.8" fill="#111"/><rect x="50" y="2" width="15" height="9" rx="2" fill="none" stroke="#111" stroke-width="1.2"/><rect x="65.2" y="4.5" width="1.4" height="4" rx="0.4" fill="#111"/><rect x="51.4" y="3.4" width="10" height="6.2" rx="1" fill="#111"/></svg></div>
+          <div class="fono-reloj" aria-hidden="true">
+            <svg class="aro" viewBox="0 0 148 148"><circle cx="74" cy="74" r="62" fill="none" stroke="#d5d5d5" stroke-width="2.5"/><circle cx="74" cy="12" r="5" fill="#222"/></svg>
+            <b>23:12:59</b>
+            <span class="fono-alerta">!</span>
+          </div>
+          <p class="fono-titulo">Tu cuenta está restringida en este momento</p>
+          <p class="fono-txt">Es posible que la actividad reciente de tu cuenta sea un indicio de spam, mensajes automáticos o mensajería masiva. <span class="mas">Más información</span></p>
+          <ul class="fono-lista">
+            <li><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10" fill="none" stroke="#8d939c" stroke-width="1.6"/><path d="M8 13.2l3.1 3.1L18 9.6" fill="none" stroke="#8d939c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Puedes responder llamadas y mensajes nuevos, y seguir enviando mensajes en tus chats y grupos.</span></li>
+            <li><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10" fill="none" stroke="#8d939c" stroke-width="1.6"/><path d="M8.2 8.2l9.6 9.6" stroke="#8d939c" stroke-width="1.6" stroke-linecap="round"/></svg><span>Por el momento, no podrás iniciar nuevos chats ni usar algunas de las funciones.</span></li>
+            <li><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M8 11.2a5 5 0 0 1 10 0c0 4.2 1.4 5.6 1.4 5.6H6.6S8 15.4 8 11.2z" fill="none" stroke="#8d939c" stroke-width="1.6" stroke-linejoin="round"/><path d="M11 19.2a2 2 0 0 0 4 0" fill="none" stroke="#8d939c" stroke-width="1.6" stroke-linecap="round"/></svg><span>Te informaremos cuando se levanten las restricciones.</span></li>
+          </ul>
+          <div class="fono-cerrar" aria-hidden="true">Cerrar</div>
+        </div></div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec"><div class="wrap">
+    <h2>Dos puntajes, dos preguntas distintas</h2>
+    <p>Puedes usar WhatsApp bien y aun así depender de un solo canal. El test mide por separado el riesgo de tu cuenta y si podrías seguir atendiendo si se cae.</p>
+    <div class="dos">
+      <div class="a"><h3>Riesgo de bloqueo</h3><p>Cómo escribes, a quién y con qué permiso. Revisa tu forma de usar WhatsApp frente a su política de mensajes.</p></div>
+      <div class="b"><h3>Capacidad de recuperación</h3><p>Dónde están tus clientes si la cuenta se cae, cómo les avisas y qué tan protegida está tu línea.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sec franja"><div class="wrap">
+    <h2>Cómo funciona</h2>
+    <ol class="pasos">
+      <li><div><b>Responde ${PREGUNTAS.length} preguntas.</b> Unos 2 minutos. Sin jerga.</div></li>
+      <li><div><b>Mira tus dos semáforos</b> y las 3 acciones que más pesan en tu caso.</div></li>
+      <li><div><b>Sigue tú o con Marian.</b> Kit para hacerlo tú, o autorización escrita si entra a tu cuenta.</div></li>
+    </ol>
+    <div class="row"><a class="btn btn-dark" href="#/test">Empezar el test</a></div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <h2>Qué incluye</h2>
+    <div class="cards">
+      <div class="card gratis"><span class="etiqueta">Gratis</span><h3>Test de 2 minutos</h3><p>Tus dos semáforos y las 3 acciones más importantes.</p><a class="btn btn-dark" href="#/test">Hacer el test</a></div>
+      <div class="card"><h3>Kit de uso seguro</h3><p>Incluye la guía rápida, la hoja de contactos y el protocolo de emergencia para imprimir.</p>${linkBtn(withUtm(CONFIG.guiaUrl,'portada'),'Obtén tu kit','btn-dark')}</div>
+    </div>
+  </div></section>
+
+  <section class="sec franja"><div class="wrap">
+    <h2>Si quieres que lo haga Marian</h2>
+    <p>Antes de entrar a tu cuenta se firma una autorización escrita.</p>
+    <div class="cards">${serviciosHTML(['auditoria','respaldo','bloqueo'])}</div>
+    <div class="row"><button class="btn btn-primary" data-action="wa-hola" type="button">Escribirle a Marian</button></div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="sobre"><div><h3>Quién lo hizo</h3><p style="margin-bottom:0">${esc(CONFIG.sobre)}</p></div></div>
+  </div></section>
+
+  <section class="sec"><div class="wrap faq">
+    <h2>Preguntas frecuentes</h2>
+    ${faq.map(([q,a])=>`<details><summary><span>${q}</span></summary><div class="items"><p style="margin:0">${a}</p></div></details>`).join('')}
+  </div></section>`;
+}
+
+function viewTest(){
+  if(state.step<0) return viewCtx();
+  if(state.step>=PREGUNTAS.length) return viewLead();
+  const q=PREGUNTAS[state.step]; const sel=state.answers[q.id];
+  const pct=Math.round(state.step/PREGUNTAS.length*100);
+  return `<section class="narrow sec">
+    <p class="paso">${BLOQUES[q.bloque].parte}</p>
+    <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="${PREGUNTAS.length}" aria-valuenow="${state.step}" aria-label="Progreso del test"><i style="width:${pct}%"></i></div>
+    <p class="small muted" aria-live="polite">Pregunta ${state.step+1} de ${PREGUNTAS.length}</p>
+    <fieldset class="q">
+      <legend>${q.texto}</legend>
+      <p class="ayuda">${q.ayuda}</p>
+      <div class="opts">${q.opciones.map((o,i)=>`<label class="opt"><input type="radio" name="q" value="${i}" ${sel===i?'checked':''}><span>${o.t}</span></label>`).join('')}</div>
+    </fieldset>
+    <div class="row">
+      <button class="btn btn-ghost" style="color:var(--indigo)" data-action="prev" type="button">Atrás</button>
+      <button class="btn btn-dark" data-action="next" type="button" id="q-next" ${sel===undefined?'hidden':''}>Siguiente</button>
+    </div>
+  </section>`;
+}
+
+function viewCtx(){
+  const vols=[['bajo','Menos de 50'],['medio','Entre 50 y 300'],['alto','Más de 300']];
+  return `<section class="narrow sec">
+    <p class="paso">Antes de empezar</p>
+    <h1>Datos de tu negocio</h1>
+    <p>No suman puntos. Sirven para el respaldo que te sugerimos.</p>
+    <form id="f-ctx" class="form">
+      <label>Nombre de tu negocio (opcional)
+        <input name="negocio" type="text" maxlength="80" value="${esc(state.ctx.negocio)}" autocomplete="organization"></label>
+      <fieldset><legend style="font-weight:500;font-size:.95rem;margin-bottom:.5rem">¿Cuántas conversaciones nuevas recibes al mes?</legend>
+        <div class="opts" style="margin-top:0">${vols.map(([v,t])=>`<label class="opt"><input type="radio" name="volumen" value="${v}" ${state.ctx.volumen===v?'checked':''}><span>${t}</span></label>`).join('')}</div>
+      </fieldset>
+      <label>¿Cuántas citas, entregas o pedidos dependen de WhatsApp en un día normal?
+        <input name="citas" type="number" min="0" max="500" inputmode="numeric" value="${esc(state.ctx.citas)}"></label>
+      <div><button class="btn btn-primary" type="submit">Empezar el test</button></div>
+    </form>
+  </section>`;
+}
+
+function viewLead(){
+  const envia=!!CONFIG.submitEndpoint;
+  const intro=envia
+    ? 'Déjanos dónde enviártelo. Verás tus dos semáforos ahora mismo y recibirás una copia en tu correo.'
+    : 'En la siguiente pantalla verás tus dos semáforos. Las respuestas quedan en este dispositivo. No se envía copia por correo.';
+  const campos=envia?`<label>Tu nombre<input name="nombre" type="text" required maxlength="80" autocomplete="name"></label>
+      <label>Tu correo<input name="correo" type="email" required maxlength="120" autocomplete="email" inputmode="email"></label>
+      <label>Tu WhatsApp (opcional)<input name="whatsapp" type="tel" maxlength="25" autocomplete="tel" inputmode="tel" placeholder="Con código de país"></label>
+      <div class="trampa" aria-hidden="true"><label>No llenar este campo<input name="web" type="text" tabindex="-1" autocomplete="off"></label></div>
+      <label class="check"><input name="consentimiento" type="checkbox" required><span>${esc(CONFIG.textoConsentimiento)}</span></label>`:'';
+  const primario=envia
+    ? `<button class="btn btn-primary" type="submit" id="lead-btn">Ver mi resultado y recibir copia</button>`
+    : `<button class="btn btn-primary" data-action="skip-lead" type="button">Ver mi resultado sin dejar mis datos</button>`;
+  return `<section class="narrow sec">
+    <p class="paso">Último paso</p>
+    <div class="prog" aria-hidden="true"><i style="width:100%"></i></div>
+    <h1>Tu resultado está listo</h1>
+    <p>${intro}</p>
+    <form id="f-lead" class="form" novalidate>
+      ${campos}
+      <p class="err" id="lead-err" role="alert"></p>
+      <div class="row" style="margin-top:0">
+        <button class="btn btn-ghost" style="color:var(--indigo)" data-action="prev" type="button">Atrás</button>
+        ${primario}
+        ${envia?`<button class="btn btn-ghost" style="color:var(--indigo)" data-action="skip-lead" type="button">Ver mi resultado sin dejar mis datos</button>`:''}
+      </div>
+    </form>
+  </section>`;
+}
+
+function textoResumen(){
+  const r=state.result;
+  const neg=state.ctx.negocio?` Mi negocio: ${state.ctx.negocio}.`:'';
+  return `Hola Marian, hice el test del Protocolo de Uso Seguro. Riesgo de bloqueo: ${NIVEL[r.riesgo.nivel]} (${r.riesgo.pct}%). Capacidad de recuperación: ${NIVEL[r.recuperacion.nivel]} (${r.recuperacion.pct}%).${neg} Me interesa: ${CONFIG.services[r.servicio].titulo}.`;
+}
+
+
+function viewResultado(){
+  if(!state.result){location.hash='#/test';return '';}
+  const r=state.result; const n=Number(state.ctx.citas)||0; const sv=CONFIG.services[r.servicio];
+  const c3=PREGUNTAS.find(q=>q.id==='C3').opciones[state.answers.C3].pts;
+  const cita=n===1?'cita':'citas';
+  const escenario = n===0
+    ? 'Si tu cuenta se cae, tu respaldo y tus avisos de emergencia deciden qué tan rápido vuelves a atender.'
+    : c3===2 ? `Con ${n} ${cita} en el día, ya tendrías cómo avisar a cada persona. Practica tu plan B una vez para medir cuánto tardarías.`
+    : c3===1 ? `Con ${n} ${cita} en el día, podrías avisar a algunas personas, pero no a todas. Las demás se quedarían esperando.`
+    : `Con ${n} ${cita} en el día, hoy no tendrías cómo avisar a ninguna por otro medio. Empieza por reunir un correo o un teléfono alterno de cada cliente con cita.`;
+  const card=(k,titulo)=>{const x=r[k];return `<article class="sem-card nivel-${x.nivel}">${semaforo(x.nivel)}<div><h2 style="font-size:1.3rem">${titulo}</h2><p class="nivel">${NIVEL[x.nivel]}<span>${x.pct}%</span></p><p>${LECTURA[k][x.nivel]}</p>${x.forzado?`<p class="forzado">${x.forzado}</p>`:''}</div></article>`;};
+  return `<section class="wrap sec">
+    <h1>Tus dos semáforos</h1>
+    ${state.sendStatus==='error'?`<p class="forzado" style="max-width:64ch">No pudimos enviar tu resultado. Puedes verlo aquí y escribirle a Marian por WhatsApp con el botón de abajo.</p>`:''}
+    <div class="sems">${card('riesgo','Riesgo de bloqueo')}${card('recuperacion','Capacidad de recuperación')}</div>
+
+    <div class="caja destacada">
+      <h2>Tus acciones más importantes</h2>
+      ${r.acciones.length?`<ol>${r.acciones.map(a=>`<li>${a.texto}</li>`).join('')}</ol>`:'<p>No encontramos acciones urgentes. Sigue revisando la calidad de tus mensajes cada semana.</p>'}
+    </div>
+
+    <div class="caja">
+      <h2>Tu escenario de las 5 am</h2>
+      <p>${escenario}</p>
+      <p><b>Frecuencia de respaldo sugerida para tu volumen:</b> ${FRECUENCIA[state.ctx.volumen]} <span class="small muted">(sugerencia de trabajo, ajústala a tu negocio)</span></p>
+    </div>
+
+    <h2>Tus siguientes pasos</h2>
+    <div class="cards">
+      <div class="card"><h3>Kit de uso seguro</h3><p>Incluye la guía rápida, la hoja de contactos y el protocolo de emergencia para imprimir.</p>${linkBtn(withUtm(CONFIG.guiaUrl,'resultado'),'Obtén tu kit','btn-dark')}</div>
+    </div>
+
+    <div class="caja rosa">
+      <h2>${sv.titulo}</h2>
+      <p>${sv.texto}${sv.price?` <b>${esc(sv.price)}</b>`:''}</p>
+      <div class="row no-print">
+        <button class="btn btn-primary" data-action="wa-result" type="button">Enviar mi resultado a Marian por WhatsApp</button>
+      </div>
+    </div>
+
+    <div class="row no-print">
+      <button class="btn btn-ghost" style="color:var(--indigo)" data-action="print" type="button">Guardar mi resultado en PDF</button>
+      <button class="btn btn-ghost" style="color:var(--indigo)" data-action="restart" type="button">Repetir el test</button>
+    </div>
+    ${nadiePuede()}
+    <p class="nota">Este resultado es una autoevaluación basada en la política pública de WhatsApp Business. Sirve para orientarte, no para asegurar que tu cuenta no será limitada.</p>
+  </section>`;
+}
+
+/* ---------- Si te bloquean ---------- */
+function nadiePuede(){
+  return `<div class="caja"><h2>Lo que nadie puede prometer</h2>
+    <ul>
+      <li>Que WhatsApp no limite, suspenda o termine una cuenta. Decide a su criterio y con lo que reportan los usuarios.</li>
+      <li>Que reactive una cuenta bloqueada, ni en cuánto tiempo.</li>
+      <li>Que este protocolo elimine el riesgo. Ayuda a reducirlo.</li>
+      <li>Que el respaldo proteja la cuenta. Protege a tu negocio para que siga atendiendo.</li>
+    </ul></div>`;
+}
+
+const TIPOS_BLOQUEO=[
+ {id:'restringida', t:'El aviso dice que mi cuenta está restringida, o que podría restringirse pronto'},
+ {id:'temporal', t:'Un aviso de suspensión temporal, con un contador de tiempo'},
+ {id:'revision', t:'El aviso dice “Cuenta en revisión”'},
+ {id:'permanente-btn', t:'El aviso dice que la cuenta no puede usar WhatsApp y aparece el botón Solicitar revisión'},
+ {id:'permanente-sin', t:'El aviso dice que la cuenta no puede usar WhatsApp y no aparece ninguna opción de revisión'},
+ {id:'numero', t:'Compré o estrené un número y ya aparece bloqueado'},
+ {id:'api', t:'Uso la API y recibí una advertencia o restricción en Meta Business'},
+ {id:'otro', t:'No lo tengo claro, o veo otro aviso'}
+];
+
+function planBBloque(){
+  return `<div class="caja rosa"><h3>En paralelo, desde la primera hora</h3>
+    <p>Abre tu respaldo de clientes y citas, avisa por <b>llamada directa o SMS</b> (no por WhatsApp) y publica un aviso en tus redes y en Google Business. Tu atención no puede depender de recuperar esa cuenta. Los textos de aviso están en la <a href="#/recursos">guía rápida</a> y en la hoja de contactos.</p>
+    <p class="small">No uses otro número de WhatsApp para escribir en masa a quienes no te dieron permiso por ese medio: puede generar otro bloqueo.</p></div>`;
+}
+
+function guiaBloqueo(id){
+  const apel='Hola, equipo de WhatsApp. Mi número es +[código de país y número]. Uso WhatsApp para [tipo de negocio] y atiendo a clientes que me escriben o que me dieron permiso. Si mi cuenta fue limitada por un error o por una práctica que no conocía, ya revisé la política de mensajes y la aplico. Les pido por favor que revisen mi caso. Gracias.';
+  const apelHTML=`<h3 style="margin-top:1.2rem">Texto de ejemplo para la solicitud</h3>
+    <textarea class="copybox" id="t-apel" readonly>${esc(apel)}</textarea>
+    <p class="small muted">Cámbialo para que describa solo lo que es cierto en tu caso. Una sola solicitud bien explicada es mejor que varias. Cada solicitud revisa un solo número.</p>
+    <div class="row" style="margin:.4rem 0 1rem"><button class="btn btn-ghost" style="color:var(--indigo)" data-action="copy" data-target="t-apel" type="button">Copiar texto</button></div>`;
+  const noPagar='<li><b>No pagues a nadie que ofrezca recuperar tu cuenta.</b> Solo WhatsApp puede reactivarla. Quien promete lo contrario suele buscar tu dinero o tus datos.</li>';
+  let h='';
+  if(id==='restringida') h=`<div class="caja destacada"><h2>Cuenta restringida</h2>
+    <p>Suele indicar señales de spam o de mensajes automáticos o masivos. Es distinto de un bloqueo.</p>
+    <ol>
+      <li><b>No hay que hacer nada especial:</b> la restricción termina sola al pasar el tiempo indicado. Mientras tanto puedes seguir hablando con tus contactos previos.</li>
+      <li><b>No intentes crear chats o grupos nuevos</b> para esquivarla.</li>
+      <li><b>Revisa tus prácticas:</b> mensajes iguales a muchas personas, contactos que no te conocían y herramientas no oficiales.</li>
+      ${noPagar}
+    </ol></div>${planBBloque()}`;
+  else if(id==='temporal') h=`<div class="caja destacada"><h2>Suspensión temporal</h2>
+    <p>Suele indicar que WhatsApp vio algo que pudo infringir sus normas. Que sea temporal no asegura que no vuelva a ocurrir.</p>
+    <ol>
+      <li><b>Espera a que termine el contador.</b> No hay información oficial que indique que reinstalar la app ayude, así que evita hacerlo mientras tanto.</li>
+      <li><b>Revisa si usas una versión no oficial</b> de WhatsApp, una app de terceros para programar o enviar mensajes, o una herramienta que conecta por código QR. Si es así, vuelve a la app oficial: seguir con ellas puede llevar a una suspensión definitiva.</li>
+      <li><b>Revisa qué pasó antes del aviso:</b> mensajes iguales a muchas personas, contactos que no te conocían o personas que pudieron reportarte.</li>
+      ${noPagar}
+    </ol></div>${planBBloque()}`;
+  else if(id==='revision') h=`<div class="caja destacada"><h2>Cuenta en revisión</h2>
+    <p>WhatsApp está analizando la actividad asociada al número para comprobar que cumple sus condiciones. El resultado y el tiempo dependen de WhatsApp.</p>
+    <ol>
+      <li><b>Espera sin hacer cambios.</b> No hagas varias solicitudes ni instales aplicaciones para “destrabar” la cuenta.</li>
+      <li><b>Revisa tus prácticas</b> mientras tanto: permiso de tus contactos, mensajes repetidos y apps no oficiales.</li>
+      ${noPagar}
+    </ol></div>${planBBloque()}`;
+  else if(id==='permanente-btn') h=`<div class="caja destacada"><h2>La cuenta no puede usar WhatsApp, con opción de revisión</h2>
+    <p>Ese botón es el camino oficial. WhatsApp indica que la mayoría de las revisiones se resuelve en unas 24 horas, pero es una referencia, no una promesa, y no siempre se aprueba.</p>
+    <ol>
+      <li><b>Envía una sola solicitud de revisión</b> desde ese botón, dentro de la app.</li>
+      <li><b>Explica lo que pasó con honestidad y en pocas líneas.</b> Abajo tienes un texto de ejemplo.</li>
+      <li><b>Espera la respuesta.</b> Mientras la cuenta esté bloqueada, no puedes acceder al historial ni a la copia de seguridad: la copia solo se recupera si se desbloquea ese mismo número.</li>
+      ${noPagar}
+      <li><b>Si te la reactivan,</b> vuelve a verificar tu número en la app y corrige lo que pudo causar el aviso antes de volver a enviar mensajes.</li>
+    </ol>${apelHTML}</div>${planBBloque()}`;
+  else if(id==='permanente-sin') h=`<div class="caja destacada"><h2>La cuenta no puede usar WhatsApp, sin opción de revisión</h2>
+    <p>WhatsApp indica que, si no aparece la opción de revisión, el bloqueo es <b>definitivo y no se puede apelar</b>. Escribir por otras vías o usar la cuenta de otra persona no cambia la decisión.</p>
+    <ol>
+      <li><b>Asume que tu atención no dependerá de esa cuenta.</b> Activa tu plan B hoy: llamada directa y SMS a tus clientes actuales.</li>
+      ${noPagar}
+      <li><b>Antes de registrar otra cuenta de negocio, consulta.</b> Los Términos de la app WhatsApp Business indican que, si terminan tu cuenta, no debes crear otra cuenta de negocio sin permiso escrito de WhatsApp.</li>
+      <li><b>Si crees que hubo un error,</b> los Términos prevén presentar una queja en el formulario oficial de contacto. El Centro de ayuda advierte que no acelera ni cambia la decisión, así que úsalo sin esperar un cambio.</li>
+      <li><b>Si compras una línea nueva,</b> revisa que el número no arrastre un bloqueo del dueño anterior.</li>
+    </ol></div>${planBBloque()}`;
+  else if(id==='numero') h=`<div class="caja destacada"><h2>Número nuevo con aviso de bloqueo</h2>
+    <p>Puede deberse a que el dueño anterior del número infringió las condiciones. No significa que tu uso haya causado el aviso.</p>
+    <ol>
+      <li><b>Pide la revisión</b> con el botón <b>Solicitar revisión</b>, si aparece.</li>
+      <li><b>Si se levanta,</b> vuelve a verificar el número.</li>
+      <li><b>Pide el historial de la línea</b> a tu operadora cuando la compres o la actives, si es posible.</li>
+      ${noPagar}
+    </ol></div>${planBBloque()}`;
+  else if(id==='api') h=`<div class="caja destacada"><h2>Cuenta de la API con advertencia o restricción</h2>
+    <p>Según la página de aplicación de políticas para desarrolladores de Meta (actualizada el 21 de mayo de 2026), el proceso es gradual: advertencia, restricción de plantillas por 1 o 3 días, restricción total por 5, 7 o 30 días, bloqueo indefinido y baja definitiva. En casos graves la baja es inmediata.</p>
+    <ol>
+      <li><b>Entra a Business Support Home</b> en Meta Business Suite (Todas las herramientas, Business Support Home, Resumen de la cuenta). El soporte de WhatsApp no atiende estos casos.</li>
+      <li><b>Elige la infracción y pulsa Solicitar revisión.</b> Meta indica que suele responder en 24 a 48 horas. Es una referencia, no una promesa.</li>
+      <li><b>No todas las infracciones de spam se pueden apelar.</b> En esos casos hay que esperar a que termine la restricción.</li>
+      <li><b>Mantén al día los correos de todos los administradores</b> del portafolio: ahí llegan los avisos.</li>
+      ${noPagar}
+    </ol></div>${planBBloque()}`;
+  else if(id==='otro') h=`<div class="caja destacada"><h2>Primero, identifica el aviso</h2>
+    <p>Los avisos cambian con el tiempo y según el tipo de cuenta, y cada uno lleva a pasos distintos.</p>
+    <ol>
+      <li><b>Toma una captura del aviso completo</b> y guárdala fuera de WhatsApp.</li>
+      <li><b>No reinstales ni hagas varias solicitudes</b> mientras tanto.</li>
+      ${noPagar}
+    </ol>
+    <p>Puedes enviarme la captura con el botón de abajo para orientarte.</p></div>${planBBloque()}`;
+  return h;
+}
+
+function bloqueoCore(){
+  const sel=state.bloqueoTipo||'';
+  return `<fieldset class="q"><legend style="font-size:1.3rem">¿Qué aviso ves en tu WhatsApp?</legend>
+    <p class="ayuda">Elige el que más se parezca. Lo que conviene hacer cambia según el caso.</p>
+    <div class="opts">${TIPOS_BLOQUEO.map(o=>`<label class="opt"><input type="radio" name="btipo" value="${o.id}" ${sel===o.id?'checked':''}><span>${o.t}</span></label>`).join('')}</div></fieldset>
+    <div id="b-out" aria-live="polite" style="margin-top:1.4rem">${guiaBloqueo(sel)}</div>`;
+}
+
+function viewBloqueo(){
+  return `<section class="narrow sec">
+    <h1>Si ya te bloquearon</h1>
+    <p>Elige el aviso que ves. Nadie puede asegurar que WhatsApp reactive una cuenta. Esta guía ordena los pasos y te ayuda a seguir atendiendo mientras tanto.</p>
+    ${bloqueoCore()}
+    ${nadiePuede()}
+    <details><summary><span>Preguntas para entender qué pudo pasar</span></summary>
+      <div class="items">
+        <p class="small muted">No son para culparte. Sirven para corregir lo que se pueda antes de volver a usar la cuenta.</p>
+        <ol>
+          <li>¿Usas WhatsApp normal, la app WhatsApp Business o la API?</li>
+          <li>¿Usas una versión modificada de WhatsApp, una app de terceros o una herramienta que conecta por código QR?</li>
+          <li>¿Cuántos mensajes iguales enviaste en los días antes del aviso?</li>
+          <li>¿Escribiste a personas que te escribieron primero o te dieron permiso, o a contactos que no te conocían?</li>
+          <li>¿Recibiste mensajes de personas molestas? ¿Crees que algunas pudieron reportarte?</li>
+          <li>¿El número es nuevo? ¿Quién lo tuvo antes?</li>
+        </ol>
+      </div></details>
+    <div class="row no-print">
+      <a class="btn btn-ghost" style="color:var(--indigo)" href="https://www.whatsapp.com/contact/noclient?lang=es_LA" target="_blank" rel="noopener noreferrer">Formulario oficial de WhatsApp</a>
+      <button class="btn btn-primary" data-action="wa-bloqueo" type="button">Pedir acompañamiento con la revisión</button>
+    </div>
+    <p class="nota">Mi acompañamiento consiste en orientarte con la solicitud de revisión y con los pasos técnicos. No puedo asegurar que WhatsApp reactive la cuenta ni en cuánto tiempo. Antes de entrar a tu cuenta firmamos una autorización escrita.</p>
+  </section>`;
+}
+
+/* ---------- Recursos y privacidad ---------- */
+function viewRecursos(){
+  return `<section class="wrap sec">
+    <h1>Recursos</h1>
+    <p>Lo que puedes usar tú, y lo que Marian puede hacer si lo pides.</p>
+    <div class="cards">
+      <div class="card gratis"><span class="etiqueta">Gratis</span><h2>Test de 2 minutos</h2><p>Tus dos semáforos y las 3 acciones más importantes.</p><a class="btn btn-dark" href="#/test">Hacer el test</a></div>
+      <div class="card"><h2>Kit de uso seguro</h2><p>Incluye la guía rápida, la hoja de contactos y el protocolo de emergencia para imprimir.</p>${linkBtn(withUtm(CONFIG.guiaUrl,'recursos'),'Obtén tu kit','btn-dark')}</div>
+    </div>
+    <h2>Si quieres que lo haga Marian</h2>
+    <div class="cards">${serviciosHTML(['auditoria','respaldo','bloqueo'])}</div>
+    <div class="row"><button class="btn btn-primary" data-action="wa-hola" type="button">Escribirle a Marian</button></div>
+    ${nadiePuede()}
+  </section>`;
+}
+
+function viewPrivacidad(){
+  const contacto = CONFIG.submitEndpoint
+    ? `<li><b>Si dejas tus datos:</b> tu nombre, tu correo, tu WhatsApp si lo escribes, el nombre de tu negocio si lo escribes, tus respuestas y tu resultado. Se usan para enviarte ese resultado y, solo si lo aceptaste, para escribirte sobre este tema. Puedes pedir que te retire cuando quieras.</li>`
+    : '';
+  return `<section class="narrow sec">
+    <h1>Aviso de privacidad</h1>
+    <h2>Quién es responsable</h2>
+    <p>Marian Montilla (Bellarulox). Contacto para temas de privacidad: ${esc(CONFIG.correoPrivacidad)}.</p>
+    <h2>Qué datos se tratan</h2>
+    <ul>
+      <li><b>Tus respuestas al test.</b> Quedan en tu navegador, en este dispositivo, para no perderlas si cierras la página. No incluyen tu nombre ni tu correo.</li>
+      <li><b>Si escribes a Marian por WhatsApp:</b> tu nombre, correo, negocio, país y ciudad van en el mensaje que WhatsApp abre en tu teléfono, junto con el resultado y las respuestas si ya hiciste el test. Este sitio no guarda esos datos.</li>
+      ${contacto}
+    </ul>
+    <h2>Para qué se usan</h2>
+    <ul>
+      <li>Mostrarte tus dos semáforos y las acciones de tu resultado en esta pantalla.</li>
+      <li>Si eliges Enviar a WhatsApp, armar el mensaje que se abre en tu aplicación.</li>
+      ${CONFIG.submitEndpoint?'<li>Si dejas tus datos y das tu consentimiento, enviarte ese resultado y responder tus consultas.</li>':''}
+    </ul>
+    <h2>Dónde se guardan y por cuánto tiempo</h2>
+    <p>Tus respuestas permanecen en tu navegador hasta que borres los datos del sitio o repitas el test. No hay una copia en un servidor de este sitio.</p>
+    <p>No vendemos tus datos. El sitio se publica con Vercel, que entrega los archivos de la página. Las letras se cargan desde Google Fonts. Hoy no hay un servicio de correo conectado a este test.</p>
+    <h2>Tus derechos</h2>
+    <p>Puedes pedir acceso a tus datos, corregirlos, eliminarlos u oponerte a su uso escribiendo a ${esc(CONFIG.correoPrivacidad)}.</p>
+    <h2>Lo que esta herramienta no hace</h2>
+    <p>No es una herramienta oficial de WhatsApp ni de Meta, no asegura que una cuenta no sea limitada o bloqueada, y no reemplaza el asesoramiento legal.</p>
+    <div class="row"><a class="btn btn-ghost" style="color:var(--indigo)" href="#/">Volver al inicio</a></div>
+  </section>`;
+}
+
+/* =====================================================================
+   RUTAS Y EVENTOS
+   ===================================================================== */
+const TITULOS={home:'Protocolo de Uso Seguro | Bellarulox',test:'Test de dos puntajes | Protocolo de Uso Seguro',resultado:'Tu resultado | Protocolo de Uso Seguro',bloqueo:'Si ya te bloquearon | Protocolo de Uso Seguro',recursos:'Recursos | Protocolo de Uso Seguro',privacidad:'Aviso de privacidad | Protocolo de Uso Seguro'};
+function route(){
+  const r=(location.hash.replace(/^#\/?/,'')||'home').split('?')[0];
+  const views={home:viewHome,test:viewTest,resultado:viewResultado,bloqueo:viewBloqueo,recursos:viewRecursos,privacidad:viewPrivacidad};
+  const key=views[r]?r:'home';
+  const html=views[key]();
+  if(html===''&&key==='resultado') return;
+  app.innerHTML=html; document.title=TITULOS[key];
+  document.querySelectorAll('.nav a').forEach(a=>{
+    if(a.getAttribute('href')==='#/'+key) a.setAttribute('aria-current','page');
+    else a.removeAttribute('aria-current');
+  });
+  window.scrollTo(0,0); app.focus({preventScroll:true});
+}
+window.addEventListener('hashchange',route);
+function go(step){state.step=step;route();}
+
+// Las flechas del teclado también disparan "change" en los radios: solo se avanza solo con clic o toque.
+let lastPointer=0;
+app.addEventListener('pointerdown',()=>{lastPointer=Date.now();});
+app.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.name==='btipo'){state.bloqueoTipo=t.value;$('#b-out').innerHTML=guiaBloqueo(t.value);return;}
+  if(t.name==='q'){
+    const q=PREGUNTAS[state.step]; state.answers[q.id]=Number(t.value); persist();
+    const next=$('#q-next'); if(next) next.hidden=false;
+    if(Date.now()-lastPointer<1500) setTimeout(()=>go(state.step+1),220);
+  }
+});
+
+app.addEventListener('submit',async e=>{
+  e.preventDefault(); const f=e.target;
+  if(f.id==='f-ctx'){
+    const d=new FormData(f);
+    state.ctx={negocio:(d.get('negocio')||'').trim(),volumen:d.get('volumen')||'medio',citas:Math.max(0,Math.min(500,Number(d.get('citas'))||0))};
+    persist(); go(0); return;
+  }
+  if(f.id==='f-lead'){
+    const d=new FormData(f); const err=$('#lead-err'); err.textContent='';
+    const nombre=(d.get('nombre')||'').trim(), correo=(d.get('correo')||'').trim();
+    if(!nombre){err.textContent='Escribe tu nombre.';return;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)){err.textContent='Escribe un correo válido.';return;}
+    if(!d.get('consentimiento')){err.textContent='Necesitamos tu consentimiento para enviarte el resultado.';return;}
+    const btn=$('#lead-btn'); btn.disabled=true; btn.textContent='Preparando tu resultado';
+    state.result=calcular(); persist();
+    const qs=new URLSearchParams(location.search); const utm={}; ['utm_source','utm_medium','utm_campaign'].forEach(k=>{if(qs.get(k))utm[k]=qs.get(k);});
+    const payload={
+      version:CONFIG.version, fecha:new Date().toISOString(), origen:location.origin+location.pathname, utm,
+      nombre, correo, whatsapp:(d.get('whatsapp')||'').trim(), negocio:state.ctx.negocio,
+      volumen:state.ctx.volumen, citasPorDia:state.ctx.citas,
+      puntajes:{riesgo:{pct:state.result.riesgo.pct,nivel:state.result.riesgo.nivel},recuperacion:{pct:state.result.recuperacion.pct,nivel:state.result.recuperacion.nivel}},
+      banderas:state.result.flags, accionesPrioritarias:state.result.acciones.map(a=>a.id), servicioSugerido:state.result.servicio,
+      respuestas:state.result.detalle,
+      consentimiento:{aceptado:true,texto:CONFIG.textoConsentimiento,fecha:new Date().toISOString()}
+    };
+    if(d.get('web')){state.sendStatus='ok';}
+    else{const r=await submitLead(payload); state.sendStatus=r.ok?'ok':'error';}
+    location.hash='#/resultado'; route(); return;
+  }
+});
+document.getElementById('f-wa').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target; const err=$('#wa-err'); err.textContent='';
+  const c={
+    nombre:(f.nombre.value||'').trim(),
+    correo:(f.correo.value||'').trim(),
+    negocio:(f.negocio.value||'').trim(),
+    pais:(f.pais.value||'').trim(),
+    ciudad:(f.ciudad.value||'').trim()
+  };
+  if(!c.nombre){err.textContent='Escribe tu nombre.';f.nombre.focus();return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.correo)){err.textContent='Escribe un correo válido.';f.correo.focus();return;}
+  if(!c.negocio){err.textContent='Escribe el nombre del negocio.';f.negocio.focus();return;}
+  if(!c.pais){err.textContent='Escribe el país del negocio.';f.pais.focus();return;}
+  if(!c.ciudad){err.textContent='Escribe la ciudad del negocio.';f.ciudad.focus();return;}
+  state.contacto=c;
+  $('#dlg-wa').close();
+  openWA(mensajeWhatsApp(c));
+});
+
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-action]'); if(!b) return;
+  switch(b.dataset.action){
+    case 'prev': go(Math.max(-1,state.step-1)); break;
+    case 'next': go(state.step+1); break;
+    case 'skip-lead': state.result=calcular(); persist(); state.sendStatus='skip'; location.hash='#/resultado'; route(); break;
+    case 'restart': state.answers={};state.result=null;state.step=-1;persist(); location.hash='#/test'; route(); break;
+    case 'print': window.print(); break;
+    case 'wa-result': abrirWaForm('resultado'); break;
+    case 'wa-hola': openWA('Hola Marian, vi el Protocolo de Uso Seguro y me gustaría que me ayudes con mi WhatsApp. Entiendo que nadie puede asegurar que WhatsApp no limite o bloquee una cuenta.'); break;
+    case 'wa-bloqueo': {const tp=TIPOS_BLOQUEO.find(o=>o.id===state.bloqueoTipo); openWA('Hola Marian, mi WhatsApp está bloqueado y quiero acompañamiento con la solicitud de revisión.'+(tp?' Aviso que veo: '+tp.t+'.':'')+' Entiendo que nadie puede asegurar que WhatsApp lo reactive.'); break;}
+    case 'wa-cerrar': $('#dlg-wa').close(); break;
+    case 'copy': {
+      const el=$('#'+b.dataset.target);
+      const text=el.value;
+      const manual=()=>{el.focus();el.select();toast('Selecciona el texto y cópialo manualmente.');};
+      const legacy=()=>{
+        const ta=document.createElement('textarea');
+        ta.value=text;
+        ta.setAttribute('readonly','');
+        ta.style.position='fixed';
+        ta.style.top='0';
+        ta.style.left='0';
+        ta.style.opacity='0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        let ok=false;
+        try{ok=document.execCommand('copy');}catch(err){ok=false;}
+        ta.remove();
+        return ok;
+      };
+      if(legacy()){toast('Texto copiado.');break;}
+      if(navigator.clipboard&&window.isSecureContext){
+        navigator.clipboard.writeText(text).then(()=>toast('Texto copiado.')).catch(manual);
+      }else manual();
+      break;}
+  }
+});
+
+route();
+})();
+</script>
+</body>
+</html>

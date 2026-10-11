@@ -9,6 +9,7 @@ Sitio de Marian Montilla. Vercel publica la carpeta `public`.
 - `public/podcast/`
 - `public/recursos/`
 - `public/arquitectura-b2b/`
+- `public/protocolo-uso-seguro/`: Protocolo WhatsApp. Test de un solo archivo con su carpeta `assets/`. Cabeceras de seguridad en `vercel.json`. Enlace en el sitio: `/protocolo-uso-seguro/`.
 
 Las imágenes `og-image.jpg`, `logo.png`, `marian.jpg` y `favicon.png` también viven en `public`, para que carguen desde la raíz del dominio.
 
