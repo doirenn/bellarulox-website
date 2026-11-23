@@ -1,0 +1,58 @@
+---
+export interface PriceRow {
+  title: string;
+  detail?: string;
+  price: string;
+  strike?: string;
+  renewal?: string;
+  pending?: boolean;
+  combo?: boolean;
+  badge?: string;
+}
+
+interface Props {
+  rows: PriceRow[];
+  headers: [string, string] | [string, string, string];
+}
+
+const { rows, headers } = Astro.props;
+const two = headers.length === 2;
+---
+
+<div class:list={['tabla', two && 'tabla-2']}>
+  <div class="tr th">
+    {headers.map((header) => <div>{header}</div>)}
+  </div>
+  {
+    rows.map((row) => (
+      <div class:list={['tr', row.combo && 'combo-row']}>
+        <div class="s">
+          <b>
+            {row.title}
+            {row.badge && <span class="badge">{row.badge}</span>}
+          </b>
+          {row.detail && <span>{row.detail}</span>}
+        </div>
+        <div>
+          <span class="lbl">{headers[1]}</span>
+          {row.pending ? (
+            <span class="pend">{row.price}</span>
+          ) : (
+            <span class="p">
+              {row.strike && <s>{row.strike}</s>}
+              {row.price}
+            </span>
+          )}
+        </div>
+        {
+          !two && (
+            <div class="r">
+              <span class="lbl">{headers[2]}</span>
+              {row.renewal ?? '—'}
+            </div>
+          )
+        }
+      </div>
+    ))
+  }
+</div>

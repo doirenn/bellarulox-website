@@ -203,9 +203,12 @@
     state.page = 1;
     render();
   });
-  document.getElementById('mobile-menu-btn').addEventListener('click', function () {
-    document.getElementById('mobile-menu').classList.toggle('open');
-  });
+  var menuBtn = document.getElementById('mobile-menu-btn');
+  if (menuBtn && menuBtn.getAttribute('data-menu-ready') !== '1') {
+    menuBtn.addEventListener('click', function () {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    });
+  }
 
   fetch('/hiring/ofertas.json')
     .then(function (response) { return response.json(); })

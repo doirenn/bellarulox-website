@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+import cuerpo from '../../protocolo/cuerpo.html?raw';
+import '../../styles/protocolo.css';
+
+const title = 'Protocolo de Uso Seguro para WhatsApp | Bellarulox';
+const description = 'Mide el riesgo de bloqueo de tu WhatsApp y tu capacidad de respuesta ante una interrupción. Herramienta gratuita para pequeños negocios por Bellarulox.';
+---
+
+<Base title={title} description={description} path="/protocolo-uso-seguro/">
+  <div class="pus" set:html={cuerpo} />
+  <script is:inline src="/protocolo-uso-seguro/test.js"></script>
+</Base>

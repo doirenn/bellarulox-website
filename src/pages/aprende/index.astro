@@ -1,0 +1,83 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { APPLE_PODCAST, BOOKING_URL, SPOTIFY_SHOW, YOUTUBE } from '../../data/site';
+
+const title = 'Aprende a hacerlo | Marian Montilla · Bellarulox';
+const description =
+  'Si prefieres entender cómo funciona, te enseño de forma práctica, con tus propias herramientas. Talleres, equipos, sesiones 1 a 1 y el podcast.';
+---
+
+<Base title={title} description={description} path="/aprende/">
+  <section class="phero">
+    <div class="wrap">
+      <div>
+        <p class="crumb"><a href="/">Inicio</a> &nbsp;/&nbsp; <b>Aprende</b></p>
+        <span class="eyebrow">Frente IV</span>
+        <h1>Aprende a hacerlo tú</h1>
+        <p class="lead">Si prefieres entender cómo funciona, te enseño de forma práctica, con tus propias herramientas.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+        </div>
+      </div>
+      <div class="suena">
+        <img src="/assets/loto_dorado.svg" alt="" />
+        <small>Podcast</small>
+        <q>Del Caos al Foco</q>
+        <p>Historias y conversaciones sobre negocio, IA, mentalidad y contenido.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Formatos</span><h2>Cómo puedes aprender</h2></div>
+      <div class="incluye">
+        <div class="inc">
+          <img src="/assets/estrella_ocho_puntas_dorado.svg" alt="" />
+          <h3>Talleres virtuales</h3>
+          <p>Sesiones en vivo sobre un tema puntual (por ejemplo, Google Business, WhatsApp Business, agendamiento o IA aplicada al trabajo). Las próximas fechas se publican aquí.</p>
+          <!-- TODO Marian: lista de talleres -->
+          <span class="opt">Próximas fechas · [POR DEFINIR]</span>
+        </div>
+        <div class="inc">
+          <img src="/assets/rosa_dorado.svg" alt="" />
+          <h3>Capacitaciones para equipos</h3>
+          <p>Tu personal aprende a usar WhatsApp, la agenda o el CRM de tu negocio.</p>
+          <span class="opt">Precio · Cotizar</span>
+        </div>
+        <div class="inc">
+          <img src="/assets/llave_dorado.svg" alt="" />
+          <h3>Sesiones 1 a 1</h3>
+          <p>Una sesión enfocada en un tema concreto que quieras resolver.</p>
+          <!-- TODO Marian: precio de las sesiones 1 a 1 -->
+          <span class="opt">Precio · [POR DEFINIR]</span>
+        </div>
+        <div class="inc">
+          <img src="/assets/cristales_dorado.svg" alt="" />
+          <h3>Recursos</h3>
+          <p>Guías y la Calculadora Bellarulox, para resolver algo puntual.</p>
+          <a href="/recursos/" style="display:inline-block;margin-top:14px;font-weight:700;color:var(--crema)">Ver recursos →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap para">
+      <div>
+        <span class="eyebrow">Podcast</span>
+        <h2 style="margin-top:18px">Del Caos al Foco</h2>
+        <p class="lead" style="margin-top:16px">Historias y conversaciones sobre negocio, IA, mentalidad y contenido.</p>
+      </div>
+      <div class="chips">
+        <a href={SPOTIFY_SHOW} target="_blank" rel="noopener noreferrer">Spotify</a>
+        <a href={APPLE_PODCAST} target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
+        <a href={YOUTUBE} target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="/podcast/">Escuchar en el sitio</a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

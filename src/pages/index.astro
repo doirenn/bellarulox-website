@@ -1,0 +1,181 @@
+---
+import Base from '../layouts/Base.astro';
+import ArcoCard from '../components/ArcoCard.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import AgendaLista from '../components/AgendaLista.astro';
+import { BOOKING_URL, EMAIL, SITIOS_URL, WHATSAPP_URL } from '../data/site';
+
+const title = 'Marian Montilla · Bellarulox | Tecnología que resuelve lo que te quita tiempo y clientes';
+const description =
+  'Ayudo a negocios y emprendedores a resolver con tecnología lo que les quita tiempo, clientes o tranquilidad. En Manta y online. Llamada gratis de 30 minutos.';
+---
+
+<Base title={title} description={description} path="/">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Marian Montilla · Bellarulox</span>
+        <h1>Ayudo a negocios y emprendedores a resolver con tecnología lo que hoy les quita <span class="mark">tiempo, clientes o tranquilidad.</span></h1>
+        <p class="lead">Tú me cuentas qué te frena; yo lo ordeno, lo automatizo y lo hago funcionar.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+          <a class="btn btn-ghost" href="#como-te-ayudo">Ver cómo te ayudo ↓</a>
+        </div>
+        <div class="metrics">
+          <div><b>250+</b><small>proyectos</small></div>
+          <div><b>25</b><small>países</small></div>
+          <div><b>10+</b><small>años trabajando online</small></div>
+        </div>
+      </div>
+      <div class="portrait">
+        <div class="arch"><img src="/assets/marian-cut.png" alt="Marian Montilla" /></div>
+        <div class="frame"></div>
+        <img class="moon" src="/assets/luna_estrella_dorado.svg" alt="" />
+        <div class="tag"><b>Llamada gratis</b>30 minutos para contarme qué te frena.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lema-band">
+    <div class="wrap">
+      <span>Create.</span><img src="/assets/estrella_ocho_puntas_dorado.svg" alt="" />
+      <span>Organize.</span><img src="/assets/estrella_ocho_puntas_dorado.svg" alt="" />
+      <span>Manifest.</span>
+    </div>
+  </div>
+
+  <section class="light">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Lo que veo desde afuera</span>
+        <h2>Problemas que quizás no sabías que tenías</h2>
+        <p class="lead">Muchas veces el problema no se ve desde adentro. Estas son cosas que encuentro seguido:</p>
+      </div>
+      <div class="prob-grid">
+        <div class="prob"><img src="/assets/ojo_mistico_purpura.svg" alt="" /><p><strong>«Te busqué en Google y no apareces.»</strong> O aparece una ficha de hace años, sin reseñas y con un número que ya no usas.</p></div>
+        <div class="prob"><img src="/assets/luna_creciente_purpura.svg" alt="" /><p>Cierras a las 6 de la tarde, apagas el teléfono y tus clientes <strong>no tienen cómo agendar</strong> hasta el día siguiente.</p></div>
+        <div class="prob"><img src="/assets/vela_purpura.svg" alt="" /><p>Te escriben por WhatsApp para una cita, no respondes a tiempo y <strong>el paciente se va con otro.</strong></p></div>
+        <div class="prob"><img src="/assets/cristales_purpura.svg" alt="" /><p>Tus datos están regados entre cuadernos, chats y hojas de cálculo, y <strong>no sabes cuántos clientes tuviste este mes.</strong></p></div>
+        <div class="prob"><img src="/assets/llave_purpura.svg" alt="" /><p><strong>Todo pasa por ti:</strong> responder, agendar, cobrar, recordar.</p></div>
+        <div class="prob quote"><small>Ejemplo real</small><p>Un spa cerraba a las 6 p. m. y, con el teléfono apagado, nadie podía reservar. Con una página de reservas y un mensaje de fuera de horario en WhatsApp, las citas siguen entrando de noche y amanecen listas en la agenda.</p></div>
+      </div>
+      <div class="cierre">
+        <p class="big">No es falta de esfuerzo. A veces solo hace falta que alguien lo vea desde afuera.</p>
+        <p class="ejemplo"><b>Lo que hago</b>Yo te lo muestro, te explico todo hasta que lo entiendas y lo dejo funcionando.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-te-ayudo">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Cuatro frentes</span><h2>Cómo te ayudo</h2></div>
+      <div class="frentes">
+        <ArcoCard icon="/assets/ojo_mistico_dorado.svg" numeral="I" title="Que te encuentren" text="Web de una página (también como catálogo para pedidos o reservas), Google Business y SEO local." href="/que-te-encuentren/" />
+        <ArcoCard icon="/assets/luna_creciente_dorado.svg" numeral="II" title="Que no se pierdan los mensajes ni las citas" text="WhatsApp bien configurado, agenda en línea, recordatorios y automatizaciones." href="/mensajes-y-citas/" />
+        <ArcoCard icon="/assets/llave_dorado.svg" numeral="III" title="Que tu operación no dependa de ti" text="Automatización de operaciones internas para negocios de servicios, coaches y creadores de cursos. Planes mensuales en USD." href="/operaciones/" />
+        <ArcoCard icon="/assets/loto_dorado.svg" numeral="IV" title="Aprende a hacerlo" text="Talleres virtuales, capacitaciones para equipos, sesiones 1 a 1 y el podcast Del Caos al Foco." href="/aprende/" />
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap ofertas">
+      <div class="oferta a">
+        <span class="eyebrow">Para empezar</span>
+        <h3>Revisión de tu negocio</h3>
+        <p>Reviso cómo opera tu negocio hoy (cómo te encuentran, cómo te escriben, cómo agendas, cobras y das seguimiento) y te entrego un plan concreto de qué simplificar y qué automatizar primero.</p>
+        <div class="precios">
+          <div class="precio"><small>Ecuador</small><b class="pend">desde [POR DEFINIR]</b></div>
+          <div class="precio"><small>Internacional</small><b>150 USD</b></div>
+        </div>
+        <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Quiero mi revisión</a>
+      </div>
+      <div class="oferta b">
+        <span class="eyebrow">Presencia local</span>
+        <h3>Web + Google Business + WhatsApp configurado</h3>
+        <div class="combo"><s>510 USD</s><b>350 USD</b></div>
+        <span class="ahorro">AHORRAS 160 USD</span>
+        <div class="row-btns">
+          <a class="btn btn-ghost" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Lo quiero</a>
+          <a class="btn" style="color:var(--crema);padding:0 8px;text-decoration:underline;text-underline-offset:6px" href={SITIOS_URL} target="_blank" rel="noopener noreferrer">Ver paquetes de webs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap pasos-wrap">
+      <div>
+        <span class="eyebrow">Cómo trabajo</span>
+        <h2 style="margin-top:18px">Convierto el caos de un negocio en sistemas que funcionan.</h2>
+      </div>
+      <ol class="pasos">
+        <li><span class="num">01</span><div><h4>Llamada gratis de 30 minutos</h4><p>Me cuentas qué te frena y te digo qué veo.</p></div></li>
+        <li><span class="num">02</span><div><h4>Revisión de tu negocio (opcional)</h4><p>Reviso cómo opera tu negocio y te entrego un plan concreto de qué simplificar y automatizar.</p></div></li>
+        <li><span class="num">03</span><div><h4>Propuesta clara</h4><p>Qué conviene, cuánto cuesta y cuánto tarda.</p></div></li>
+        <li><span class="num">04</span><div><h4>Lo configuro contigo</h4><p>Revisas antes de publicar.</p></div></li>
+        <li><span class="num">05</span><div><h4>Te explico todo hasta que lo entiendas</h4><p>Dentro del trabajo contratado, para que lo uses sin depender de mí.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sobre">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Sobre mí</span>
+        <blockquote style="margin-top:22px">Hago que la tecnología trabaje para tu negocio, <em>y no al revés.</em></blockquote>
+      </div>
+      <div>
+        <p style="margin-top:0;color:var(--crema)">Soy Marian Montilla. Llevo más de 10 años trabajando online con negocios de distintos países.</p>
+        <p>Mi trabajo empieza antes de que me lo pidas: veo lo que le está quitando tiempo, clientes o tranquilidad a tu negocio, te lo hago ver con ejemplos concretos y lo resuelvo con tecnología. Te explico cada paso con paciencia, sin tecnicismos. Cuando me escribes, hablas directamente conmigo.</p>
+        <div class="donde">
+          <div><b>Dónde</b>En persona en Manta. En otras ciudades de Ecuador, con cotización. Online a cualquier país.</div>
+          <div><b>Pagos</b>Tarjeta, transferencia o Deuna en Ecuador; PayPal para otros países.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><img src="/assets/divisor_fases_lunares_dorado.svg" alt="" /></div>
+
+  <section>
+    <div class="wrap duo">
+      <div class="pod">
+        <span class="eyebrow">Podcast</span>
+        <h3 style="font-size:34px;margin:14px 0 10px">Del Caos al Foco</h3>
+        <p style="color:var(--orquidea)">Historias y conversaciones sobre negocio, IA, mentalidad y contenido.</p>
+        <div class="player">
+          <div class="cover"><img src="/assets/luna_estrella_dorado.svg" alt="" /></div>
+          <div style="flex:1">
+            <div style="font-weight:600;font-size:14px">Último episodio</div>
+            <div style="font-size:12px;color:var(--orquidea)">Spotify · Apple Podcasts · YouTube</div>
+            <div class="bar"></div>
+          </div>
+        </div>
+        <a class="btn btn-ghost" style="margin-top:26px;align-self:flex-start" href="/podcast/">Escucha Del Caos al Foco</a>
+      </div>
+      <div class="news">
+        <span class="eyebrow">Newsletter</span>
+        <h3>Un correo al mes, sin relleno</h3>
+        <p>Ideas prácticas para que la tecnología trabaje para tu negocio: problemas comunes, herramientas y novedades.</p>
+        <NewsletterForm />
+        <p class="fine">Aproximadamente un correo al mes. Te das de baja cuando quieras.</p>
+      </div>
+    </div>
+  </section>
+
+  <AgendaLista />
+
+  <section class="cta-final">
+    <div class="wrap">
+      <span class="eyebrow">Hablemos</span>
+      <h2>¿Qué te está quitando tiempo, clientes o tranquilidad hoy?</h2>
+      <p class="lead">Cuéntamelo en una llamada gratis de 30 minutos, sin compromiso.</p>
+      <div class="row-btns">
+        <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+        <a class="btn btn-ghost" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Escríbeme por WhatsApp</a>
+      </div>
+      <p class="contact-line"><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+    </div>
+  </section>
+</Base>

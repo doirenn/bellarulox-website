@@ -1,0 +1,19 @@
+---
+interface Props {
+  icon: string;
+  numeral: string;
+  title: string;
+  text: string;
+  href: string;
+}
+
+const { icon, numeral, title, text, href } = Astro.props;
+---
+
+<div class="frente">
+  <img src={icon} alt="" />
+  <div class="n">{numeral}</div>
+  <h3>{title}</h3>
+  <p>{text}</p>
+  <a href={href}>Ver más →</a>
+</div>

@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+import { GUMROAD_URL } from '../../data/site';
+
+const title = 'Recursos y Calculadora Bellarulox | Marian Montilla';
+const description = 'Guías y herramientas para resolver algo puntual. Calculadora Bellarulox y recursos en Gumroad.';
+
+const piezas = [
+  { grupo: 'Dinero y precios', titulo: 'Guía para superar bloqueos mentales y cobrar por tu trabajo', texto: '¿Te cuesta poner un precio justo sin sentir culpa?', precio: '12 USD' },
+  { grupo: 'Dinero y precios', titulo: 'Guía: genera ingresos extra con poca inversión', texto: '¿Necesitas ingreso extra sin arriesgar lo poco que tienes?', precio: '15 USD' },
+  { grupo: 'Mentalidad', titulo: 'Descubriendo mi neurodivergencia como mamá', texto: '¿Sospechas que también procesas el mundo distinto?', precio: '5 USD' },
+  { grupo: 'Mentalidad', titulo: 'Curso: vacía tu mente de la rutina', texto: '¿Necesitas vaciar tu mente y encontrar tiempo perdido?', precio: '44 USD' },
+];
+---
+
+<Base title={title} description={description} path="/recursos/">
+  <section class="phero">
+    <div class="wrap">
+      <div>
+        <p class="crumb"><a href="/">Inicio</a> &nbsp;/&nbsp; <b>Recursos</b></p>
+        <span class="eyebrow">Piezas puntuales</span>
+        <h1>Guías y herramientas para resolver algo puntual</h1>
+        <p class="lead">Para cuando quieres una pieza concreta, sin un programa largo. La calculadora es gratis. El resto está en Gumroad.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href={GUMROAD_URL} target="_blank" rel="noopener noreferrer">Tienda Gumroad</a>
+          <a class="btn btn-ghost" href="#calculadora">Usar la calculadora</a>
+        </div>
+      </div>
+      <div class="suena">
+        <img src="/assets/llave_dorado.svg" alt="" />
+        <small>Herramienta</small>
+        <q>Calculadora Bellarulox</q>
+        <p>La construí para mí antes de compartirla. Calcula una tarifa por hora base.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="light" id="calculadora">
+    <div class="wrap" style="max-width:860px">
+      <div class="sec-head">
+        <span class="eyebrow">Gratis</span>
+        <h2>Calculadora Bellarulox</h2>
+        <p class="lead">Suma el ingreso que quieres y tus gastos fijos, y divídelo entre las horas que puedes facturar.</p>
+      </div>
+      <div class="calc">
+        <div><label for="calc-income">Ingreso mensual (USD)</label><input id="calc-income" type="number" value="2000" min="0" /></div>
+        <div><label for="calc-expenses">Gastos fijos (USD)</label><input id="calc-expenses" type="number" value="500" min="0" /></div>
+        <div><label for="calc-hours">Horas facturables al mes</label><input id="calc-hours" type="number" value="80" min="1" /></div>
+      </div>
+      <p class="result-line"><span>Tu tarifa hora sugerida</span><b id="calc-result">31.25 USD/h</b></p>
+      <div class="btns">
+        <a class="btn btn-primary" href={GUMROAD_URL} target="_blank" rel="noopener noreferrer">Descargar la versión completa en Gumroad</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Catálogo</span><h2>En Gumroad</h2></div>
+      <div class="productos">
+        {
+          piezas.map((pieza) => (
+            <article class="producto">
+              <span class="eyebrow" style="color:var(--purpura)">{pieza.grupo}</span>
+              <h3 style="color:var(--tinta)">{pieza.titulo}</h3>
+              <p>{pieza.texto}</p>
+              <div class="precio-linea"><span>{pieza.precio}</span><a href={GUMROAD_URL} target="_blank" rel="noopener noreferrer">Ver en Gumroad</a></div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script is:inline>
+  (function () {
+    var income = document.getElementById('calc-income');
+    var expenses = document.getElementById('calc-expenses');
+    var hours = document.getElementById('calc-hours');
+    var result = document.getElementById('calc-result');
+    function calculate() {
+      var inc = parseFloat(income.value) || 0;
+      var exp = parseFloat(expenses.value) || 0;
+      var hrs = parseFloat(hours.value) || 1;
+      result.textContent = ((inc + exp) / hrs).toFixed(2) + ' USD/h';
+    }
+    [income, expenses, hours].forEach(function (el) { el.addEventListener('input', calculate); });
+  })();
+</script>

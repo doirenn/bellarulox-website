@@ -1,0 +1,64 @@
+---
+import { BOOKING_URL, EMAIL, SITIOS_URL, SOCIALS, WHATSAPP_URL } from '../data/site';
+
+const frentes = [
+  { href: '/que-te-encuentren/', label: 'Que te encuentren' },
+  { href: '/mensajes-y-citas/', label: 'Mensajes y citas' },
+  { href: '/operaciones/', label: 'Operaciones' },
+  { href: '/aprende/', label: 'Aprende' },
+];
+
+const mas = [
+  { href: '/podcast/', label: 'Podcast' },
+  { href: '/recursos/', label: 'Recursos' },
+  { href: '/protocolo-uso-seguro/', label: 'Test WhatsApp' },
+  { href: SITIOS_URL, label: 'Webs en Manta', external: true },
+  { href: '/hiring/', label: 'Hiring' },
+];
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo"><img src="/assets/logo-fuscia.png" alt="Bellarulox" /></div>
+        <p class="foot-lema">Create. Organize. Manifest.</p>
+        <p>En persona en Manta · Online a cualquier país</p>
+        <p style="margin-top:8px">Pagos: tarjeta, transferencia o Deuna (Ecuador); PayPal para otros países.</p>
+      </div>
+      <div>
+        <h4>Cómo te ayudo</h4>
+        <ul>
+          {frentes.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </div>
+      <div>
+        <h4>Más</h4>
+        <ul>
+          {mas.map((item) => (
+            <li>
+              <a href={item.href} target={item.external ? '_blank' : undefined} rel={item.external ? 'noopener noreferrer' : undefined}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h4>Hablemos</h4>
+        <ul>
+          <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+          <li><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        </ul>
+        <div class="socials">
+          {SOCIALS.map((item) => (
+            <a href={item.href} target="_blank" rel="noopener noreferrer">{item.label}</a>
+          ))}
+        </div>
+        <a class="btn btn-primary" style="margin-top:24px;min-height:46px" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Marian Montilla · Bellarulox</span>
+      <span>Create. Organize. Manifest.</span>
+    </div>
+  </div>
+</footer>

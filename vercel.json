@@ -1,4 +1,7 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "astro",
   "trailingSlash": true,
   "headers": [
     {
@@ -17,25 +20,14 @@
     }
   ],
   "redirects": [
-    {
-      "source": "/del-caos-al-foco.html",
-      "destination": "/del-caos-al-foco/",
-      "permanent": true
-    },
-    {
-      "source": "/recursos.html",
-      "destination": "/recursos/",
-      "permanent": true
-    },
-    {
-      "source": "/sistemas.html",
-      "destination": "/arquitectura-b2b/",
-      "permanent": true
-    },
-    {
-      "source": "/sistemas",
-      "destination": "/arquitectura-b2b/",
-      "permanent": true
-    }
+    { "source": "/arquitectura-b2b", "destination": "/operaciones/", "permanent": true },
+    { "source": "/arquitectura-b2b/", "destination": "/operaciones/", "permanent": true },
+    { "source": "/del-caos-al-foco", "destination": "/aprende/", "permanent": true },
+    { "source": "/del-caos-al-foco/", "destination": "/aprende/", "permanent": true },
+    { "source": "/del-caos-al-foco.html", "destination": "/aprende/", "permanent": true },
+    { "source": "/recursos.html", "destination": "/recursos/", "permanent": true },
+    { "source": "/sistemas", "destination": "/operaciones/", "permanent": true },
+    { "source": "/sistemas/", "destination": "/operaciones/", "permanent": true },
+    { "source": "/sistemas.html", "destination": "/operaciones/", "permanent": true }
   ]
 }

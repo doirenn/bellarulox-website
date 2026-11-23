@@ -1,0 +1,110 @@
+---
+/*
+  Textos de esta página viven aquí para duplicarlos en una futura ruta /en/operations/.
+  Esa ruta no se crea todavía.
+*/
+import Base from '../../layouts/Base.astro';
+import PriceTable from '../../components/PriceTable.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { BOOKING_URL } from '../../data/site';
+
+const title = 'Operaciones y automatización con plan mensual | Marian Montilla';
+const description =
+  'Operaciones y automatización con plan mensual para coaches, creadores de cursos y negocios de servicios pequeños. Precios en USD.';
+---
+
+<Base title={title} description={description} path="/operaciones/">
+  <section class="phero">
+    <div class="wrap">
+      <div>
+        <p class="crumb"><a href="/">Inicio</a> &nbsp;/&nbsp; <b>Operaciones</b></p>
+        <span class="eyebrow">Frente III · Internacional</span>
+        <h1>Que tu operación no dependa de ti</h1>
+        <p class="lead">Operaciones y automatización con plan mensual para coaches, creadores de cursos y negocios de servicios pequeños.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+        </div>
+      </div>
+      <div class="suena">
+        <img src="/assets/llave_dorado.svg" alt="" />
+        <small>Te pasa si</small>
+        <q>Todo espera a que tú tengas tiempo.</q>
+        <p>Respondes el mismo correo diez veces por semana, tu CRM está a medias y tu plataforma de cursos necesita mantenimiento.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Resultados</span>
+        <h2>Trabajos con clientes, sin nombres</h2>
+      </div>
+      <div class="incluye">
+        <div class="inc" style="background:#fff;border-color:#E5DDE8"><img src="/assets/cristales_purpura.svg" alt="" /><h3 style="color:var(--tinta)">Soporte ordenado</h3><p style="color:rgba(23,18,29,.75)">Organicé y automaticé la bandeja de soporte de un equipo de salud en EE. UU.</p></div>
+        <div class="inc" style="background:#fff;border-color:#E5DDE8"><img src="/assets/llave_purpura.svg" alt="" /><h3 style="color:var(--tinta)">Academia migrada</h3><p style="color:rgba(23,18,29,.75)">Migré una academia online completa de Kajabi a Thinkific.</p></div>
+        <div class="inc" style="background:#fff;border-color:#E5DDE8"><img src="/assets/ojo_mistico_purpura.svg" alt="" /><h3 style="color:var(--tinta)">Sistemas con IA</h3><p style="color:rgba(23,18,29,.75)">Construí sistemas de CRM y agentes de voz con IA para clientes en Canadá.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Planes</span><h2>Planes mensuales en USD</h2></div>
+      <!-- TODO Marian: el nombre del plan de 450 USD choca con el paquete local Web Esencial. -->
+      <PriceTable
+        headers={['Plan', 'Precio', 'Tiempo']}
+        rows={[
+          {
+            title: '[POR DEFINIR]',
+            detail: 'Nombre del plan pendiente',
+            price: '450 USD/mes',
+            renewal: 'hasta 8 h',
+          },
+          {
+            title: 'Socio',
+            price: '650 USD/mes',
+            renewal: 'hasta 12 h',
+          },
+        ]}
+      />
+      <div class="incluye" style="margin-top:20px">
+        <div class="inc"><h3>Plan de 450 USD al mes</h3><p>Mantenimiento de CRM, correos y plataforma de cursos; 2 automatizaciones pequeñas; reporte mensual.</p></div>
+        <div class="inc"><h3>Socio</h3><p>Todo lo del plan de 450 USD, más 1 mejora grande al mes (por ejemplo, un agente de voz con IA o el orden del buzón de soporte) y una llamada mensual.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap ofertas" style="display:block">
+      <div class="oferta a">
+        <span class="eyebrow">Para empezar</span>
+        <h3>Revisión de tu negocio</h3>
+        <p>Reviso cómo opera tu negocio (herramientas, procesos, comunicación) y te entrego un plan concreto de qué simplificar y automatizar primero. Si después tomas un plan mensual, partimos de ahí. Antes, una llamada gratis de 30 minutos.</p>
+        <div class="precios"><div class="precio"><small>Internacional</small><b>150 USD</b></div></div>
+        <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="nota" style="color:rgba(23,18,29,.75)">No incluye redacción de textos, manejo de anuncios, migraciones completas (se cotizan aparte) ni atención en vivo en horario de EE. UU.</p>
+      <p class="nota">Pagos internacionales: PayPal u otra opción según tu país.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap pasos-wrap">
+      <div>
+        <span class="eyebrow">Cómo trabajo</span>
+        <h2 style="margin-top:18px">De la revisión a un sistema que tu equipo puede usar.</h2>
+      </div>
+      <ol class="pasos" style="border-color:transparent">
+        <li style="border-bottom-color:var(--linea)"><span class="num" style="color:var(--dorado)">01</span><div><h4 style="color:var(--hueso)">Diagnóstico</h4><p style="color:var(--orquidea)">Vemos cómo opera el negocio hoy.</p></div></li>
+        <li style="border-bottom-color:var(--linea)"><span class="num" style="color:var(--dorado)">02</span><div><h4 style="color:var(--hueso)">Diseño</h4><p style="color:var(--orquidea)">Definimos qué simplificar y qué automatizar primero.</p></div></li>
+        <li style="border-bottom-color:var(--linea)"><span class="num" style="color:var(--dorado)">03</span><div><h4 style="color:var(--hueso)">Implementación</h4><p style="color:var(--orquidea)">Dejo las piezas funcionando.</p></div></li>
+        <li style="border-bottom-color:var(--linea)"><span class="num" style="color:var(--dorado)">04</span><div><h4 style="color:var(--hueso)">Documentación</h4><p style="color:var(--orquidea)">Para que tu equipo lo use sin ti.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

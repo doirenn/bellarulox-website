@@ -1,0 +1,74 @@
+---
+import { KIT_FORM_PAGE, KIT_FORM_URL } from '../data/site';
+---
+
+<!-- TODO Marian: confirmar si este formulario de Kit (el de hiring) es el de la newsletter o hace falta otra etiqueta. -->
+<form class="form" id="newsletter-form" action={KIT_FORM_URL} method="post" novalidate>
+  <label class="sr-only" for="nl-name">Tu nombre</label>
+  <input class="field" id="nl-name" name="fields[first_name]" type="text" placeholder="Tu nombre" autocomplete="name" required />
+  <label class="sr-only" for="nl-email">Tu correo</label>
+  <input class="field" id="nl-email" name="email_address" type="email" placeholder="Tu correo" autocomplete="email" required />
+  <button class="btn btn-dark" type="submit">Suscribirme</button>
+  <p class="form-msg" id="nl-msg" role="status" hidden></p>
+</form>
+
+<script is:inline define:vars={{ KIT_FORM_PAGE }}>
+  (function () {
+    var form = document.getElementById('newsletter-form');
+    var msg = document.getElementById('nl-msg');
+    if (!form || !msg) return;
+    function show(text, ok) {
+      msg.hidden = false;
+      msg.textContent = text;
+      msg.className = 'form-msg ' + (ok ? 'ok' : 'err');
+    }
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var data = new FormData(form);
+      var name = String(data.get('fields[first_name]') || '').trim();
+      var email = String(data.get('email_address') || '').trim();
+      if (!name) {
+        show('Escribe tu nombre para suscribirte.', false);
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        show('Revisa el correo: no tiene un formato válido.', false);
+        return;
+      }
+      var button = form.querySelector('button');
+      if (button) button.disabled = true;
+      fetch(form.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (body) {
+          return { ok: res.ok, body: body };
+        });
+      }).then(function (result) {
+        if (result.ok && result.body && result.body.status === 'success') {
+          form.reset();
+          show('Listo. Revisa tu correo para confirmar la suscripción.', true);
+          return;
+        }
+        show('No pude completar la suscripción desde aquí. Puedes usar el formulario directo de Kit.', false);
+        if (!document.getElementById('nl-fallback')) {
+          var link = document.createElement('a');
+          link.id = 'nl-fallback';
+          link.href = KIT_FORM_PAGE;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = 'Abrir el formulario';
+          link.style.display = 'inline-block';
+          link.style.marginTop = '8px';
+          link.style.fontWeight = '700';
+          msg.insertAdjacentElement('afterend', link);
+        }
+      }).catch(function () {
+        show('No pude enviar el formulario. Revisa tu conexión e inténtalo de nuevo.', false);
+      }).finally(function () {
+        if (button) button.disabled = false;
+      });
+    });
+  })();
+</script>

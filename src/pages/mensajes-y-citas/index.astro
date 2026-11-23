@@ -1,0 +1,69 @@
+---
+import Base from '../../layouts/Base.astro';
+import PriceTable from '../../components/PriceTable.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { BOOKING_URL } from '../../data/site';
+
+const title = 'WhatsApp y agenda en línea para negocios en Manta | Bellarulox';
+const description =
+  'Tus clientes te escriben a cualquier hora. Que puedan agendar aunque estés en consulta, cerrada o durmiendo. WhatsApp, agenda y recordatorios en Manta.';
+---
+
+<Base title={title} description={description} path="/mensajes-y-citas/">
+  <section class="phero">
+    <div class="wrap">
+      <div>
+        <p class="crumb"><a href="/">Inicio</a> &nbsp;/&nbsp; <b>Mensajes y citas</b></p>
+        <span class="eyebrow">Frente II · Manta y Ecuador</span>
+        <h1>Que no se pierdan los mensajes ni las citas</h1>
+        <p class="lead">Tus clientes te escriben a cualquier hora. Que puedan agendar aunque estés en consulta, cerrada o durmiendo.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+        </div>
+      </div>
+      <div class="suena">
+        <img src="/assets/luna_creciente_dorado.svg" alt="" />
+        <small>El problema</small>
+        <q>Si no respondes rápido, el paciente se va con otro.</q>
+        <p>En Manta casi todo se agenda por WhatsApp. Y si la agenda está en tu cabeza o en un cuaderno, aparecen las citas dobles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">El servicio</span><h2>Qué incluye</h2></div>
+      <div class="incluye">
+        <div class="inc"><img src="/assets/ojo_mistico_dorado.svg" alt="" /><h3>Auditoría de tu WhatsApp</h3><p>Reviso cómo está configurado tu WhatsApp Business (perfil, mensajes automáticos, etiquetas, catálogo, seguridad de la cuenta) y te digo qué cambiar.</p></div>
+        <div class="inc"><img src="/assets/luna_creciente_dorado.svg" alt="" /><h3>Mensaje de fuera de horario con link para agendar</h3><p>«Ahora no estamos atendiendo. Si quieres agendar, hazlo aquí. Si prefieres hablar con alguien, te respondemos en nuestro próximo horario.»</p></div>
+        <div class="inc"><img src="/assets/llave_dorado.svg" alt="" /><h3>Asesoría para verificar tu negocio en Meta</h3><p>Te guío con los pasos y los documentos que Meta pide. La aprobación depende de Meta.</p></div>
+        <div class="inc"><img src="/assets/estrella_ocho_puntas_dorado.svg" alt="" /><h3>Agenda en línea</h3><p>Tus clientes eligen el horario libre y la cita queda bloqueada, sin choques. Puedes ponerla en tu web, tu Instagram y tu Google Business.</p></div>
+        <div class="inc"><img src="/assets/cristales_dorado.svg" alt="" /><h3>Mi sistema de agendamiento</h3><p>Ves cuántas citas tuviste, de dónde llegan y qué días se llenan.</p><span class="opt">Opcional · desde 15 USD al mes por local</span></div>
+        <div class="inc"><img src="/assets/vela_dorado.svg" alt="" /><h3>Automatizaciones y recordatorios</h3><p>Recordatorio de cita, recordatorio de pago y confirmaciones.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Precios</span><h2>Ecuador, precio de lista</h2></div>
+      <PriceTable
+        headers={['Servicio', 'Precio']}
+        rows={[
+          { title: 'Revisión de tu negocio', detail: 'Diagnóstico + plan', price: 'desde [POR DEFINIR]', pending: true },
+          { title: 'Auditoría de WhatsApp + asesoría para verificar en Meta', price: '120 USD' },
+          { title: 'Sistema de agendamiento', price: 'desde 15 USD al mes por local' },
+          { title: 'Agenda, automatizaciones y recordatorios', price: 'Cotizar según lo que necesites' },
+          { title: 'Combo Presencia local', detail: 'Web + Google Business + WhatsApp', price: '350 USD', strike: '510', combo: true, badge: 'Ahorras 160' },
+        ]}
+      />
+      <p class="nota-fuerte">No recupero números bloqueados ni garantizo que WhatsApp no limite una cuenta: eso lo decide Meta. Lo que sí hago es que tu negocio no dependa de un solo canal para recibir citas.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+        <a class="btn btn-outline-dark" href="/protocolo-uso-seguro/">Haz el test de uso seguro de WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
