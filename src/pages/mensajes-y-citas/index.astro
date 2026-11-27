@@ -2,7 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import PriceTable from '../../components/PriceTable.astro';
 import CtaBand from '../../components/CtaBand.astro';
-import { BOOKING_URL } from '../../data/site';
 
 const title = 'WhatsApp y agenda en línea para negocios en Manta | Bellarulox';
 const description =
@@ -18,7 +17,7 @@ const description =
         <h1>Que no se pierdan los mensajes ni las citas</h1>
         <p class="lead">Tus clientes te escriben a cualquier hora. Que puedan agendar aunque estés en consulta, cerrada o durmiendo.</p>
         <div class="ctas">
-          <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+          <a class="btn btn-primary" href="/agenda/?servicio=mensajes">Agenda una llamada</a>
         </div>
       </div>
       <div class="suena">
@@ -59,7 +58,7 @@ const description =
       />
       <p class="nota-fuerte">No recupero números bloqueados ni garantizo que WhatsApp no limite una cuenta: eso lo decide Meta. Lo que sí hago es que tu negocio no dependa de un solo canal para recibir citas.</p>
       <div class="btns">
-        <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+        <a class="btn btn-primary" href="/agenda/?servicio=mensajes">Agenda una llamada</a>
         <a class="btn btn-outline-dark" href="/protocolo-uso-seguro/">Haz el test de uso seguro de WhatsApp</a>
       </div>
     </div>

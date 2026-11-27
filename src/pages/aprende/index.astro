@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBand from '../../components/CtaBand.astro';
-import { APPLE_PODCAST, BOOKING_URL, SPOTIFY_SHOW, YOUTUBE } from '../../data/site';
+import { APPLE_PODCAST, SPOTIFY_SHOW, YOUTUBE } from '../../data/site';
 
 const title = 'Aprende a hacerlo | Marian Montilla · Bellarulox';
 const description =
@@ -17,7 +17,7 @@ const description =
         <h1>Aprende a hacerlo tú</h1>
         <p class="lead">Si prefieres entender cómo funciona, te enseño de forma práctica, con tus propias herramientas.</p>
         <div class="ctas">
-          <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+          <a class="btn btn-primary" href="/agenda/?servicio=aprende">Agenda una llamada</a>
         </div>
       </div>
       <div class="suena">

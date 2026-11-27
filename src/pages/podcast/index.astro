@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBand from '../../components/CtaBand.astro';
-import { APPLE_PODCAST, BOOKING_URL, SPOTIFY_EMBED, SPOTIFY_SHOW, YOUTUBE } from '../../data/site';
+import { APPLE_PODCAST, SPOTIFY_EMBED, SPOTIFY_SHOW, YOUTUBE } from '../../data/site';
 
 const title = 'Podcast Del Caos al Foco | Marian Montilla · Bellarulox';
 const description =
@@ -64,7 +64,7 @@ const jsonLd = {
     title="¿Quieres aplicarlo en tu negocio?"
     href="/aprende/"
     label="Aprende a hacerlo"
-    secondaryHref={BOOKING_URL}
+    secondaryHref="/agenda/?servicio=llamada"
     secondaryLabel="Agenda una llamada"
   />
 </Base>

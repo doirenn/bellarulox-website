@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+import HomePage from '../../components/HomePage.astro';
+import { homeOf } from '../../i18n/home';
+
+const t = homeOf('en');
+---
+<Base title={t.metaTitle} description={t.metaDescription} path="/en/">
+  <HomePage locale="en" />
+</Base>

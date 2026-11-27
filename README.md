@@ -37,6 +37,10 @@ El build deja los archivos en `dist`.
 - `/podcast/`
 - `/recursos/`
 - `/protocolo-uso-seguro/` test de WhatsApp
-- `/hiring/` feed de avisos
+- `/agenda/` llamada de 20 minutos
+- `/contacto/` formulario, sin agenda
+- `/en/` inicio en inglés
+
+`/hiring/` redirige a `/`.
 
 Redirecciones: `/arquitectura-b2b/` va a `/operaciones/` y `/del-caos-al-foco/` va a `/aprende/`.

@@ -28,6 +28,8 @@
     { "source": "/recursos.html", "destination": "/recursos/", "permanent": true },
     { "source": "/sistemas", "destination": "/operaciones/", "permanent": true },
     { "source": "/sistemas/", "destination": "/operaciones/", "permanent": true },
-    { "source": "/sistemas.html", "destination": "/operaciones/", "permanent": true }
+    { "source": "/sistemas.html", "destination": "/operaciones/", "permanent": true },
+    { "source": "/hiring", "destination": "/", "permanent": true },
+    { "source": "/hiring/", "destination": "/", "permanent": true }
   ]
 }

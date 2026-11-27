@@ -1,5 +1,4 @@
 ---
-import { BOOKING_URL } from '../data/site';
 
 interface Props {
   eyebrow?: string;
@@ -11,9 +10,9 @@ interface Props {
 }
 
 const {
-  eyebrow = 'Llamada gratis de 30 minutos',
+  eyebrow = 'Llamada gratis de 20 minutos',
   title = '¿Qué te está quitando tiempo, clientes o tranquilidad hoy?',
-  href = BOOKING_URL,
+  href = '/agenda/?servicio=llamada',
   label = 'Agenda una llamada',
   secondaryHref,
   secondaryLabel,

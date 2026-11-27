@@ -12,7 +12,7 @@ export const KIT_FORM_PAGE = 'https://deft-mover-9183.kit.com/fc551c7a63';
 
 export const SPOTIFY_SHOW = 'https://open.spotify.com/show/3yxnEvf6hurBN4opbrD7AW?si=972211759ff24026';
 export const SPOTIFY_EMBED =
-  'https://open.spotify.com/embed/show/3yxnEvf6hurBN4opbrD7AW?utm_source=generator&si=d1b76fc5bda545e9';
+  'https://open.spotify.com/embed/show/3yxnEvf6hurBN4opbrD7AW?utm_source=generator&si=c31a081db0f4400e';
 export const APPLE_PODCAST = 'https://podcasts.apple.com/cm/podcast/del-caos-al-foco/id1565590418';
 export const YOUTUBE = 'https://www.youtube.com/@MarianMOnline';
 

@@ -1,10 +1,66 @@
 # Cambios y pendientes
 
-Vista previa: https://bellarulox-web-preview.vercel.app
+Vista previa publicada (todavía sin esta ronda): https://bellarulox-web-preview.vercel.app
 
-Este archivo describe el sitio de la rama `astro-rediseno`. `main` sigue siendo el sitio que está en vivo. No mezclar esta rama hasta que Marian lo apruebe.
+Esta ronda no se desplegó. `main` sigue en vivo. No mezclar hasta que Marian lo apruebe.
 
-En todas las páginas nuevas el menú es el mismo: Inicio, Que te encuentren, Mensajes y citas, Operaciones, Aprende, y el botón «Agenda una llamada». El pie incluye los cuatro frentes, Podcast, Recursos, Test WhatsApp, Webs en Manta, Hiring, el correo, WhatsApp, las redes, «En persona en Manta · Online a cualquier país» y las formas de pago. Ya no está la barra de la comunidad ni el botón de unirse a ella. El logo es el actual (`logo-fuscia.png`). El lema es «Create. Organize. Manifest.».
+## Ronda 1, 27 nov 2026
+
+La capa visual G9 está en pausa. Marian quiere aprobar una muestra antes de cualquier cambio de estética. No hay fondo cósmico, tilt, ondas ni animaciones nuevas. Lo de abajo es contenido, estructura e idioma.
+
+Copy provisional (se puede cambiar por número): nombre «Lectura de afuera», título de Presencia local «Que te encuentren sin vivir en el teléfono», texto de Sobre mí, y el paso 05 «Acompañamiento incluido».
+
+| Ítem | Estado | Falta de Marian |
+| --- | --- | --- |
+| G1 Contraste del cuerpo | Pendiente | Es estética. Queda para la muestra visual. |
+| G2 Cortes de línea | Pendiente | Es estética. Queda para la muestra visual. |
+| G3 Quitar rayas decorativas | Pendiente | Es estética. Queda para la muestra visual. |
+| G4 Más imágenes y movimiento | Pendiente | Es estética. Queda para la muestra visual. |
+| G5 Separar secciones oscuras | Pendiente | Es estética. Queda para la muestra visual. |
+| G6 Encabezados centrados | Pendiente | Es estética. Queda para la muestra visual. |
+| G7 Idioma | Hecho | Español por defecto. Selector ES/EN en el menú. La home, /agenda/ y /contacto/ tienen inglés en /en/. El resto de páginas sigue en español y el EN de esas rutas lleva al inicio en inglés. |
+| G8 Quedarse en el sitio | Hecho en los CTA de llamada | «Agenda una llamada» abre /agenda/. «Escríbeme» abre /contacto/. Siguen fuera: paquetes de webs, Spotify, WhatsApp del pie, correo y redes. |
+| G9 Capa visual | Pendiente | En pausa hasta que Marian apruebe una muestra. Ideas anotadas, sin construir: estrellas, luna con el scroll, halo, revelado del lema, tilt y separadores con forma. |
+| I1 Foto del hero | Hecho | Foto nueva en WebP y AVIF. Sin el halo animado (eso es G9). |
+| I2 Llamada de 20 minutos en la tarjeta | Hecho | |
+| I3 Lema en español | Hecho el texto | «Crea. Organiza. Manifiesta.» En inglés: «Create. Organize. Manifest.» La banda de contraste queda para la muestra visual. |
+| I4 Título que se corta | Pendiente | Es estética (G2). |
+| I5 Hover en tarjetas | Pendiente | Es estética. |
+| I6 Contraste de los arcos | Pendiente | Es estética. |
+| I7 Centrar Cómo te ayudo | Pendiente | Es estética (G6). |
+| I8 Nombre de la revisión | Hecho, copy provisional | «Lectura de afuera». Falta el visto bueno. |
+| I9 Un solo precio «desde» | Hecho el marcador | El texto visible es «Desde [monto]». Falta el monto. |
+| I10 CTA principal de agendar | Hecho | «Agéndame una llamada» y «Quiero mi revisión» van a /agenda/?servicio=revision. |
+| I11 Título de Presencia local | Hecho, copy provisional | «Que te encuentren sin vivir en el teléfono». Falta el visto bueno. |
+| I12 Sin precio tachado | Hecho | Dice «A consultar». |
+| I13 CTAs de las dos ofertas | Hecho | También quedan «Lo quiero» y «Ver paquetes de webs». |
+| I14 Lista de espera 2027 | Pendiente, sin construir | Sigue como nota. El bloque oculto no se publicó. |
+| I15 Contraste en Cómo trabajo | Pendiente | Es estética (G1). |
+| I16 Paso 01 a 20 minutos | Hecho | También en el resto del sitio. |
+| I17 Paso 02 ya no dice opcional | Hecho | |
+| I18 Paso 04, dos vías | Hecho | «Lo configuro contigo, o lo hago por ti». |
+| I19 Paso 05 más profesional | Hecho, copy provisional | «Acompañamiento incluido». Falta el visto bueno. |
+| I20 Alinear Sobre mí | Pendiente | Es estética. |
+| I21 Autoridad en Sobre mí | Hecho, copy provisional | Falta el visto bueno. |
+| I22 Quitar la frase de «antes de que me lo pidas» | Hecho | |
+| I23 Online, visita con fee | Hecho | En Sobre mí y en el pie. |
+| I24 Imagen o movimiento en Sobre mí | Pendiente | Es estética (G4, G9). |
+| I25 Podcast y newsletter menos «footer» | Pendiente | Es estética (G5). |
+| I26 Embed de Spotify y botón de YouTube | Hecho el embed | Spotify: https://open.spotify.com/show/3yxnEvf6hurBN4opbrD7AW. YouTube sigue en `#youtube-pendiente`. Falta el link y la portada. |
+| I27 Newsletter «Un paso a la vez» | Hecho, copy provisional | El texto dice un correo al mes. Falta confirmar si la cadencia es mensual o semanal, y el formulario de Kit. |
+| I28 Hablemos, 20 minutos | Hecho el texto | El corte de línea queda para la muestra visual. |
+| I29 Quitar el correo de Hablemos | Hecho | El correo sigue en el pie. |
+| I30 Hablemos distinto del pie | Pendiente | Es estética. |
+| I31 Texto del pie, sin corte feo | Hecho el texto | «Trabajo online, a cualquier país. La visita presencial se ofrece aparte, con un fee adicional.» El ajuste fino del corte queda para la muestra visual. |
+| I32 Renombrar «Mensajes y citas» | Pendiente | Se queda el nombre hasta revisar esa página. «Que te encuentren» no cambia. |
+| I33 Redes como iconos | Pendiente | Siguen como texto. Es estética. |
+| I34 Lema del pie según idioma | Hecho | |
+| H1 Quitar /hiring/ | Hecho | La página ya no está. /hiring/ redirige a / con 301. Los archivos del feed siguen en el repo, sin enlace. |
+| P1 Página /agenda/ | Hecho la estructura | Llamada de 20 minutos, solo servicios. El envío no guarda nada. |
+| P2 Dónde guardar los datos | Pendiente | Propuesta gratuita, sin conectar: Supabase para guardar la solicitud y Google Calendar para la cita, o Cal.com embebido si se prefiere no escribir esa unión. Marian elige. |
+| P3 /contacto/ aparte de la agenda | Hecho la estructura | Podcast, colaboración, prensa u otro tema. Sin fecha ni hora. El envío tampoco se guarda. |
+
+Los botones de agendar del sitio apuntan a `/agenda/?servicio=...` (llamada, revision, presencia, encuentren, mensajes, operaciones, aprende).
 
 ## Cómo pedir cambios
 
@@ -14,7 +70,7 @@ Los números de «Decisiones pendientes» valen para todo el sitio. Los números
 
 ## Decisiones pendientes
 
-1. Precio local (Ecuador) de «Revisión de tu negocio». Hoy dice «desde [POR DEFINIR]». El precio internacional ya está en 150 USD.
+1. Monto «desde» de «Lectura de afuera» (antes, Revisión de tu negocio). En el inicio el marcador visible es «Desde [monto]». En las otras páginas el precio de Ecuador sigue como «desde [POR DEFINIR]». El precio internacional de operaciones sigue en 150 USD.
 2. Precio del blog (mínimo 4 artículos al mes). Hoy dice «desde [POR DEFINIR] al mes».
 3. Nombre del plan internacional de 450 USD al mes. Hoy el nombre dice «[POR DEFINIR]» porque choca con el paquete local Web Esencial.
 4. Precio de la sesión 1 a 1. Hoy dice «[POR DEFINIR]».
@@ -24,7 +80,7 @@ Los números de «Decisiones pendientes» valen para todo el sitio. Los números
 8. Agenda 2027. El bloque está armado y oculto (`src/data/agenda.json`, `mostrar: false`) para no alterar la maqueta de inicio. Falta decidir si se publica, si los cupos están abiertos o llenos, y cuántos cupos mostrar.
 9. Hosting: Cloudflare Pages (build `npm run build`, carpeta `dist`) o seguir en Vercel. La vista previa de arriba está en Vercel. El DNS y el sitio de `main` no se han cambiado.
 
-Además, antes de publicar, el calendario de «Agenda una llamada» (https://calendar.app.google/JorUwfy67LtHwWzF8) tiene que quedar en los horarios libres: mediodía entre semana, noches y sábados, con citas de 30 minutos. Ese mismo enlace está en el menú, el pie y los botones de las páginas.
+Además, la llamada ya es de 20 minutos y el botón abre /agenda/. Todavía no hay calendario conectado. Cuando Marian elija la herramienta (decisión P2), hay que dejar los horarios libres: mediodía entre semana, noches y sábados.
 
 ## Inicio `/`
 
@@ -241,7 +297,7 @@ El test se mantiene (preguntas, semáforos y resultado). La página usa el menú
 
 ## Hiring `/hiring/`
 
-Vista previa: https://bellarulox-web-preview.vercel.app/hiring/
+Descontinuada, fuera del proyecto. La página se quitó del menú y del pie. `/hiring/` redirige a `/`. El registro del feed sigue en `public/hiring/`, sin enlace.
 
 ### Qué cambió
 

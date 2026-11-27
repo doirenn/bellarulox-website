@@ -6,7 +6,6 @@
 import Base from '../../layouts/Base.astro';
 import PriceTable from '../../components/PriceTable.astro';
 import CtaBand from '../../components/CtaBand.astro';
-import { BOOKING_URL } from '../../data/site';
 
 const title = 'Operaciones y automatización con plan mensual | Marian Montilla';
 const description =
@@ -22,7 +21,7 @@ const description =
         <h1>Que tu operación no dependa de ti</h1>
         <p class="lead">Operaciones y automatización con plan mensual para coaches, creadores de cursos y negocios de servicios pequeños.</p>
         <div class="ctas">
-          <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+          <a class="btn btn-primary" href="/agenda/?servicio=operaciones">Agenda una llamada</a>
         </div>
       </div>
       <div class="suena">
@@ -80,9 +79,9 @@ const description =
       <div class="oferta a">
         <span class="eyebrow">Para empezar</span>
         <h3>Revisión de tu negocio</h3>
-        <p>Reviso cómo opera tu negocio (herramientas, procesos, comunicación) y te entrego un plan concreto de qué simplificar y automatizar primero. Si después tomas un plan mensual, partimos de ahí. Antes, una llamada gratis de 30 minutos.</p>
+        <p>Reviso cómo opera tu negocio (herramientas, procesos, comunicación) y te entrego un plan concreto de qué simplificar y automatizar primero. Si después tomas un plan mensual, partimos de ahí. Antes, una llamada gratis de 20 minutos.</p>
         <div class="precios"><div class="precio"><small>Internacional</small><b>150 USD</b></div></div>
-        <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+        <a class="btn btn-primary" href="/agenda/?servicio=operaciones">Agenda una llamada</a>
       </div>
     </div>
     <div class="wrap">

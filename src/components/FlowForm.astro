@@ -1,0 +1,125 @@
+---
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  mode: 'agenda' | 'contacto';
+}
+const { locale, mode } = Astro.props;
+const es = locale === 'es';
+const agendaServices = [
+  { id: 'llamada', es: 'Llamada de 20 minutos', en: '20-minute call' },
+  { id: 'revision', es: 'Lectura de afuera', en: 'Outside read' },
+  { id: 'presencia', es: 'Presencia local', en: 'Local presence' },
+  { id: 'encuentren', es: 'Que te encuentren', en: 'Get found' },
+  { id: 'mensajes', es: 'Mensajes y citas', en: 'Messages and bookings' },
+  { id: 'operaciones', es: 'Operaciones', en: 'Operations' },
+  { id: 'aprende', es: 'Aprende', en: 'Learn' },
+];
+const contactServices = [
+  { id: 'otro', es: 'Otro tema', en: 'Something else' },
+  { id: 'podcast', es: 'Aparecer en el podcast', en: 'Be on the podcast' },
+  { id: 'colaboracion', es: 'Colaboración', en: 'Collaboration' },
+  { id: 'prensa', es: 'Prensa', en: 'Press' },
+];
+const services = mode === 'agenda' ? agendaServices : contactServices;
+const intros: Record<string, string> = es
+  ? {
+      llamada: 'Cuéntame qué te frena. La llamada dura 20 minutos y es solo para servicios.',
+      revision: 'Para la Lectura de afuera. En 20 minutos vemos por dónde empezar.',
+      presencia: 'Para tu presencia local. En 20 minutos vemos web, ficha y WhatsApp.',
+      encuentren: 'Para que te encuentren. La llamada es de 20 minutos.',
+      mensajes: 'Para mensajes y citas. La llamada es de 20 minutos.',
+      operaciones: 'Para operaciones y un plan mensual. La llamada es de 20 minutos.',
+      aprende: 'Para talleres, equipos o una sesión. La llamada es de 20 minutos.',
+      otro: 'Escríbeme si no es para contratar un servicio.',
+      podcast: 'Si quieres aparecer en Del Caos al Foco, cuéntame el tema.',
+      colaboracion: 'Si propones una colaboración, deja el contexto en pocas líneas.',
+      prensa: 'Si escribes por prensa, indica el medio y la fecha.',
+    }
+  : {
+      llamada: 'Tell me what is holding you back. The call is 20 minutes and only for services.',
+      revision: 'For the Outside read. In 20 minutes we see where to start.',
+      presencia: 'For local presence. In 20 minutes we look at the site, listing and WhatsApp.',
+      encuentren: 'So people can find you. The call is 20 minutes.',
+      mensajes: 'For messages and bookings. The call is 20 minutes.',
+      operaciones: 'For operations and a monthly plan. The call is 20 minutes.',
+      aprende: 'For workshops, a team or a session. The call is 20 minutes.',
+      otro: 'Write if this is not about booking a service.',
+      podcast: 'If you want to be on Del Caos al Foco, tell me the topic.',
+      colaboracion: 'If you are proposing a collaboration, leave a short context.',
+      prensa: 'If this is press, name the outlet and the date.',
+    };
+---
+
+<section class="phero">
+  <div class="wrap flow">
+    <span class="eyebrow">{es ? (mode === 'agenda' ? 'Servicios' : 'Otros temas') : (mode === 'agenda' ? 'Services' : 'Other topics')}</span>
+    <h1>{es ? (mode === 'agenda' ? 'Agenda una llamada de 20 minutos' : 'Escríbeme') : (mode === 'agenda' ? 'Book a 20-minute call' : 'Write to me')}</h1>
+    <p class="lead" id="flow-intro">{intros.llamada}</p>
+    <form class="form" id="flow-form" data-mode={mode} novalidate>
+      <label class="sr-only" for="servicio">{es ? 'Servicio' : 'Topic'}</label>
+      <select class="field" id="servicio" name="servicio">
+        {services.map((item) => <option value={item.id}>{es ? item.es : item.en}</option>)}
+      </select>
+      <label class="sr-only" for="nombre">{es ? 'Nombre' : 'Name'}</label>
+      <input class="field" id="nombre" name="nombre" type="text" required placeholder={es ? 'Tu nombre' : 'Your name'} />
+      <label class="sr-only" for="negocio">{es ? 'Negocio' : 'Business'}</label>
+      <input class="field" id="negocio" name="negocio" type="text" required placeholder={es ? 'Tu negocio' : 'Your business'} />
+      {mode === 'agenda' ? (
+        <>
+          <label class="sr-only" for="frena">{es ? 'Qué te frena' : 'What is holding you back'}</label>
+          <textarea class="field" id="frena" name="frena" required placeholder={es ? 'Qué te frena' : 'What is holding you back'}></textarea>
+          <label class="sr-only" for="fecha">{es ? 'Fecha' : 'Date'}</label>
+          <input class="field" id="fecha" name="fecha" type="date" required />
+          <label class="sr-only" for="hora">{es ? 'Hora' : 'Time'}</label>
+          <input class="field" id="hora" name="hora" type="time" required />
+        </>
+      ) : (
+        <>
+          <label class="sr-only" for="correo">{es ? 'Correo' : 'Email'}</label>
+          <input class="field" id="correo" name="correo" type="email" required placeholder={es ? 'Tu correo' : 'Your email'} />
+          <label class="sr-only" for="mensaje">{es ? 'Mensaje' : 'Message'}</label>
+          <textarea class="field" id="mensaje" name="mensaje" required placeholder={es ? 'Tu mensaje' : 'Your message'}></textarea>
+        </>
+      )}
+      <button class="btn btn-primary" type="submit">{es ? (mode === 'agenda' ? 'Pedir la llamada' : 'Enviar') : (mode === 'agenda' ? 'Request the call' : 'Send')}</button>
+      <p class="form-msg" id="flow-msg" role="status" hidden></p>
+    </form>
+    <p class="hint">
+      {es
+        ? 'El formulario ya está en la página. Todavía no guarda la cita ni escribe en un calendario.'
+        : 'The form is on the page. It does not save the request or write to a calendar yet.'}
+    </p>
+  </div>
+</section>
+<script is:inline define:vars={{ intros, saved: es ? 'Esto es una prueba de la pantalla. El envío todavía no se guarda.' : 'This is a screen test. Nothing is saved yet.' }}>
+  (function () {
+    var form = document.getElementById('flow-form');
+    var intro = document.getElementById('flow-intro');
+    var select = document.getElementById('servicio');
+    var msg = document.getElementById('flow-msg');
+    if (!form || !select || !intro || !msg) return;
+    var params = new URLSearchParams(window.location.search);
+    var asked = params.get('servicio');
+    if (asked && select.querySelector('option[value="' + asked + '"]')) select.value = asked;
+    function paint() {
+      intro.textContent = intros[select.value] || intros.llamada || intros.otro || '';
+    }
+    select.addEventListener('change', paint);
+    paint();
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      // TODO Marian: conectar un backend gratuito.
+      // Opciones: Supabase (guardar la solicitud) más Google Calendar, o Cal.com embebido.
+      // No enviar a un sitio externo hasta que Marian elija.
+      msg.hidden = false;
+      msg.className = 'form-msg ok';
+      msg.textContent = saved;
+    });
+  })();
+</script>

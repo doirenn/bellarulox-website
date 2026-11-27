@@ -1,20 +1,9 @@
 ---
-import { BOOKING_URL, EMAIL, SITIOS_URL, SOCIALS, WHATSAPP_URL } from '../data/site';
+import { EMAIL, SITIOS_URL, SOCIALS, WHATSAPP_URL } from '../data/site';
+import { agendaPath, localeFromPath, ui } from '../i18n/ui';
 
-const frentes = [
-  { href: '/que-te-encuentren/', label: 'Que te encuentren' },
-  { href: '/mensajes-y-citas/', label: 'Mensajes y citas' },
-  { href: '/operaciones/', label: 'Operaciones' },
-  { href: '/aprende/', label: 'Aprende' },
-];
-
-const mas = [
-  { href: '/podcast/', label: 'Podcast' },
-  { href: '/recursos/', label: 'Recursos' },
-  { href: '/protocolo-uso-seguro/', label: 'Test WhatsApp' },
-  { href: SITIOS_URL, label: 'Webs en Manta', external: true },
-  { href: '/hiring/', label: 'Hiring' },
-];
+const locale = localeFromPath(Astro.url.pathname);
+const t = ui[locale];
 ---
 
 <footer class="site-footer">
@@ -22,28 +11,28 @@ const mas = [
     <div class="foot-grid">
       <div>
         <div class="logo"><img src="/assets/logo-fuscia.png" alt="Bellarulox" /></div>
-        <p class="foot-lema">Create. Organize. Manifest.</p>
-        <p>En persona en Manta · Online a cualquier país</p>
-        <p style="margin-top:8px">Pagos: tarjeta, transferencia o Deuna (Ecuador); PayPal para otros países.</p>
+        <p class="foot-lema">{t.motto}</p>
+        <p>{t.where}</p>
+        <p style="margin-top:8px">{t.pay}</p>
       </div>
       <div>
-        <h4>Cómo te ayudo</h4>
+        <h4>{t.frentesTitle}</h4>
         <ul>
-          {frentes.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+          {t.nav.slice(1).map((item) => <li><a href={item.href}>{item.label}</a></li>)}
         </ul>
       </div>
       <div>
-        <h4>Más</h4>
+        <h4>{t.more}</h4>
         <ul>
-          {mas.map((item) => (
-            <li>
-              <a href={item.href} target={item.external ? '_blank' : undefined} rel={item.external ? 'noopener noreferrer' : undefined}>{item.label}</a>
-            </li>
-          ))}
+          <li><a href="/podcast/">{t.podcast}</a></li>
+          <li><a href="/recursos/">{t.resources}</a></li>
+          <li><a href="/protocolo-uso-seguro/">{t.test}</a></li>
+          <li><a href={SITIOS_URL} target="_blank" rel="noopener noreferrer">{t.sites}</a></li>
+          <li><a href={locale === 'en' ? '/en/contacto/' : '/contacto/'}>{t.talk}</a></li>
         </ul>
       </div>
       <div>
-        <h4>Hablemos</h4>
+        <h4>{t.talk}</h4>
         <ul>
           <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
           <li><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
@@ -53,12 +42,12 @@ const mas = [
             <a href={item.href} target="_blank" rel="noopener noreferrer">{item.label}</a>
           ))}
         </div>
-        <a class="btn btn-primary" style="margin-top:24px;min-height:46px" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+        <a class="btn btn-primary" style="margin-top:24px;min-height:46px" href={agendaPath(locale, 'llamada')}>{t.cta}</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Marian Montilla · Bellarulox</span>
-      <span>Create. Organize. Manifest.</span>
+      <span>{t.rights}</span>
+      <span>{t.motto}</span>
     </div>
   </div>
 </footer>

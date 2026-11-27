@@ -1,0 +1,221 @@
+---
+import NewsletterForm from './NewsletterForm.astro';
+import { agendaPath, contactoPath, type Locale } from '../i18n/ui';
+import { homeOf } from '../i18n/home';
+import { SITIOS_URL, SPOTIFY_EMBED, SPOTIFY_SHOW } from '../data/site';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = homeOf(locale);
+const h1c = 'h1c' in t ? t.h1c : '';
+
+function problem(item: { strong: string; rest: string; after?: string }) {
+  if (item.after) return { before: item.rest, mid: item.strong, after: item.after };
+  if (item.rest.startsWith(' ') || item.rest.startsWith(' O')) return { before: '', mid: item.strong, after: item.rest };
+  return { before: item.rest, mid: item.strong, after: '' };
+}
+---
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">{t.eyebrow}</span>
+      <h1>{t.h1a}<span class="mark">{t.h1b}</span>{h1c}</h1>
+      <p class="lead">{t.lead}</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href={agendaPath(locale, 'llamada')}>{t.cta}</a>
+        <a class="btn btn-ghost" href="#como-te-ayudo">{t.see}</a>
+      </div>
+      <div class="metrics">
+        {t.metrics.map((item) => (
+          <div><b>{item.n}</b><small>{item.l}</small></div>
+        ))}
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="arch">
+        <picture>
+          <source
+            type="image/avif"
+            srcset="/assets/hero/marian-480.avif 480w, /assets/hero/marian-768.avif 768w, /assets/hero/marian-1153.avif 1153w"
+            sizes="(max-width: 640px) 280px, 420px"
+          />
+          <source
+            type="image/webp"
+            srcset="/assets/hero/marian-480.webp 480w, /assets/hero/marian-768.webp 768w, /assets/hero/marian-1153.webp 1153w"
+            sizes="(max-width: 640px) 280px, 420px"
+          />
+          <img src="/assets/hero/marian-768.webp" alt="Marian Montilla" width="1153" height="1319" />
+        </picture>
+      </div>
+      <div class="frame"></div>
+      <img class="moon" src="/assets/luna_estrella_dorado.svg" alt="" />
+      <div class="tag"><b>{t.tagKicker}</b>{t.tag}</div>
+    </div>
+  </div>
+</section>
+
+<div class="lema-band">
+  <div class="wrap">
+    {t.motto.map((word, index) => (
+      <>
+        <span>{word}</span>
+        {index < t.motto.length - 1 && <img src="/assets/estrella_ocho_puntas_dorado.svg" alt="" />}
+      </>
+    ))}
+  </div>
+</div>
+
+<section class="light">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">{t.problemsKicker}</span>
+      <h2>{t.problemsTitle}</h2>
+      <p class="lead">{t.problemsLead}</p>
+    </div>
+    <div class="prob-grid">
+      {t.problems.map((item) => {
+        const parts = problem(item);
+        return (
+          <div class="prob">
+            <img src={item.icon} alt="" />
+            <p>{parts.before}<strong>{parts.mid}</strong>{parts.after}</p>
+          </div>
+        );
+      })}
+      <div class="prob quote">
+        <small>{t.exampleKicker}</small>
+        <p>{t.example}</p>
+      </div>
+    </div>
+    <div class="cierre">
+      <p class="big">{t.close}</p>
+      <p class="ejemplo"><b>{t.closeKicker}</b>{t.closeDo}</p>
+    </div>
+  </div>
+</section>
+
+<section id="como-te-ayudo">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">{t.frontsKicker}</span>
+      <h2>{t.frontsTitle}</h2>
+    </div>
+    <div class="frentes">
+      {t.fronts.map((item) => (
+        <article class="frente">
+          <img src={item.icon} alt="" />
+          <div class="n">{item.n}</div>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+          <a href={item.href}>{item.more}</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap ofertas">
+    <div class="oferta a">
+      <span class="eyebrow">{t.reviewKicker}</span>
+      <h3>{t.reviewTitle}</h3>
+      <p>{t.reviewText}</p>
+      <div class="precios"><div class="precio"><b class="pend">{t.reviewPrice}</b></div></div>
+      <div class="row-btns">
+        <a class="btn btn-primary" href={agendaPath(locale, 'revision')}>{t.bookMe}</a>
+        <a class="btn btn-ghost" href={agendaPath(locale, 'revision')}>{t.wantReview}</a>
+      </div>
+    </div>
+    <div class="oferta b">
+      <span class="eyebrow">{t.localKicker}</span>
+      <h3>{t.localTitle}</h3>
+      <p>{t.localText}</p>
+      <p class="consult">{t.consult}</p>
+      <div class="row-btns">
+        <a class="btn btn-primary" href={agendaPath(locale, 'presencia')}>{t.bookMe}</a>
+        <a class="btn btn-ghost" href={agendaPath(locale, 'presencia')}>{t.wantIt}</a>
+        <a class="btn" style="color:var(--crema);padding:0 8px;text-decoration:underline;text-underline-offset:6px" href={SITIOS_URL} target="_blank" rel="noopener noreferrer">{t.packages}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap pasos-wrap">
+    <div>
+      <span class="eyebrow">{t.workKicker}</span>
+      <h2 style="margin-top:18px">{t.workTitle}</h2>
+    </div>
+    <ol class="pasos">
+      {t.steps.map((step) => (
+        <li><span class="num">{step.n}</span><div><h4>{step.t}</h4><p>{step.d}</p></div></li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<section class="sobre">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">{t.aboutKicker}</span>
+      <blockquote style="margin-top:18px">{t.aboutQuoteA}<em>{t.aboutQuoteB}</em></blockquote>
+    </div>
+    <div>
+      <p style="margin-top:0;color:var(--crema)">{t.aboutP1}</p>
+      <p>{t.aboutP2}</p>
+      <div class="donde">
+        <div><b>{t.whereKicker}</b>{t.where}</div>
+        <div><b>{t.payKicker}</b>{t.pay}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><img src="/assets/divisor_fases_lunares_dorado.svg" alt="" /></div>
+
+<section>
+  <div class="wrap duo">
+    <div class="pod">
+      <span class="eyebrow">{t.podKicker}</span>
+      <h3 style="font-size:34px;margin:14px 0 10px">{t.podTitle}</h3>
+      <p style="color:var(--orquidea)">{t.podText}</p>
+      <iframe
+        style="border-radius:12px;margin-top:22px"
+        src={SPOTIFY_EMBED}
+        width="100%"
+        height="352"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        title="Del Caos al Foco en Spotify"
+      ></iframe>
+      <div class="row-btns" style="margin-top:22px">
+        <a class="btn btn-ghost" href={SPOTIFY_SHOW} target="_blank" rel="noopener noreferrer">{t.listen}</a>
+        <a class="btn btn-ghost" href="#youtube-pendiente">{t.youtube}</a>
+      </div>
+    </div>
+    <div class="news" id="newsletter">
+      <span class="eyebrow">{t.newsKicker}</span>
+      <h3>{t.newsTitle}</h3>
+      <p>{t.newsText}</p>
+      <NewsletterForm locale={locale} labels={{ name: t.name, email: t.email, submit: t.subscribe }} />
+      <p class="fine">{t.newsFine}</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <span class="eyebrow">{t.talkKicker}</span>
+    <h2>{t.talkTitle}</h2>
+    <p class="lead">{t.talkLead}</p>
+    <div class="row-btns">
+      <a class="btn btn-primary" href={agendaPath(locale, 'llamada')}>{t.cta}</a>
+      <a class="btn btn-ghost" href={contactoPath(locale, 'otro')}>{t.write}</a>
+    </div>
+  </div>
+</section>

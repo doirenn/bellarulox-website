@@ -1,35 +1,47 @@
 ---
-import { BOOKING_URL, NAV } from '../data/site';
+import { localeFromPath, localePath, ui, agendaPath } from '../i18n/ui';
 
 const path = Astro.url.pathname;
+const locale = localeFromPath(path);
+const t = ui[locale];
 
 function active(href: string) {
-  if (href === '/') return path === '/';
+  if (href === '/' || href === '/en/') return path === href;
   return path === href || path.startsWith(href);
 }
+const esHref = localePath('es', path);
+const enHref = localePath('en', path);
 ---
 
 <header class="site-header">
   <div class="wrap">
-    <a class="logo" href="/"><img src="/assets/logo-fuscia.png" alt="Bellarulox" /></a>
+    <a class="logo" href={locale === 'en' ? '/en/' : '/'}><img src="/assets/logo-fuscia.png" alt="Bellarulox" /></a>
     <nav class="nav" id="mobile-menu" aria-label="Principal">
       {
-        NAV.map((item) => (
+        t.nav.map((item) => (
           <a href={item.href} class={active(item.href) ? 'on' : undefined} aria-current={active(item.href) ? 'page' : undefined}>
             {item.label}
           </a>
         ))
       }
-      <a class="btn btn-primary nav-cta" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+      <div class="lang" aria-label={t.lang}>
+        <a href={esHref} aria-current={locale === 'es' ? 'true' : undefined} hreflang="es">ES</a>
+        <a href={enHref} aria-current={locale === 'en' ? 'true' : undefined} hreflang="en">EN</a>
+      </div>
+      <a class="btn btn-primary nav-cta" href={agendaPath(locale, 'llamada')}>{t.cta}</a>
     </nav>
-    <a class="btn btn-primary header-cta" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
-    <button class="menu-btn" id="mobile-menu-btn" type="button" aria-label="Menú" aria-expanded="false" aria-controls="mobile-menu" data-menu-ready="1">
+    <div class="lang desk-lang" aria-label={t.lang}>
+      <a href={esHref} aria-current={locale === 'es' ? 'true' : undefined} hreflang="es">ES</a>
+      <a href={enHref} aria-current={locale === 'en' ? 'true' : undefined} hreflang="en">EN</a>
+    </div>
+    <a class="btn btn-primary header-cta" href={agendaPath(locale, 'llamada')}>{t.cta}</a>
+    <button class="menu-btn" id="mobile-menu-btn" type="button" aria-label={t.menu} aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<script is:inline>
+<script is:inline define:vars={{ openLabel: t.menu, closeLabel: t.close }}>
   (function () {
     var btn = document.getElementById('mobile-menu-btn');
     var nav = document.getElementById('mobile-menu');
@@ -37,7 +49,7 @@ function active(href: string) {
     function setOpen(open) {
       nav.classList.toggle('open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Menú');
+      btn.setAttribute('aria-label', open ? closeLabel : openLabel);
     }
     btn.addEventListener('click', function () {
       setOpen(!nav.classList.contains('open'));

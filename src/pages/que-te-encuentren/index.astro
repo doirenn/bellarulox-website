@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import PriceTable from '../../components/PriceTable.astro';
 import CtaBand from '../../components/CtaBand.astro';
-import { BOOKING_URL, SITIOS_URL } from '../../data/site';
+import { SITIOS_URL } from '../../data/site';
 
 const title = 'Webs y Google Business en Manta | Marian Montilla · Bellarulox';
 const description =
@@ -18,7 +18,7 @@ const description =
         <h1>Que te encuentren cuando te <span class="mark">buscan</span></h1>
         <p class="lead">Si alguien busca lo que haces en Manta y no te encuentra, se va con el primero que aparece. Hagamos que ese primero seas tú.</p>
         <div class="ctas">
-          <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+          <a class="btn btn-primary" href="/agenda/?servicio=encuentren">Agenda una llamada</a>
           <a class="btn btn-ghost" href={SITIOS_URL} target="_blank" rel="noopener noreferrer">Ver estilos y paquetes</a>
         </div>
       </div>
@@ -70,7 +70,7 @@ const description =
       />
       <p class="nota">Cambios fuera del paquete: 30 USD por hora. El dominio lo pagas tú (aprox. 12–20 USD al año) y queda a tu nombre.</p>
       <div class="btns">
-        <a class="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Agenda una llamada</a>
+        <a class="btn btn-primary" href="/agenda/?servicio=encuentren">Agenda una llamada</a>
         <a class="btn btn-outline-dark" href={SITIOS_URL} target="_blank" rel="noopener noreferrer">Ver estilos y paquetes en Sitios Bellarulox</a>
       </div>
     </div>

@@ -53,6 +53,7 @@
 .combo s{color:var(--orquidea);font-size:20px}
 .combo b{font-family:var(--display);font-stretch:88%;font-size:56px;font-weight:600;line-height:1}
 .ahorro{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--dorado);margin-bottom:28px}
+.consult{font-family:var(--display);font-stretch:88%;font-size:40px;font-weight:600;line-height:1.1;margin:18px 0 22px;color:var(--crema)}
 .row-btns{display:flex;gap:12px;flex-wrap:wrap}
 /* pasos */
 .pasos-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
