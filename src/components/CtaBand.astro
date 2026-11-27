@@ -1,0 +1,39 @@
+---
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  href?: string;
+  label?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const {
+  eyebrow = 'Llamada gratis de 20 minutos',
+  title = '¿Qué te está quitando tiempo, clientes o tranquilidad hoy?',
+  href = '/agenda/?servicio=llamada',
+  label = 'Agenda una llamada',
+  secondaryHref,
+  secondaryLabel,
+} = Astro.props;
+const external = href.startsWith('http');
+const secondaryExternal = secondaryHref?.startsWith('http');
+---
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="recurso">
+      <div>
+        <span class="eyebrow">{eyebrow}</span>
+        <h2>{title}</h2>
+      </div>
+      <div class="row-btns">
+        <a class="btn btn-primary" href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>{label}</a>
+        {secondaryHref && secondaryLabel && (
+          <a class="btn btn-ghost" href={secondaryHref} target={secondaryExternal ? '_blank' : undefined} rel={secondaryExternal ? 'noopener noreferrer' : undefined}>{secondaryLabel}</a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

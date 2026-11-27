@@ -1,0 +1,87 @@
+---
+import { localeFromPath, localePath, ui, agendaPath } from '../i18n/ui';
+
+const path = Astro.url.pathname;
+const locale = localeFromPath(path);
+const t = ui[locale];
+
+function active(href: string) {
+  if (href === '/' || href === '/en/') return path === href;
+  return path === href || path.startsWith(href);
+}
+const esHref = localePath('es', path);
+const enHref = localePath('en', path);
+interface Props { look?: 'c' }
+const { look } = Astro.props;
+---
+
+{look === 'c' ? (
+<header class="c-shell">
+  <div class="c-bar">
+    <a class="c-logo" href={locale === 'en' ? '/en/' : '/'}>
+      <img src="/assets/logo-fuscia.png" alt="Bellarulox" />
+      <svg class="c-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" fill="currentColor"/></svg>
+    </a>
+    <ul class="c-links" id="mobile-menu">
+      {t.nav.map((item) => (
+        <li><a href={item.href} class={active(item.href) ? 'on' : undefined} aria-current={active(item.href) ? 'page' : undefined}>{item.label}</a></li>
+      ))}
+    </ul>
+    <div class="c-right">
+      <div class="c-lang" aria-label={t.lang}>
+        <a href={esHref} hreflang="es" aria-current={locale === 'es' ? 'true' : undefined}>ES</a>
+        <a href={enHref} hreflang="en" aria-current={locale === 'en' ? 'true' : undefined}>EN</a>
+      </div>
+      <a class="btn bp" href={agendaPath(locale, 'llamada')}>{t.cta}</a>
+      <button class="c-burger" id="mobile-menu-btn" type="button" aria-label={t.menu} aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+) : (
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href={locale === 'en' ? '/en/' : '/'}><img src="/assets/logo-fuscia.png" alt="Bellarulox" /></a>
+    <nav class="nav" id="mobile-menu" aria-label="Principal">
+      {
+        t.nav.map((item) => (
+          <a href={item.href} class={active(item.href) ? 'on' : undefined} aria-current={active(item.href) ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+      <div class="lang" aria-label={t.lang}>
+        <a href={esHref} aria-current={locale === 'es' ? 'true' : undefined} hreflang="es">ES</a>
+        <a href={enHref} aria-current={locale === 'en' ? 'true' : undefined} hreflang="en">EN</a>
+      </div>
+      <a class="btn btn-primary nav-cta" href={agendaPath(locale, 'llamada')}>{t.cta}</a>
+    </nav>
+    <div class="lang desk-lang" aria-label={t.lang}>
+      <a href={esHref} aria-current={locale === 'es' ? 'true' : undefined} hreflang="es">ES</a>
+      <a href={enHref} aria-current={locale === 'en' ? 'true' : undefined} hreflang="en">EN</a>
+    </div>
+    <a class="btn btn-primary header-cta" href={agendaPath(locale, 'llamada')}>{t.cta}</a>
+    <button class="menu-btn" id="mobile-menu-btn" type="button" aria-label={t.menu} aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+)}
+
+<script is:inline define:vars={{ openLabel: t.menu, closeLabel: t.close }}>
+  (function () {
+    var btn = document.getElementById('mobile-menu-btn');
+    var nav = document.getElementById('mobile-menu');
+    if (!btn || !nav) return;
+    function setOpen(open) {
+      nav.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? closeLabel : openLabel);
+    }
+    btn.addEventListener('click', function () {
+      setOpen(!nav.classList.contains('open'));
+    });
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+  })();
+</script>

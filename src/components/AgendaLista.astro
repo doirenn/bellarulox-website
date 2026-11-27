@@ -1,0 +1,70 @@
+---
+import agenda from '../data/agenda.json';
+import { WHATSAPP_URL } from '../data/site';
+
+const abierta = agenda.estado === 'abierta';
+const cupos = typeof agenda.cuposRestantes === 'number' ? agenda.cuposRestantes : null;
+---
+
+<!-- TODO Marian: etiqueta de Kit para la lista de espera. Hoy el formulario abre WhatsApp porque esa etiqueta no está definida. -->
+{
+  agenda.mostrar && (
+    <section id="agenda-2027">
+      <div class="wrap">
+        <div class="news" style="max-width:720px">
+          <span class="eyebrow">Agenda {agenda.periodo}</span>
+          <h3>{abierta ? 'Estoy abriendo mi agenda de clientes ' + agenda.periodo : 'Mis cupos de este periodo están llenos'}</h3>
+          <p>
+            {abierta
+              ? 'Trabajo con pocos negocios a la vez para dar a cada uno la atención que merece. Reserva tu espacio.'
+              : 'Déjame tus datos y te escribo en cuanto se libere un espacio, en orden de llegada.'}
+          </p>
+          {cupos !== null && <p class="fine">Quedan {cupos} cupos para {agenda.periodo}.</p>}
+          <form class="form" id="agenda-form" data-periodo={agenda.periodo} data-wa={WHATSAPP_URL}>
+            <label class="sr-only" for="ag-nombre">Nombre</label>
+            <input class="field" id="ag-nombre" name="nombre" type="text" placeholder="Tu nombre" required />
+            <label class="sr-only" for="ag-negocio">Negocio</label>
+            <input class="field" id="ag-negocio" name="negocio" type="text" placeholder="Tu negocio" required />
+            <label class="sr-only" for="ag-correo">Correo</label>
+            <input class="field" id="ag-correo" name="correo" type="email" placeholder="Tu correo" required />
+            <label class="sr-only" for="ag-whatsapp">WhatsApp</label>
+            <input class="field" id="ag-whatsapp" name="whatsapp" type="tel" placeholder="Tu WhatsApp" required />
+            <label class="sr-only" for="ag-quiero">Qué quieres resolver</label>
+            <textarea class="field" id="ag-quiero" name="quiero" placeholder="Qué quieres resolver" required />
+            <button class="btn btn-dark" type="submit">{abierta ? 'Reservar mi espacio' : 'Entrar a la lista de espera'}</button>
+            <p class="form-msg" id="ag-msg" role="status" hidden></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('agenda-form');
+    if (!form) return;
+    var msg = document.getElementById('ag-msg');
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var data = new FormData(form);
+      var nombre = String(data.get('nombre') || '').trim();
+      var negocio = String(data.get('negocio') || '').trim();
+      var correo = String(data.get('correo') || '').trim();
+      var whatsapp = String(data.get('whatsapp') || '').trim();
+      var quiero = String(data.get('quiero') || '').trim();
+      if (!nombre || !negocio || !correo || !whatsapp || !quiero) {
+        msg.hidden = false;
+        msg.className = 'form-msg err';
+        msg.textContent = 'Completa todos los campos para continuar.';
+        return;
+      }
+      var texto = 'Hola Marian, quiero un espacio en tu agenda ' + form.dataset.periodo + '. Nombre: ' + nombre + '. Negocio: ' + negocio + '. Correo: ' + correo + '. WhatsApp: ' + whatsapp + '. Quiero resolver: ' + quiero;
+      var url = 'https://wa.me/593984424836?text=' + encodeURIComponent(texto);
+      msg.hidden = false;
+      msg.className = 'form-msg ok';
+      msg.textContent = 'Se abre WhatsApp con tus datos para que me los envíes.';
+      window.open(url, '_blank', 'noopener');
+    });
+  })();
+</script>

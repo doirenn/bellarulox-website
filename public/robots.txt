@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bellarulox.com/sitemap.xml
+Sitemap: https://bellarulox.com/sitemap-index.xml

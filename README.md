@@ -1,18 +1,46 @@
 # bellarulox.com
 
-Sitio de Marian Montilla. Vercel publica la carpeta `public`.
+Sitio estático de Marian Montilla, en Astro. Esta rama (`astro-rediseno`) no se publica sola: `main` sigue siendo el sitio actual en Vercel. No hay que mezclar esta rama con `main` ni cambiar el DNS hasta que Marian lo apruebe.
+
+## Cómo verlo
+
+```bash
+npm install
+npm run dev
+```
+
+Abre http://localhost:4321/
+
+Para la versión que se publica:
+
+```bash
+npm run build
+npm run preview
+```
+
+El build deja los archivos en `dist`.
+
+## Cloudflare Pages
+
+- Comando de build: `npm run build`
+- Carpeta de salida: `dist`
+- Node 22
+- Las redirecciones 301 están en `public/_redirects` (se copian a `dist`).
 
 ## Páginas
 
-- `public/index.html` es el inicio
-- `public/del-caos-al-foco/`
-- `public/podcast/`
-- `public/recursos/`
-- `public/arquitectura-b2b/`
-- `public/protocolo-uso-seguro/`: Protocolo WhatsApp. Test de un solo archivo con su carpeta `assets/`. Cabeceras de seguridad en `vercel.json`. Enlace en el sitio: `/protocolo-uso-seguro/`.
+- `/` Inicio
+- `/que-te-encuentren/`
+- `/mensajes-y-citas/`
+- `/operaciones/`
+- `/aprende/`
+- `/podcast/`
+- `/recursos/`
+- `/protocolo-uso-seguro/` test de WhatsApp
+- `/agenda/` llamada de 20 minutos
+- `/contacto/` formulario, sin agenda
+- `/en/` inicio en inglés
 
-Las imágenes `og-image.jpg`, `logo.png`, `marian.jpg` y `favicon.png` también viven en `public`, para que carguen desde la raíz del dominio.
+`/hiring/` redirige a `/`.
 
-## Cómo publicar
-
-Un cambio en la rama `main` actualiza https://bellarulox.com.
+Redirecciones: `/arquitectura-b2b/` va a `/operaciones/` y `/del-caos-al-foco/` va a `/aprende/`.

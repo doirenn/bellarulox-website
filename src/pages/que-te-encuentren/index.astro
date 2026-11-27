@@ -1,0 +1,91 @@
+---
+import Base from '../../layouts/Base.astro';
+import PriceTable from '../../components/PriceTable.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { SITIOS_URL } from '../../data/site';
+
+const title = 'Webs y Google Business en Manta | Marian Montilla · Bellarulox';
+const description =
+  'Si alguien busca lo que haces en Manta y no te encuentra, se va con el primero que aparece. Web, Google Business y SEO local.';
+---
+
+<Base title={title} description={description} path="/que-te-encuentren/">
+  <section class="phero">
+    <div class="wrap">
+      <div>
+        <p class="crumb"><a href="/">Inicio</a> &nbsp;/&nbsp; <b>Que te encuentren</b></p>
+        <span class="eyebrow">Frente I · Manta y Ecuador</span>
+        <h1>Que te encuentren cuando te <span class="mark">buscan</span></h1>
+        <p class="lead">Si alguien busca lo que haces en Manta y no te encuentra, se va con el primero que aparece. Hagamos que ese primero seas tú.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="/agenda/?servicio=encuentren">Agenda una llamada</a>
+          <a class="btn btn-ghost" href={SITIOS_URL} target="_blank" rel="noopener noreferrer">Ver estilos y paquetes</a>
+        </div>
+      </div>
+      <div class="suena">
+        <img src="/assets/ojo_mistico_dorado.svg" alt="" />
+        <small>¿Te suena?</small>
+        <q>Te busqué en Google y no apareces.</q>
+        <p>O tu ficha tiene años, cero reseñas y un horario que ya no es. Muchos negocios no saben que les pasa hasta que alguien se los muestra.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap para">
+      <div><span class="eyebrow">Para quién</span><h2 style="margin-top:18px">¿Es para tu negocio?</h2></div>
+      <div class="chips">
+        <span>Médicos</span><span>Psicólogos</span><span>Dentistas</span><span>Ópticas</span><span>Nutricionistas</span><span>Spas</span><span>Salones</span><span>Restaurantes</span><span>Tiendas</span><span>Negocios de servicios</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">El servicio</span><h2>Qué incluye</h2></div>
+      <div class="incluye">
+        <div class="inc"><img src="/assets/estrella_ocho_puntas_dorado.svg" alt="" /><h3>Web de una página con tu dominio</h3><p>Tus servicios, horario, ubicación y botones de WhatsApp. También puede funcionar como catálogo para recibir pedidos, reservas o citas.</p></div>
+        <div class="inc"><img src="/assets/llave_dorado.svg" alt="" /><h3>Google Business configurado</h3><p>Ficha creada o mejorada con dirección, teléfono, horario, fotos y el link para agendar.</p></div>
+        <div class="inc"><img src="/assets/ojo_mistico_dorado.svg" alt="" /><h3>SEO local</h3><p>Que tu web y tu ficha usen las palabras con las que te buscan en tu ciudad.</p></div>
+        <div class="inc"><img src="/assets/vela_dorado.svg" alt="" /><h3>Video y fotos, en alianza con Germán</h3><p>Recorrido por tu local, fotos y tomas de apoyo (b-roll) para tu web y tu ficha.</p><span class="opt">Opcional · Cotizar</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Precios</span><h2>Ecuador, precio de lista</h2></div>
+      <PriceTable
+        headers={['Servicio', 'Precio', 'Renovación anual']}
+        rows={[
+          { title: 'Web Esencial', price: 'desde 240 USD', renewal: 'desde 55 USD' },
+          { title: 'Web Profesional', detail: 'Con formulario que envía la solicitud completa a WhatsApp', price: 'desde 480 USD', renewal: 'desde 60 USD' },
+          { title: 'Web Negocio', detail: 'Catálogo, Google Maps y QR', price: 'desde 600 USD', renewal: 'desde 70 USD' },
+          { title: 'Revisión de tu negocio', detail: 'Diagnóstico + plan', price: 'desde [POR DEFINIR]', pending: true, renewal: '—' },
+          { title: 'Google Business', detail: 'Creación o mejora', price: '150 USD', renewal: '—' },
+          { title: 'Combo Presencia local', detail: 'Web + Google Business + WhatsApp', price: '350 USD', strike: '510', badge: 'Ahorras 160', combo: true, renewal: '—' },
+          { title: 'Blogs para tu web', detail: 'Opcional, mínimo 4 artículos al mes', price: 'desde [POR DEFINIR] al mes', pending: true, renewal: '—' },
+          { title: 'Video y fotos con Germán', price: 'Cotizar', renewal: '—' },
+        ]}
+      />
+      <p class="nota">Cambios fuera del paquete: 30 USD por hora. El dominio lo pagas tú (aprox. 12–20 USD al año) y queda a tu nombre.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="/agenda/?servicio=encuentren">Agenda una llamada</a>
+        <a class="btn btn-outline-dark" href={SITIOS_URL} target="_blank" rel="noopener noreferrer">Ver estilos y paquetes en Sitios Bellarulox</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap faq">
+      <div><span class="eyebrow">FAQ</span><h2 style="margin-top:18px">Preguntas frecuentes</h2></div>
+      <div>
+        <div class="q"><h3>¿Ya tengo Instagram, para qué una web?</h3><p>Porque quien no te conoce te busca en Google, y tu web y tu ficha son tuyas: no dependen del algoritmo.</p></div>
+        <div class="q"><h3>¿Me van a llegar clientes solo con la web?</h3><p>La web hace que quien ya te busca confíe y te escriba fácil, y te pone donde hoy no estás, como Google Maps. Funciona mejor si la compartes en todos lados.</p></div>
+        <div class="q"><h3>¿Hacen planes de publicaciones para Google Business?</h3><p>No. Configuro tu ficha para que te encuentren y te agenden.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

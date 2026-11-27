@@ -1,0 +1,212 @@
+---
+import NewsletterForm from './NewsletterForm.astro';
+import { agendaPath, contactoPath, type Locale } from '../i18n/ui';
+import { homeOf } from '../i18n/home';
+import { SITIOS_URL, SPOTIFY_EMBED, SPOTIFY_SHOW } from '../data/site';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = homeOf(locale);
+const s = t.stickers;
+
+function parts(text: string, word: string) {
+  const at = text.indexOf(word);
+  if (at < 0) return { before: text, word: '', after: '' };
+  return { before: text.slice(0, at), word, after: text.slice(at + word.length) };
+}
+function problem(item: { strong: string; rest: string; after?: string }) {
+  if (item.after) return { before: item.rest, mid: item.strong, after: item.after };
+  if (item.rest.startsWith(' ') || item.rest.startsWith(' O')) return { before: '', mid: item.strong, after: item.rest };
+  return { before: item.rest, mid: item.strong, after: '' };
+}
+const problemsTitle = parts(t.problemsTitle, t.problemsBrush);
+const workTitle = parts(t.workTitle, t.workBrush);
+const aboutLine = parts(`${t.aboutQuoteA}${t.aboutQuoteB}`, t.aboutBrush);
+const talkTitle = parts(t.talkTitle, t.talkBrush);
+const motto = t.motto.join(' ');
+---
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill">{t.eyebrow}</span>
+      <h1>{t.h1a}<span class="br">{t.h1b}<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12 C 50 2, 100 18, 150 8 S 250 14, 297 5"/></svg></span>{t.h1c}</h1>
+      <p class="lede">{t.lead}</p>
+      <div class="cta" style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap">
+        <a class="btn bp" href={agendaPath(locale, 'llamada')}>{t.cta}</a>
+        <a class="btn bo" href="#como-te-ayudo">{t.see}</a>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="panel">
+        <picture>
+          <source type="image/avif" srcset="/assets/hero/marian-480.avif 480w, /assets/hero/marian-768.avif 768w, /assets/hero/marian-1153.avif 1153w" sizes="(max-width: 900px) 78vw, 420px" />
+          <source type="image/webp" srcset="/assets/hero/marian-480.webp 480w, /assets/hero/marian-768.webp 768w, /assets/hero/marian-1153.webp 1153w" sizes="(max-width: 900px) 78vw, 420px" />
+          <img src="/assets/hero/marian-768.webp" alt="Marian Montilla" width="1153" height="1319" />
+        </picture>
+      </div>
+      <div class="stk s1"><b>{s.cifra}</b><span>{s.cifraLabel}</span></div>
+      <div class="stk s2"><b>{s.lang}</b><span>{s.langLabel}</span></div>
+      <div class="stk s4"><b>{s.online}</b><span>{s.onlineLabel}</span></div>
+      <div class="stk s3"><b>{s.call}</b><span>{s.callLabel}</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="rib" aria-hidden="true">
+  <div class="tape b"><span>{motto}</span><i></i><span>{motto}</span><i></i><span>{motto}</span></div>
+  <div class="tape a"><span>{motto}</span><i></i><span>{motto}</span><i></i><span>{motto}</span></div>
+</div>
+
+<section class="prob-c">
+  <div class="wrap">
+    <div class="head">
+      <span class="pill">{t.problemsKicker}</span>
+      <h2>{problemsTitle.before}<span class="br">{problemsTitle.word}<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12 C 50 2, 100 18, 150 8 S 250 14, 297 5"/></svg></span>{problemsTitle.after}</h2>
+      <p>{t.problemsLead}</p>
+    </div>
+    <div class="cards">
+      {t.problems.map((item) => {
+        const bit = problem(item);
+        return (
+          <article class="card">
+            <div class="badge"><img src={item.icon} alt="" /></div>
+            <p>{bit.before}<strong>{bit.mid}</strong>{bit.after}</p>
+          </article>
+        );
+      })}
+    </div>
+    <div class="note">
+      <div>
+        <span class="tag">{t.exampleKicker}</span>
+        <p>{t.example}</p>
+      </div>
+    </div>
+    <div class="close">
+      <h3>{t.close}</h3>
+      <p><strong>{t.closeKicker}:</strong> {t.closeDo}</p>
+    </div>
+  </div>
+</section>
+
+<div class="fwrap">
+  <section class="front" id="como-te-ayudo">
+    <div class="wrap">
+      <div class="head">
+        <span class="pill">{t.frontsKicker}</span>
+        <h2>{t.frontsTitle}</h2>
+      </div>
+      <div class="four">
+        {t.fronts.map((item) => (
+          <article class="fc">
+            <div class="top"><div class="bd"><img src={item.icon} alt="" /></div><span class="rn">{item.n}</span></div>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+            <a href={item.href}>{item.more}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="off">
+  <div class="wrap">
+    <div class="offg">
+      <article class="of a">
+        <div class="ds gold"><div><small>{locale === 'en' ? 'From' : 'Desde'}</small>{locale === 'en' ? '[amount]' : '[monto]'}</div></div>
+        <span class="pill">{t.reviewKicker}</span>
+        <h3>{t.reviewTitle}</h3>
+        <p>{t.reviewText}</p>
+        <div class="acts">
+          <a class="btn bp" href={agendaPath(locale, 'revision')}>{t.bookMe}</a>
+          <a class="btn bo" href={agendaPath(locale, 'revision')}>{t.wantReview}</a>
+        </div>
+      </article>
+      <article class="of b">
+        <div class="ds pink">{t.consult}</div>
+        <span class="pill">{t.localKicker}</span>
+        <h3>{t.localTitle}</h3>
+        <p>{t.localText}</p>
+        <div class="acts">
+          <a class="btn bp" href={agendaPath(locale, 'presencia')}>{t.bookMe}</a>
+          <a class="btn bo" href={agendaPath(locale, 'presencia')}>{t.wantIt}</a>
+          <a class="btn bo" href={SITIOS_URL} target="_blank" rel="noopener noreferrer">{t.packages}</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <div class="head">
+      <span class="pill">{t.workKicker}</span>
+      <h2>{workTitle.before}<span class="br">{workTitle.word}<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12 C 50 2, 100 18, 150 8 S 250 14, 297 5"/></svg></span>{workTitle.after}</h2>
+    </div>
+    <div class="steps">
+      {t.steps.map((step) => (
+        <article class="st"><div class="num">{step.n}</div><h3>{step.t}</h3><p>{step.d}</p></article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="ph">
+      <div class="blob">
+        <img src="/assets/hero/marian-768.webp" alt="Marian Montilla" width="768" height="879" />
+      </div>
+      <div class="stk s3" style="position:absolute"><b>{s.call}</b><span>{locale === 'en' ? '20 minutes' : '20 minutos'}</span></div>
+    </div>
+    <div>
+      <span class="pill">{t.aboutKicker}</span>
+      <h2>{aboutLine.before}<span class="br">{aboutLine.word}<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12 C 50 2, 100 18, 150 8 S 250 14, 297 5"/></svg></span>{aboutLine.after}</h2>
+      <p>{t.aboutP1}</p>
+      <p>{t.aboutP2}</p>
+      <div class="info">
+        <div><b>{t.whereKicker}</b><span>{t.where}</span></div>
+        <div><b>{t.payKicker}</b><span>{t.pay}</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cont">
+  <div class="wrap">
+    <div class="cg">
+      <div class="pod">
+        <span class="pill">{t.podKicker}</span>
+        <h3>{t.podTitle}</h3>
+        <p>{t.podText}</p>
+        <iframe src={SPOTIFY_EMBED} width="100%" height="352" style="border:0;border-radius:16px;margin-top:20px" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Del Caos al Foco en Spotify"></iframe>
+        <div class="acts" style="margin-top:18px;justify-content:flex-start">
+          <a class="btn bf" href={SPOTIFY_SHOW} target="_blank" rel="noopener noreferrer">{t.listen}</a>
+          <a class="btn bwo" href="#youtube-pendiente">{t.youtube}</a>
+        </div>
+      </div>
+      <div class="nl" id="newsletter">
+        <span class="pill" style="background:#0B0B0F;color:#fff">{t.newsKicker}</span>
+        <h3>{t.newsTitle}</h3>
+        <p>{t.newsText}</p>
+        <NewsletterForm locale={locale} labels={{ name: t.name, email: t.email, submit: t.subscribe }} />
+        <p class="fine">{t.newsFine}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="talkw">
+  <section class="talk">
+    <div class="stk" style="background:#D4AF37;color:#0B0B0F"><b>{s.talkN}</b><span>{s.talkL}</span></div>
+    <h2>{talkTitle.before}<span class="br">{talkTitle.word}<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12 C 50 2, 100 18, 150 8 S 250 14, 297 5"/></svg></span>{talkTitle.after}</h2>
+    <p>{t.talkLead}</p>
+    <div class="acts">
+      <a class="btn bp" href={agendaPath(locale, 'llamada')}>{t.cta}</a>
+      <a class="btn bo" href={contactoPath(locale, 'otro')}>{t.write}</a>
+    </div>
+  </section>
+</div>

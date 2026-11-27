@@ -1,0 +1,70 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { APPLE_PODCAST, SPOTIFY_EMBED, SPOTIFY_SHOW, YOUTUBE } from '../../data/site';
+
+const title = 'Podcast Del Caos al Foco | Marian Montilla · Bellarulox';
+const description =
+  'Escucha el podcast Del Caos al Foco con Marian Montilla en Spotify, Apple Podcasts y YouTube. Negocio, IA, mentalidad y contenido.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'PodcastSeries',
+  name: 'Del Caos al Foco',
+  author: { '@type': 'Person', name: 'Marian Montilla' },
+  url: 'https://bellarulox.com/podcast/',
+  sameAs: [SPOTIFY_SHOW, APPLE_PODCAST, YOUTUBE],
+};
+---
+
+<Base title={title} description={description} path="/podcast/">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+  <section class="phero">
+    <div class="wrap">
+      <div>
+        <p class="crumb"><a href="/">Inicio</a> &nbsp;/&nbsp; <b>Podcast</b></p>
+        <span class="eyebrow">Del Caos al Foco</span>
+        <h1>Del Caos al Foco, el podcast</h1>
+        <p class="lead">Historias y conversaciones sobre negocio, IA, mentalidad y contenido, para escuchar mientras manejas, cocinas o caminas.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href={SPOTIFY_SHOW} target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a class="btn btn-ghost" href={APPLE_PODCAST} target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
+          <a class="btn btn-ghost" href={YOUTUBE} target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+      <div class="suena">
+        <img src="/assets/luna_estrella_dorado.svg" alt="" />
+        <small>Es para ti si</small>
+        <q>Prefieres aprender escuchando.</q>
+        <p>Quieres conocerme y mi forma de pensar, con historias reales más que con clases estructuradas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Escuchar</span><h2>Reproductor de Spotify</h2></div>
+      <div class="embed">
+        <iframe
+          src={SPOTIFY_EMBED}
+          height="352"
+          loading="lazy"
+          title="Del Caos al Foco en Spotify"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow="Si quieres aplicarlo"
+    title="¿Quieres aplicarlo en tu negocio?"
+    href="/aprende/"
+    label="Aprende a hacerlo"
+    secondaryHref="/agenda/?servicio=llamada"
+    secondaryLabel="Agenda una llamada"
+  />
+</Base>
