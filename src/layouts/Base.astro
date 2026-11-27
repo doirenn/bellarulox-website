@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import '../styles/home.css';
 import '../styles/frente.css';
+import '../styles/luz.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Seo from '../components/Seo.astro';
@@ -13,9 +14,10 @@ interface Props {
   description: string;
   path: string;
   noindex?: boolean;
+  look?: 'c';
 }
 
-const { title, description, path, noindex = false } = Astro.props;
+const { title, description, path, noindex = false, look } = Astro.props;
 const locale = localeFromPath(path);
 const chrome = ui[locale];
 const sameAs = SOCIALS.map((item) => item.href);
@@ -51,12 +53,12 @@ const jsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <slot name="head" />
   </head>
-  <body class="grain">
+  <body class:list={['grain', look === 'c' && 'page-c']}>
     <a class="skip" href="#contenido">{chrome.skip}</a>
-    <Header />
+    <Header look={look} />
     <main id="contenido">
       <slot />
     </main>
-    <Footer />
+    <Footer look={look} />
   </body>
 </html>

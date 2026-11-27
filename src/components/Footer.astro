@@ -4,8 +4,63 @@ import { agendaPath, localeFromPath, ui } from '../i18n/ui';
 
 const locale = localeFromPath(Astro.url.pathname);
 const t = ui[locale];
+interface Props { look?: 'c' }
+const { look } = Astro.props;
+const marks: Record<string, string> = {
+  Spotify: 'M9 18V5l12-2v13M6 18a3 3 0 1 1 0 .01M18 16a3 3 0 1 1 0 .01',
+  'Apple Podcasts': 'M12 3a8 8 0 0 0-8 8M12 7a4 4 0 0 0-4 4M9 21v-6',
+  YouTube: 'M4 8h16v10H4zM10 11l5 3-5 3z',
+  Instagram: 'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
+  TikTok: 'M14 4c.4 2 1.6 3.4 3.5 3.6V10A6 6 0 1 1 9 15V4h5z',
+  Threads: 'M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16z',
+  LinkedIn: 'M6 9v11M6 5h.01M10 20v-7a3 3 0 0 1 6 0v7M16 9v11',
+};
 ---
 
+{look === 'c' ? (
+<footer class="c-foot">
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <img src="/assets/logo-fuscia.png" alt="Bellarulox" />
+        <div class="tagl">{t.motto}</div>
+        <p>{t.where}</p>
+        <p>{t.pay}</p>
+      </div>
+      <div>
+        <h4>{t.frentesTitle}</h4>
+        <ul>{t.nav.slice(1).map((item) => <li><a href={item.href}>{item.label}</a></li>)}</ul>
+      </div>
+      <div>
+        <h4>{t.more}</h4>
+        <ul>
+          <li><a href="/podcast/">{t.podcast}</a></li>
+          <li><a href="/recursos/">{t.resources}</a></li>
+          <li><a href="/protocolo-uso-seguro/">{t.test}</a></li>
+          <li><a href={SITIOS_URL} target="_blank" rel="noopener noreferrer">{t.sites}</a></li>
+          <li><a href={locale === 'en' ? '/en/contacto/' : '/contacto/'}>{t.talk}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>{t.talk}</h4>
+        <ul>
+          <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+          <li><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        </ul>
+        <div class="soc">
+          {SOCIALS.map((item) => (
+            <a href={item.href} target="_blank" rel="noopener noreferrer" aria-label={item.label}>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d={marks[item.label] ?? ''} /></svg>
+            </a>
+          ))}
+        </div>
+        <a class="btn bp" style="margin-top:18px" href={agendaPath(locale, 'llamada')}>{t.cta}</a>
+      </div>
+    </div>
+    <div class="copy"><span>{t.rights}</span><span>{t.motto}</span></div>
+  </div>
+</footer>
+) : (
 <footer class="site-footer">
   <div class="wrap">
     <div class="foot-grid">
@@ -51,3 +106,4 @@ const t = ui[locale];
     </div>
   </div>
 </footer>
+)}

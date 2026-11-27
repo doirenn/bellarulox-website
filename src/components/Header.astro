@@ -11,8 +11,33 @@ function active(href: string) {
 }
 const esHref = localePath('es', path);
 const enHref = localePath('en', path);
+interface Props { look?: 'c' }
+const { look } = Astro.props;
 ---
 
+{look === 'c' ? (
+<header class="c-shell">
+  <div class="c-bar">
+    <a class="c-logo" href={locale === 'en' ? '/en/' : '/'}>
+      <img src="/assets/logo-fuscia.png" alt="Bellarulox" />
+      <svg class="c-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" fill="currentColor"/></svg>
+    </a>
+    <ul class="c-links" id="mobile-menu">
+      {t.nav.map((item) => (
+        <li><a href={item.href} class={active(item.href) ? 'on' : undefined} aria-current={active(item.href) ? 'page' : undefined}>{item.label}</a></li>
+      ))}
+    </ul>
+    <div class="c-right">
+      <div class="c-lang" aria-label={t.lang}>
+        <a href={esHref} hreflang="es" aria-current={locale === 'es' ? 'true' : undefined}>ES</a>
+        <a href={enHref} hreflang="en" aria-current={locale === 'en' ? 'true' : undefined}>EN</a>
+      </div>
+      <a class="btn bp" href={agendaPath(locale, 'llamada')}>{t.cta}</a>
+      <button class="c-burger" id="mobile-menu-btn" type="button" aria-label={t.menu} aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+) : (
 <header class="site-header">
   <div class="wrap">
     <a class="logo" href={locale === 'en' ? '/en/' : '/'}><img src="/assets/logo-fuscia.png" alt="Bellarulox" /></a>
@@ -40,6 +65,7 @@ const enHref = localePath('en', path);
     </button>
   </div>
 </header>
+)}
 
 <script is:inline define:vars={{ openLabel: t.menu, closeLabel: t.close }}>
   (function () {
